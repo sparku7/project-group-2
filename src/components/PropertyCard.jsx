@@ -9,7 +9,7 @@ export default function PropertyCard({street, town, bedrooms, bathrooms, price, 
             <img className="card-img" src={imageUrl}  />
             <h4> Bedrooms : {bedrooms} </h4>
             <p> Bathrooms : {bathrooms}</p>
-            <p> Garden? Y/N : {garden} </p>
+            <p> Garden? : {garden} </p>
             <p> Address : {street} </p>
             <h2> Price : £{price} </h2>
         </div>

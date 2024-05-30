@@ -30,7 +30,7 @@ function HomePage() {
                     <PropertyCard
                         street={item.street}
                         town={item.town}
-                        bedrooms={item.bathrooms}
+                        bedrooms={item.bedrooms}
                         bathrooms={item.bathrooms}
                         price={item.price}
                         garden={item.garden}
