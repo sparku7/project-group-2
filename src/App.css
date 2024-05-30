@@ -14,7 +14,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #de37c7;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -32,7 +32,30 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
+}
+
+.card {
+  margin:15px;
+  max-height: 500px;
+  max-width: 300px;
+  float:left;
+  flex:auto;
+  border: "black solid collapse";
+  overflow-y: hidden;
+}
+.card img{
+  max-width: 100%;
+  flex:auto;
+  border: "black solid collapse";
+}
+.body{
+  margin-left:15%;
+}
+.items-grid{
+  width: 100%;
+
 }
