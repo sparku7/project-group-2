@@ -7,6 +7,7 @@ import Buyers from './pages/Buyers';
 import Sellers from './pages/Sellers';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
+import NewProperty from './pages/NewProperty';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
              <Route path='/' element={<HomePage />} />
              <Route path='/buyers' element={<Buyers />} />
              <Route path='/sellers' element={ <Sellers />} />
+             <Route path='/newproperty' element={ <NewProperty />} />
         </Routes>
      </BrowserRouter>
    

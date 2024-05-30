@@ -12,6 +12,7 @@ function NavBar() {
             <Nav.Link href="/">Home</Nav.Link>
             <Nav.Link href="/buyers">Buyers</Nav.Link>
             <Nav.Link href="/sellers">Sellers</Nav.Link>
+            <Nav.Link href="/newproperty">Add Property</Nav.Link>
           </Nav>
         </Container>
       </Navbar>
