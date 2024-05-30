@@ -1,51 +1,59 @@
-[
-      
-        {
-            "id":"4",
-            "street":"123 avenue",
-            "town":"Dunfermline",
-            "bedrooms":3,
-            "bathrooms":2,
-            "price":123123,
-            "garden":"yes",
-            "imageUrl":"https://randomwordgenerator.com/img/picture-generator/water-3167440_640.jpg",
-            "status":"for sale"
-        },        
-       
-                
-        {
-            "id":"122",
-            "street":"123 avenue",
-            "town":"Dunfermline isnt a city",
-            "bedrooms":3,
-            "bathrooms":2,
-            "price":123123,
-            "garden":"yes",
-            "imageUrl":"https://randomwordgenerator.com/img/picture-generator/water-3167440_640.jpg",
-            "status":"for sale"
-        },
-        {
-            "id":"132",
-            "street":"12 Crescent",
-            "town":"London",
-            "bedrooms":3,
-            "bathrooms":0,
-            "price":12123,
-            "garden":"yes",
-            "imageUrl":"https://i.guim.co.uk/img/media/0df4e47ffe5dcd27adb28d70418dfbaf2b620941/0_0_5000_3000/500.jpg?quality=85&auto=format&fit=max&s=e29cfa7d20426ca5ccb191653102ea66",
-            "status":"for sale"
-        }  ,        {  
-            "id":"132",
-            "street":"456 street",
-            "town":"Inverkeithing",
-            "bedrooms":7,
-            "bathrooms":8,
-            "price":758432,
-            "garden":"yes",
-            "imageUrl":"https://thumbor.forbes.com/thumbor/fit-in/x/https://www.forbes.com/advisor/wp-content/uploads/2021/08/download-7.jpg",
-            "status":"for sale"
-        }
-
-]
-
-
+{
+  "properties":[
+    {
+      "id": "4",
+      "street": "123 avenue",
+      "town": "Dunfermline",
+      "bedrooms": 3,
+      "bathrooms": 2,
+      "price": 123123,
+      "garden": "yes",
+      "imageUrl": "https://randomwordgenerator.com/img/picture-generator/water-3167440_640.jpg",
+      "status": "for sale"
+    },
+    {
+      "id": "122",
+      "street": "123 avenue",
+      "town": "Dunfermline isnt a city",
+      "bedrooms": 3,
+      "bathrooms": 2,
+      "price": 123123,
+      "garden": "yes",
+      "imageUrl": "https://randomwordgenerator.com/img/picture-generator/water-3167440_640.jpg",
+      "status": "for sale"
+    },
+    {
+      "id": "132",
+      "street": "12 Crescent",
+      "town": "London",
+      "bedrooms": 3,
+      "bathrooms": 0,
+      "price": 12123,
+      "garden": "yes",
+      "imageUrl": "https://i.guim.co.uk/img/media/0df4e47ffe5dcd27adb28d70418dfbaf2b620941/0_0_5000_3000/500.jpg?quality=85&auto=format&fit=max&s=e29cfa7d20426ca5ccb191653102ea66",
+      "status": "for sale"
+    },
+    {
+      "id": "132",
+      "street": "456 street",
+      "town": "Inverkeithing",
+      "bedrooms": 7,
+      "bathrooms": 8,
+      "price": 758432,
+      "garden": "yes",
+      "imageUrl": "https://thumbor.forbes.com/thumbor/fit-in/x/https://www.forbes.com/advisor/wp-content/uploads/2021/08/download-7.jpg",
+      "status": "for sale"
+    },
+    {
+      "id": "6c46",
+      "street": "Middlebank Rise",
+      "town": "Dunfermline",
+      "price": "250000",
+      "bedrooms": "4",
+      "bathrooms": "2",
+      "garden": "Yes",
+      "status": "For Sale",
+      "imageUrl": "https://randomwordgenerator.com/img/picture-generator/water-3167440_640.jpg"
+    }
+  ]
+}

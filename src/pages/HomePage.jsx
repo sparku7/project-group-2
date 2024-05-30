@@ -1,5 +1,5 @@
-import PlantCard from "../components/PropertyCard";
-import houseData from '../data/properties.json'
+import PropertyCard from "../components/PropertyCard";
+import houseData from '../data/properties.json';
 import '../App.css'
 
 
@@ -17,7 +17,7 @@ function HomePage() {
             <div className="items-grid">
 
                 {houseData.map((item) => (
-                    <PlantCard
+                    <PropertyCard
                         street={item.street}
                         town={item.town}
                         bedrooms={item.bathrooms}

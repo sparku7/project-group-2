@@ -1,6 +1,6 @@
 import '../App.css'
 
-export default function PlantCard({street, town, bedrooms, bathrooms, price, garden, imageUrl}) {
+export default function PropertyCard({street, town, bedrooms, bathrooms, price, garden, imageUrl}) {
 
     return (
 

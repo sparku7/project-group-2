@@ -1,4 +1,4 @@
-
+import AddProperty from "../components/AddProperty";
 
 
 
@@ -6,7 +6,9 @@ function NewProperty(){
 
     return(
         
-        <div>
+        <div className="body">
+
+            <AddProperty />
 
         </div>
 
