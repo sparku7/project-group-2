@@ -1,7 +1,8 @@
 [
         {
             "id":"1",
-            "address":"123 avenue",
+            "street":"123 avenue",
+            "town":"Dunfermline",
             "bedrooms":3,
             "bathrooms":2,
             "price":123123,
