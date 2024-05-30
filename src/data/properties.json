@@ -1,0 +1,15 @@
+[
+        {
+            "id":"1",
+            "address":"123 avenue",
+            "bedrooms":3,
+            "bathrooms":2,
+            "price":123123,
+            "garden":"yes",
+            "imageUrl":"test.com",
+            "status":"for sale"
+
+        }
+]
+
+
