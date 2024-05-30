@@ -3,6 +3,9 @@ import './App.css';
 import NavBar from './components/Navbar';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import HomePage from './pages/HomePage';
+import Buyers from './pages/Buyers';
+import Sellers from './pages/Sellers';
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
@@ -19,8 +22,8 @@ function App() {
        <NavBar />
           <Routes>
              <Route path='/' element={<HomePage />} />
-             {/* <Route path='/buyer' element={</>} />
-             <Route path='/seller' element={ <BlogDetails />} />  */}
+             <Route path='/buyers' element={<Buyers />} />
+             <Route path='/sellers' element={ <Sellers />} />
         </Routes>
      </BrowserRouter>
    
