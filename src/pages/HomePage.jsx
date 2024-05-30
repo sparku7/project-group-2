@@ -1,11 +1,21 @@
 import PropertyCard from "../components/PropertyCard";
 import houseData from '../data/properties.json';
 import '../App.css'
+import { useState, useEffect } from "react";
 
 
 
 
 function HomePage() {
+    const apiUrl = 'http://localhost:8000/properties';
+    const [items, setItems] = useState([""]);
+    
+    useEffect(() => {
+    fetch (apiUrl)
+    .then((response) => response.json())
+    .then((data) => setItems(data))
+    }, [])
+
     return (
         <div className="body">
             <div className="head-image" height="600px">
@@ -16,7 +26,7 @@ function HomePage() {
             </div>
             <div className="items-grid">
 
-                {houseData.map((item) => (
+                {items.map((item) => (
                     <PropertyCard
                         street={item.street}
                         town={item.town}
@@ -36,24 +46,3 @@ function HomePage() {
 export default HomePage;
 
 
-// import itemsData from "../itemsData.json";
-// import PlantCard from '../components/PlantCard';
-
-// const ShopPage = () => {
-//     return(
-//         <div className="body">
-//             <h1 className="shopHeader">Our Plants</h1>
-//             <div className="shopItems">
-//                 {itemsData.map((item) => (
-//                         <PlantCard
-//                         name = {item.name}
-//                         price = {item.price}
-//                         imageUrl = {item.imageUrl}
-//                         />
-//                     ))}
-//             </div>
-//         </div>
-//     )
-// };
-
-// export default ShopPage;

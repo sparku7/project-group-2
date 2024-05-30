@@ -40,10 +40,9 @@
 
 .card {
   margin:15px;
-  max-height: 500px;
+  height: 400px;
   max-width: 300px;
   float:left;
-  flex:auto;
   border: "black solid collapse";
   overflow-y: hidden;
 }
