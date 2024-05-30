@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Button from 'react-bootstrap/Button';
 
 export default function AddProperty() {
 
@@ -92,7 +93,7 @@ export default function AddProperty() {
             onChange={(e) => setImageUrl(e.target.value)} />
             <br/>
             <br/>
-            <button>Add Property</button>
+            <Button variant="primary">Add Property</Button>{' '}
         </form>
     )
 
