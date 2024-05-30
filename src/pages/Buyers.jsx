@@ -1,17 +1,22 @@
+import AddBuyer from "../components/AddBuyer";
+import JsonDataDisplay from "../components/BuyerTable";
 
 
 
+function AddBuyers() {
 
-function Buyers(){
+    return (
 
-    return(
-        
         <div>
 
+            <AddBuyer />   
+            <JsonDataDisplay />         
+
         </div>
+
 
     )
 }
 
 
-export default Buyers;
+export default AddBuyers;
