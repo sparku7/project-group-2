@@ -10,7 +10,7 @@ const AddBuyer = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        fetch('http://localhost:8000/buyers',
+        fetch('http://localhost:8001/buyers',
             {
                 method: 'POST',
                 headers: { "Content-Type": "application/json" },
