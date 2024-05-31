@@ -118,18 +118,18 @@ table th {
 
 /* css for inputs and labels  */
 
-label {
+.label1 {
     width: 100px;
     text-align: left;
 }
 
-input,
-label {
+.input1,
+.label1 {
     float: center;
 }
 
 
-input {
+.input1 {
     border: 1px solid #800080;
     border-radius: 20px;
     width: 250px;
@@ -139,7 +139,7 @@ input {
 
 /* css for background image */
 
-body {
+.container1 {
 
 
     background: linear-gradient(rgba(255, 255, 255, 0.9),

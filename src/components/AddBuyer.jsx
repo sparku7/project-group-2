@@ -34,16 +34,16 @@ const AddBuyer = () => {
              <br></br>
                 <br></br>
 
-            <label>First Name: </label>
-            <input type="text"
+            <label className="label1">First Name: </label>
+            <input className="input1"type="text"
                 required
                 value={firstname}
                 onChange={(e) => setFirstName(e.target.value)} />
                 <br></br>
                 <br></br>
 
-            <label>Surname: </label>
-            <input type="text"
+            <label className="label1">Surname: </label>
+            <input className="input1" type="text"
                 required
                 value={surname}
                 onChange={(e) => setSurname(e.target.value)} />
