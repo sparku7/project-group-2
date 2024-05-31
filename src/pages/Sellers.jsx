@@ -3,7 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useState, useEffect } from "react"; 
 
 import AddSeller from "../components/AddSeller";
-import Table from 'react-bootstrap/Table';
+
 
 
  
@@ -18,21 +18,22 @@ const Sellers = ()=> {
 
  
 
-  const handleDelete = () => { 
+  const handleDelete = (id) => { 
 
 
-    fetch(`http://localhost:8002/sellers/${id}`, { 
+    fetch('http://localhost:8002/sellers/' + id,  { 
 
     method: 'DELETE' ,
 
     }).then(res => res.json())
-    .then(data=> { 
-
-      navigate('/sellers'); 
+    .then(()=> { 
+      setSellers(sell=> {return sell.filter(item => item.id !==id)})
+      navigate('/'); 
 
     })  
 
   } 
+
   
 
   useEffect(() =>{ 
@@ -44,17 +45,6 @@ const Sellers = ()=> {
       .then((data) =>setSellers(data) ) 
 
   }, [sellers]) 
-
-
-  useEffect(() =>{ 
-
-    fetch('http://localhost:8002/sellers/' + id) 
-
-      .then(res => res.json()) 
-
-      .then(data =>setSellers(data) ) 
-
-  }, []) 
 
 
 

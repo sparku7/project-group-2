@@ -50,7 +50,7 @@ const AddSeller = () => {
       <h2>Register A New Seller</h2> 
 
       <form onSubmit={handleSubmit}> 
-     <div> 
+      <div> 
         <label className="label1">Firstname</label>
         
 
@@ -65,9 +65,9 @@ const AddSeller = () => {
           onChange={(e) => setFirstname(e.target.value)} 
 
         />  
-  </div>
-  <br />
-  <div> <label className="label1">Surname:</label> 
+    </div>
+    <br />
+    <div> <label className="label1">Surname:</label> 
 
         <input className="input1" 
 
@@ -77,8 +77,8 @@ const AddSeller = () => {
 
         onChange={(e) => setSurname(e.target.value)} 
 
-/> 
-</div>
+      /> 
+    </div>
   
         <br />
         <button className='button1'>Submit</button> 
