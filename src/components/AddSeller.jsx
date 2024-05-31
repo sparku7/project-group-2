@@ -25,7 +25,7 @@ const AddSeller = () => {
 
  
 
-    fetch('http://localhost:8000/sellers', { 
+    fetch('http://localhost:8002/sellers', { 
 
       method: 'POST', 
 

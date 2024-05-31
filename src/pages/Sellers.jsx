@@ -20,11 +20,11 @@ const Sellers = ()=> {
 
   const handleClick = () => { 
 
-    fetch('http://localhost:8000/sellers/' + sellers.id, { 
+    fetch('http://localhost:8002/sellers/' + sellers.id, { 
 
       method: 'DELETE' 
 
-    }).then(() => { 
+    }).then((seller) => { 
 
       navigate('/sellers'); 
 
@@ -36,7 +36,7 @@ const Sellers = ()=> {
 
   useEffect(() =>{ 
 
-    fetch('http://localhost:8000/sellers') 
+    fetch('http://localhost:8002/sellers') 
 
       .then((res) => res.json()) 
 
