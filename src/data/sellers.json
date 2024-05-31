@@ -1,7 +1,34 @@
-[
+{
+  "sellers": [
     {
-        "id":"1",
-        "firstName":"Jimmy",
-        "surname":"Twotimes"   
+      "id": "1",
+      "firstName": "Jimmy",
+      "surname": "Twotimes"
+    },
+    {
+      "id": "4c30",
+      "firstName": "Sana",
+      "surname": "Ahmad"
+    },
+    {
+      "id": "5c1a",
+      "firstName": "Hana",
+      "surname": "Smith"
+    },
+    {
+      "id": "4541",
+      "firstName": "Lisa",
+      "surname": "Scott"
+    },
+    {
+      "id": "08d2",
+      "firstName": "Lisa",
+      "surname": "Scott"
+    },
+    {
+      "id": "1ea7",
+      "firstName": "Tom",
+      "surname": "Jones"
     }
-]
+  ]
+}
