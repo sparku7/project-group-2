@@ -1,0 +1,153 @@
+/* CSS for table */
+
+.table-container {
+
+    max-height: 700px;
+    overflow: auto;
+
+}
+
+table {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    width: 100%;
+
+}
+
+th {
+    position: sticky;
+    top: 0;
+}
+
+td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+table tr:nth-child(even) {
+    background-color: #eccfe6;
+}
+
+table tr:nth-child(odd) {
+    background-color: #ffffff;
+}
+
+table tr:hover {
+    background-color: #dbb5cf;
+}
+
+table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: #800080;
+    color: white;
+
+
+}
+
+/* css for button  */
+
+.button1 {
+    width: 220px;
+    height: 50px;
+    border: none;
+    outline: none;
+    color: #fff;
+    background: #800080;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+}
+
+.button1:before {
+    content: '';
+    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+}
+
+.button1:active {
+    color: #800080
+}
+
+.button1:active:after {
+    background: transparent;
+}
+
+.button1:hover:before {
+    opacity: 1;
+}
+
+.button1:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #800080;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+
+@keyframes glowing {
+    0% {
+        background-position: 0 0;
+    }
+
+    50% {
+        background-position: 400% 0;
+    }
+
+    100% {
+        background-position: 0 0;
+    }
+}
+
+/* css for inputs and labels  */
+
+label {
+    width: 100px;
+    text-align: left;
+}
+
+input,
+label {
+    float: center;
+}
+
+
+input {
+    border: 1px solid #800080;
+    border-radius: 20px;
+    width: 250px;
+    height: 30px;
+    padding-left: 10px;
+}
+
+/* css for background image */
+
+body {
+
+
+    background: linear-gradient(rgba(255, 255, 255, 0.9),
+            rgba(255, 255, 255, 0.5)),
+        url('../images/newbuyer.jfif');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+
+}
+

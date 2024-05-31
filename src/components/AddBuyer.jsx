@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import '../css/RegisterUser.css'
 
 
 const AddBuyer = () => {
@@ -51,7 +51,7 @@ const AddBuyer = () => {
                 <br></br>
 
 
-            <button> Add Buyer</button>
+            <button className="button1"> Add Buyer</button>
 
         </form>
 
