@@ -18,21 +18,22 @@ const Sellers = ()=> {
 
  
 
-  const handleClick = () => { 
+  const handleDelete = () => { 
 
-    fetch('http://localhost:8002/sellers/' + sellers.id, { 
 
-      method: 'DELETE' 
+    fetch(`http://localhost:8002/sellers/${id}`, { 
 
-    }).then((seller) => { 
+    method: 'DELETE' ,
+
+    }).then(res => res.json())
+    .then(data=> { 
 
       navigate('/sellers'); 
 
     })  
 
   } 
-
- 
+  
 
   useEffect(() =>{ 
 
@@ -44,39 +45,52 @@ const Sellers = ()=> {
 
   }, [sellers]) 
 
+
+  useEffect(() =>{ 
+
+    fetch('http://localhost:8002/sellers/' + id) 
+
+      .then(res => res.json()) 
+
+      .then(data =>setSellers(data) ) 
+
+  }, []) 
+
+
+
+
  
   return (
-    <div>
+    <div className="container1">
      <AddSeller/>
 
     <br/> <br />
 
-    { sellers.map((sell)=>( 
-    <Table striped="columns">
+    <div className='table-container'>
+    <table>
       <thead>
-        <tr>
-          <th>#</th>
+          <th>ID</th>
           <th>First Name</th>
-          <th>Surame</th>
+          <th>Surname</th>
           <th>Delete Seller</th>
-        
-        </tr>
       </thead>
       <tbody>
+      { sellers.map((sell)=>( 
         <tr>
           <td>{sell.id}</td>
           <td>{sell.firstName}</td>
           <td>{sell.surname}</td>
-          <td><button onClick={handleClick}>delete</button></td>
+          <td><button onClick={handleDelete}>delete</button></td>
 
        
         </tr>
-    
+    ))} 
       
       </tbody>
-    </Table>
+    </table>
+    </div>
 
-))} 
+
     </div>
   );
 }

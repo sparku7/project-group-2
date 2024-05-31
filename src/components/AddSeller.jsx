@@ -1,7 +1,8 @@
 import { Alert } from "bootstrap";
 import { useState } from "react"; 
 
-import { useNavigate } from "react-router-dom"; 
+import { useNavigate } from "react-router-dom";
+import '../css/RegisterUser.css'
 
 
 
@@ -36,8 +37,7 @@ const AddSeller = () => {
     })
     
     alert("Seller Added")
-
-    
+   
 
   } 
 
@@ -51,10 +51,10 @@ const AddSeller = () => {
 
       <form onSubmit={handleSubmit}> 
      <div> 
-        <label>Firstname</label>
+        <label className="label1">Firstname</label>
         
 
-        <input  
+        <input className="input1" 
 
           type="text"  
 
@@ -67,9 +67,9 @@ const AddSeller = () => {
         />  
   </div>
   <br />
-  <div> <label>Surname:</label> 
+  <div> <label className="label1">Surname:</label> 
 
-        <input 
+        <input className="input1" 
 
         type="text" 
 
@@ -81,7 +81,7 @@ const AddSeller = () => {
 </div>
   
         <br />
-        <button>Submit</button> 
+        <button className='button1'>Submit</button> 
 
       </form> 
     
