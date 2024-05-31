@@ -39,13 +39,15 @@ function HomePage() {
 
   // Apply the filter criteria to the properties list
   const applyFilters = () => {
-    const filtered = items.filter((item) => {
-      //using items here to filter on original "unfiltered" data every time we submit a new filter request
-
-      // Check if the property matches the search term in street or town
-      const matchesSearch =
-        item.street.toLowerCase().includes(filters.searchTerm.toLowerCase()) ||
-        item.town.toLowerCase().includes(filters.searchTerm.toLowerCase());
+    const filtered = items.filter((item) => { //using items here to filter on original "unfiltered" data every time we submit a new filter request
+    
+     // Ensure search term is defined
+    const searchTerm = filters.searchTerm ? filters.searchTerm.toLowerCase() : '';
+        
+    // Check if the property matches the search term in street or town
+    const matchesSearch = searchTerm
+    ? item.street.toLowerCase().includes(searchTerm) || item.town.toLowerCase().includes(searchTerm)
+    : true;
 
       // Check if the property matches the bedrooms filter - toString needed as stored as number in JSON vs string input from filter form
       const matchesBedrooms = filters.bedrooms
