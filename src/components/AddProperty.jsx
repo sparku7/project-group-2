@@ -93,7 +93,7 @@ export default function AddProperty() {
             onChange={(e) => setImageUrl(e.target.value)} />
             <br/>
             <br/>
-            <Button variant="primary">Add Property</Button>{' '}
+            <Button variant="primary" type="submit">Add Property</Button>{' '}
         </form>
     )
 
