@@ -11,8 +11,8 @@ function AddBuyers() {
         <div className="container1">
             <h1>Register a New Buyer</h1>
 
-            <AddBuyer />   
-            <JsonDataDisplay />         
+            <AddBuyer />
+            <JsonDataDisplay />
 
         </div>
 
