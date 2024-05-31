@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Button from 'react-bootstrap/Button';
+// import Button from 'react-bootstrap/Button';
 
 export default function AddProperty() {
 
@@ -42,42 +42,47 @@ export default function AddProperty() {
 
     return(
         <form onSubmit={handleSubmit}>
-            <label>Street Name: </label>
+            <label className="label1">Street Name: </label>
             <input type="text"
+             className="input1"
             required
             value={street}
             onChange={(e) => setStreet(e.target.value)} />
             <br/>
             <br/>
-            <label>Town: </label>
+            <label className="label1">Town: </label>
             <input type="text"
+            className="input1"
             required
             value={town}
             onChange={(e) => setTown(e.target.value)} />
             <br/>
             <br/>
-            <label>Price: </label>
+            <label className="label1">Price: </label>
             <input type="number"
+             className="input1"
             required
             value={price}
             onChange={(e) => setPrice(e.target.value)} />
             <br/>
             <br/>
-            <label>Bedrooms: </label>
+            <label className="label1">Bedrooms: </label>
             <input type="number"
+             className="input1"
             required
             value={bedrooms}
             onChange={(e) => setBedrooms(e.target.value)} />
             <br/>
             <br/>
-            <label>Bathrooms: </label>
+            <label className="label1">Bathrooms: </label>
             <input type="number"
+             className="input1"
             required
             value={bathrooms}
             onChange={(e) => setBathrooms(e.target.value)} />
             <br/>
             <br/>
-            <label>Garden: </label>
+            <label className="label1">Garden: </label>
             <select 
                     value={garden} 
                     onChange = {(e) => setGarden(e.target.value)} > 
@@ -86,14 +91,15 @@ export default function AddProperty() {
             </select> 
             <br/>
             <br/>
-            <label>Image URL: </label>
+            <label className="label1">Image URL: </label>
             <input type="text"
+             className="input1"
             required
             value={imageUrl}
             onChange={(e) => setImageUrl(e.target.value)} />
             <br/>
             <br/>
-            <Button variant="primary" type="submit">Add Property</Button>{' '}
+            <button  className="button1"  type="submit">Add Property</button>
         </form>
     )
 
