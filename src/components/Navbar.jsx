@@ -13,7 +13,7 @@ function NavBar() {
             <Nav.Link href="/buyers">Buyers</Nav.Link>
             <Nav.Link href="/sellers">Sellers</Nav.Link>
             <Nav.Link href="/newproperty">Add Property</Nav.Link>
-            <Nav.Link href="/bookappointment">Book An Appointment</Nav.Link>
+            <Nav.Link href="/bookappointment">Book Appointment</Nav.Link>
           </Nav>
         </Container>
       </Navbar>
