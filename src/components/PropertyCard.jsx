@@ -48,7 +48,7 @@ export default function PropertyCard({street, town, bedrooms, bathrooms, price, 
               </div>
             </div>
             <div className="card-footer text-center">
-              <a href="/bookings" 
+              <a href="/bookappointment" 
                  className={`btn ${isButtonDisabled(status) ? 'btn-disabled' : 'btn-custom'}`} 
                  aria-disabled={isButtonDisabled(status)}>
                 {isButtonDisabled(status) ? 'Not Available' : 'Book Now'}
