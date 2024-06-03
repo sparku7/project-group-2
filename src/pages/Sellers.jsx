@@ -1,61 +1,48 @@
-import { useNavigate, useParams } from "react-router-dom"; 
-
-import { useState, useEffect } from "react"; 
-
+ import { useState, useEffect } from "react";
+ 
 import AddSeller from "../components/AddSeller";
 
-
-
  
-
-const Sellers = ()=> { 
-
-  const { id } = useParams(); 
-
-  const [sellers, setSellers] = useState([]) 
-
-  const navigate = useNavigate(); 
-
+//this fetch uses the useEffect to get all the data instantly, and by passing a parameter we can set the url in our state
+const useFetch = (url) => {
+  const [data, setData] = useState([]);
  
-
-  const handleDelete = (id) => { 
-
-
-    fetch('http://localhost:8002/sellers/' + id,  { 
-
+  useEffect(() => {
+    fetch(url)
+      .then((res) => res.json())
+      .then((data) => setData(data));
+  }, [data]);
+  //we have to return data here as we have made a function expecting some kind of data back
+  //comment the bit of code and look at the error you get in the browser
+  return [data];
+};
+ 
+ 
+const Sellers = ()=> {
+ 
+  //this is how we are going to use the id
+  const [deleteId, setDeleteId] = useState('')
+  //this is our data call, using the useFetch function containing the useEffect
+  const [data] = useFetch('http://localhost:8002/sellers')
+ 
+  const handleDelete = (e, deleteId) => {
+    e.preventDefault()
+ 
+    fetch('http://localhost:8002/sellers/' + deleteId, {
+ 
     method: 'DELETE' ,
-
+ 
     }).then(res => res.json())
-    .then(()=> { 
-      setSellers(sell=> {return sell.filter(item => item.id !==id)})
-      navigate('/'); 
-
-    })  
-
-  } 
-
-  
-
-  useEffect(() =>{ 
-
-    fetch('http://localhost:8002/sellers') 
-
-      .then((res) => res.json()) 
-
-      .then((data) =>setSellers(data) ) 
-
-  }, [sellers]) 
-
-
-
-
+    //because we are deleting, there is no data we need to return, so we dont need that extra .then
+  }
+ 
  
   return (
     <div className="container1">
      <AddSeller/>
-
+ 
     <br/> <br />
-
+ 
     <div className='table-container'>
     <table>
       <thead>
@@ -65,26 +52,28 @@ const Sellers = ()=> {
           <th>Delete Seller</th>
       </thead>
       <tbody>
-      { sellers.map((sell)=>( 
+      {data && data.map((sell)=>(
         <tr>
-          <td>{sell.id}</td>
+          {/* We are setting the deleteId (The one we use in our handleDelete function to input the id directly at the end of the url) */}
+          {/* We are extracting the value from the data on the page so we cant make a mistake */}
+          <td value={deleteId} onChange={(e) => setDeleteId(e.target.value)}>{sell.id}</td>
           <td>{sell.firstName}</td>
           <td>{sell.surname}</td>
-          <td><button onClick={handleDelete}>delete</button></td>
-
+          {/* We use the handleDelete to use the sell.id, it makes the request, and disappears from the screen and json file */}
+          <td><button onClick={(e) => handleDelete(e, sell.id)}>delete</button></td>
        
         </tr>
-    ))} 
-      
+     ))}
+     
       </tbody>
     </table>
     </div>
-
-
+ 
+ 
     </div>
   );
 }
-
-  
-
-export default Sellers; 
+ 
+ 
+ 
+export default Sellers;
