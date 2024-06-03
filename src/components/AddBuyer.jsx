@@ -41,7 +41,7 @@ const AddBuyer = () => {
             );
 
             if (dataExists) {
-                alert("This combination of first name and surname already exists. Please choose a different one.");
+                alert("User already exists. Please enter a different name.");
                 return; // Stop further processing
             }
 
