@@ -1,48 +1,48 @@
 {
-  "properties": [
+  "properties":[
     {
       "id": "4",
       "street": "123 avenue",
       "town": "Dunfermline",
-      "bedrooms": 3,
-      "bathrooms": 2,
-      "price": 123123,
+      "bedrooms": "3",
+      "bathrooms": "2",
+      "price": "123123",
       "garden": "yes",
       "imageUrl": "https://randomwordgenerator.com/img/picture-generator/water-3167440_640.jpg",
-      "status": "for sale"
+      "status": "Sold"
     },
     {
       "id": "122",
       "street": "123 avenue",
       "town": "Dunfermline isnt a city",
-      "bedrooms": 3,
-      "bathrooms": 2,
-      "price": 123123,
+      "bedrooms": "3",
+      "bathrooms": "2",
+      "price": "323123",
       "garden": "yes",
       "imageUrl": "https://randomwordgenerator.com/img/picture-generator/water-3167440_640.jpg",
-      "status": "for sale"
+      "status": "For Sale"
     },
     {
       "id": "132",
       "street": "12 Crescent",
       "town": "London",
-      "bedrooms": 3,
-      "bathrooms": 0,
-      "price": 12123,
+      "bedrooms": "3",
+      "bathrooms": "1",
+      "price": "1053123",
       "garden": "yes",
       "imageUrl": "https://i.guim.co.uk/img/media/0df4e47ffe5dcd27adb28d70418dfbaf2b620941/0_0_5000_3000/500.jpg?quality=85&auto=format&fit=max&s=e29cfa7d20426ca5ccb191653102ea66",
-      "status": "for sale"
+      "status": "For Sale"
     },
     {
       "id": "132",
       "street": "456 street",
       "town": "Inverkeithing",
-      "bedrooms": 7,
-      "bathrooms": 8,
-      "price": 758432,
-      "garden": "yes",
+      "bedrooms": "7",
+      "bathrooms": "8",
+      "price": "758432",
+      "garden": "no",
       "imageUrl": "https://thumbor.forbes.com/thumbor/fit-in/x/https://www.forbes.com/advisor/wp-content/uploads/2021/08/download-7.jpg",
-      "status": "for sale"
+      "status": "For Sale"
     },
     {
       "id": "6c46",
@@ -56,26 +56,26 @@
       "imageUrl": "https://randomwordgenerator.com/img/picture-generator/water-3167440_640.jpg"
     },
     {
-      "id": "2a5f",
-      "street": "main street",
-      "town": "ormiston",
-      "price": "150000",
-      "bedrooms": "3",
-      "bathrooms": "4",
-      "garden": "Yes",
-      "status": "For Sale",
-      "imageUrl": "https://th.bing.com/th/id/OIP.HyPO0GQqnsGoMcauAHz_MQHaE7?rs=1&pid=ImgDetMain"
+      "id": "6c76",
+      "street": "Upperbank Rise",
+      "town": "Dunfermline",
+      "price": "225000",
+      "bedrooms": "1",
+      "bathrooms": "1",
+      "garden": "No",
+      "status": "Sold",
+      "imageUrl": "https://media.rightmove.co.uk/56k/55853/148471778/55853_WH5028_IMG_00_0000.jpeg"
     },
     {
-      "id": "e562",
-      "street": "123 street",
-      "town": "town",
-      "price": "100000",
-      "bedrooms": "2",
-      "bathrooms": "4",
+      "id": "8762",
+      "street": "Crescent Avenue",
+      "town": "Bathgate",
+      "price": "215000",
+      "bedrooms": "3",
+      "bathrooms": "1",
       "garden": "Yes",
-      "status": "For Sale",
-      "imageUrl": "https://th.bing.com/th/id/OIP.pcIabtZsh-CTMwewvjp5PwHaE8?rs=1&pid=ImgDetMain"
+      "status": "Withdrawn",
+      "imageUrl": "https://media.rightmove.co.uk/35k/34395/148392980/34395_27659841_IMG_00_0000.jpeg"
     }
   ]
 }
