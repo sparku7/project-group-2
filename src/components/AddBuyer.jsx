@@ -7,24 +7,58 @@ const AddBuyer = () => {
     const [firstname, setFirstName] = useState('');
     const [surname, setSurname] = useState('');
 
+    // Function to convert names to title case
+
+    const toTitleCase = (name) => {
+        return name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
+    };
+
     // Function to handle the form submission
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
-        // Creates a user object with the state values
-        const user = { firstname, surname };
+       // Convert input names to title case
+    const titleCaseFirstName = toTitleCase(firstname);
+    const titleCaseSurname = toTitleCase(surname);
 
-        // Sends a POST request to the server to add the new buyer
-        fetch('http://localhost:8001/buyers', {
-            method: 'POST',
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(user) // Converts the user object to a JSON string
-        })
-            .then(() => {
-                alert("New Buyer Added"); // Alerts the user that the buyer was added
-                setFirstName(''); // Resets the firstname state to an empty string
-                setSurname(''); // Resets the surname state to an empty string
+      // Create the user object
+      const user = {
+        firstname: titleCaseFirstName,
+        surname: titleCaseSurname
+    };
+
+        try {
+
+
+            // Check if the combination already exists
+            const checkResponse = await fetch(`http://localhost:8001/buyers?firstname=${titleCaseFirstName}&surname=${titleCaseSurname}`);
+            const existingData = await checkResponse.json();
+
+            // Convert existing data to lowercase before comparison
+            const dataExists = existingData.some(data =>
+                data.firstname === titleCaseFirstName &&
+                data.surname === titleCaseSurname
+            );
+
+            if (dataExists) {
+                alert("User already exists. Please enter a different name.");
+                return; // Stop further processing
+            }
+
+            // Sends a POST request to the server to add the new buyer
+            const postResponse = await fetch('http://localhost:8001/buyers', {
+                method: 'POST',
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(user)
             });
+
+            const data = await postResponse.json();
+            alert(`New Buyer Added. Your Unique ID is ${data.id}`); // Alerts the user that the buyer was added
+            setFirstName(''); // Resets the firstname state to an empty string
+            setSurname(''); // Resets the surname state to an empty string
+        } catch (error) {
+            console.error('Error:', error);
+        }
     }
 
     return (
@@ -51,7 +85,7 @@ const AddBuyer = () => {
                 <br></br>
                 <br></br>
 
-                <button className="button1"> Add Buyer</button> // Button to submit the form
+                <button className="button1"> Add Buyer</button>
             </form>
         </div>
     )

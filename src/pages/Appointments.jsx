@@ -1,9 +1,7 @@
- import { useState, useEffect } from "react";
- import '../css/RegisterUser.css'
+import { useState, useEffect } from "react";
+import BookAppointment from "../components/AddAppointment";
+//  import '../css/RegisterUser.css'
  
-import AddSeller from "../components/AddSeller";
-
-
  
 //this fetch uses the useEffect to get all the data instantly, and by passing a parameter we can set the url in our state
 const useFetch = (url) => {
@@ -20,19 +18,19 @@ const useFetch = (url) => {
 };
  
  
-const Sellers = ()=> {
+const Appointments = ()=> {
  
   //this is how we are going to use the id
   const [deleteId, setDeleteId] = useState('')
   //this is our data call, using the useFetch function containing the useEffect
-  const [data] = useFetch('http://localhost:8002/sellers')
+  const [data] = useFetch('http://localhost:8003/appointments')
  
   const handleDelete = (e, deleteId) => {
     e.preventDefault()
 
-    if (window.confirm('Are you sure you want to delete this seller?')) {
+    if (window.confirm('Are you sure you want to delete this appointer?')) {
  
-    fetch('http://localhost:8002/sellers/' + deleteId, {
+    fetch('http://localhost:8003/appointments/' + deleteId, {
  
     method: 'DELETE' ,
  
@@ -43,32 +41,36 @@ const Sellers = ()=> {
  
   return (
     <div className="container2">
-        <h1>Register a New Seller</h1>
+    <h1>Book Appointment</h1>
+    <BookAppointment />
         <br></br>
         <br></br>
-     <AddSeller/>
- 
-   
     <div>
     <br/> <br />
     <div className='table-container'>
     <table>
       <thead>
-          <th>Sellers ID</th>
+          <th>Booking ID</th>
           <th>First Name</th>
           <th>Surname</th>
-          <th>Delete Seller</th>
+          <th>Property ID</th>
+          <th>Date</th>
+          <th>Time</th>
+          <th></th>
       </thead>
       <tbody>
-      {data && data.map((sell)=>(
+      {data && data.map((appoint)=>(
         <tr>
           {/* We are setting the deleteId (The one we use in our handleDelete function to input the id directly at the end of the url) */}
           {/* We are extracting the value from the data on the page so we cant make a mistake */}
-          <td value={deleteId} onChange={(e) => setDeleteId(e.target.value)}>{sell.id}</td>
-          <td>{sell.firstName}</td>
-          <td>{sell.surname}</td>
-          {/* We use the handleDelete to use the sell.id, it makes the request, and disappears from the screen and json file */}
-          <td><button className="delete-btn" onClick={(e) => handleDelete(e, sell.id)}>Delete</button></td>
+          <td value={deleteId} onChange={(e) => setDeleteId(e.target.value)}>{appoint.id}</td>
+          <td>{appoint.firstName}</td>
+          <td>{appoint.surname}</td>
+          <td>{appoint.propertyid}</td>
+          <td>{appoint.date}</td>
+          <td>{appoint.timeslot}</td>
+          {/* We use the handleDelete to use the appoint.id, it makes the request, and disappears from the screen and json file */}
+          <td><button className="delete-btn" onClick={(e) => handleDelete(e, appoint.id)}>Cancel</button></td>
        
         </tr>
      ))}
@@ -83,6 +85,7 @@ const Sellers = ()=> {
   );
 }
  
- 
- 
-export default Sellers;
+
+
+
+export default Appointments;

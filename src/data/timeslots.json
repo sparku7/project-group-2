@@ -1,0 +1,36 @@
+{
+  "timeslot": [
+    {
+      "id": 1,
+      "start_time": "10:00 AM",
+      "end_time": "11:00 AM",
+      "booked": false
+    },
+    {
+      "id": 2,
+      "start_time": "11:30 AM",
+      "end_time": "12:30 PM",
+      "booked": false
+    },
+    {
+      "id": 3,
+      "start_time": "13:00 AM",
+      "end_time": "14:00 AM",
+      "booked": false
+    },
+    {
+      "id": 4,
+      "start_time": "14:30 AM",
+      "end_time": "15:30 PM",
+      "booked": false
+    },
+    {
+      "id": 5,
+      "start_time": "16:00 AM",
+      "end_time": "17:00 PM",
+      "booked": false
+    }
+   
+  ]
+
+}

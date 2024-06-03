@@ -35,11 +35,13 @@ const AddSeller = () => {
       body: JSON.stringify(addSeller) 
 
     })
+    .then(response => response.json()) // Parse the JSON response from the server
+  .then(data => {
+    // Assuming 'data' contains the new seller's ID
+    alert(`Seller Added. Your Unique ID is ${data.id}`);   
     
-    alert("Seller Added")
-   
 
-  } 
+  } )}
 
  
 

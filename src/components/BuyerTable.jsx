@@ -16,6 +16,8 @@ function JsonDataDisplay() {
 
     // Function to handle the deletion of a buyer
     const deleteBuyer = async (id) => {
+        // Display a confirmation dialog before deleting
+    if (window.confirm('Are you sure you want to delete this buyer?')){
         try {
             // Sending a DELETE request to the server to remove a specific buyer
             const response = await fetch(`http://localhost:8001/buyers/${id}`, {
@@ -31,6 +33,7 @@ function JsonDataDisplay() {
         } catch (error) {
             // This will catch any errors
             console.error('Error:', error);
+        }
         }
     };
 
