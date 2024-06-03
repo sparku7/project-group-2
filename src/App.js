@@ -5,10 +5,10 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import Buyers from './pages/Buyers';
 import Sellers from './pages/Sellers';
-
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NewProperty from './pages/NewProperty';
 import PropertyMaintain from './pages/PropertyMaintain';
+import Appointments from './pages/Appointments';
 
 function App() {
   return (
@@ -28,7 +28,8 @@ function App() {
             <Route path='/sellers' element={<Sellers />} />
             <Route path='/newproperty' element={<NewProperty />} />
             <Route path='/update/:id' element={<PropertyMaintain />} />
-          </Routes>
+               <Route path='/bookappointment' element={ <Appointments />} />
+        </Routes>
         </BrowserRouter>
         
     
