@@ -7,7 +7,7 @@ const AddBuyer = () => {
     const [firstname, setFirstName] = useState('');
     const [surname, setSurname] = useState('');
 
-    // Utility function to convert names to title case
+    // Function to convert names to title case
 
     const toTitleCase = (name) => {
         return name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
