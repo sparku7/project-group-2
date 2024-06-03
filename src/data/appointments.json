@@ -1,0 +1,14 @@
+{
+    "appointments": [
+      {
+        "id": 101,
+        "firstname": "James",
+        "surname": "Thompson",
+        "propertyid": 122,
+        "date" : ,
+        "time" :  ,
+       
+      }
+    
+    ]
+  }
