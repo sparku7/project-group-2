@@ -38,21 +38,10 @@
   }
 }
 
-.card {
-  margin:15px;
-  height: 400px;
-  max-width: 300px;
-  float:left;
-  border: "black solid collapse";
-  overflow-y: hidden;
-}
-.card img{
-  max-width: 100%;
-  flex:auto;
-  border: "black solid collapse";
-}
+
 .body{
-  margin-left:15%;
+  margin-left:5%;
+  margin-right: 5%;
 }
 .items-grid{
   width: 100%;

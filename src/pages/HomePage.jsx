@@ -168,18 +168,21 @@ function HomePage() {
           </form>
         </div>
       </div>
-      <div className="items-grid">
-        {filteredItems.map((item) => (
-          <PropertyCard
-            street={item.street}
-            town={item.town}
-            bedrooms={item.bedrooms}
-            bathrooms={item.bathrooms}
-            price={item.price}
-            garden={item.garden}
-            imageUrl={item.imageUrl}
-          />
-        ))}
+      <div className="container">
+        <div className="row">
+          {filteredItems.map((item) => (
+            <PropertyCard
+              key={item.id} // Ensure to add a unique key for each item
+              street={item.street}
+              town={item.town}
+              bedrooms={item.bedrooms}
+              bathrooms={item.bathrooms}
+              price={item.price}
+              garden={item.garden}
+              imageUrl={item.imageUrl}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );
