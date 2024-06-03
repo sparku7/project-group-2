@@ -47,11 +47,12 @@ const AddSeller = () => {
 
     <div className="addseller"> 
 
-      <h2>Register A New Seller</h2> 
+      
 
       <form onSubmit={handleSubmit}> 
+      
       <div> 
-        <label className="label1">Firstname</label>
+        <label className="label1">First Name:</label>
         
 
         <input className="input1" 
