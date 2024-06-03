@@ -1,21 +1,36 @@
 import '../App.css'
+import '../css/PropertyCard.css'
+import { FaBed, FaBath, FaTree } from 'react-icons/fa';
 
 export default function PropertyCard({street, town, bedrooms, bathrooms, price, garden, imageUrl}) {
 
     return (
 
-        <div className="card">
-            <h2> {town} </h2>
-            <img className="card-img" src={imageUrl}  />
-            <h4> Bedrooms : {bedrooms} </h4>
-            <p> Bathrooms : {bathrooms}</p>
-            <p> Garden? : {garden} </p>
-            <p> Address : {street} </p>
-            <h2> Price : £{price} </h2>
+        <div className="col-12 col-md-6 col-lg-3 d-flex align-items-stretch mb-4">
+            <div className="card">
+                <h3>{street}</h3>
+                <img className="card-img" src={imageUrl} alt="Property" />
+                <h4>{town}</h4>
+                <div className="card-body">
+                    <div className="row text-center">
+                        <div className="col">
+                        <FaBed size={24} />
+                        <p>{bedrooms} Bedrooms</p>
+                        </div>
+                        <div className="col">
+                        <FaBath size={24} />
+                        <p>{bathrooms} Bathrooms</p>
+                        </div>
+                        <div className="col">
+                        <FaTree size={24} />
+                        <p>{garden} Garden</p>
+                        </div>
+                    </div>
+                </div>
+                <h4>Price: £{price}</h4>
+            </div>
         </div>
-    ) 
-
-
+  );
 }
 
 // id":"1",
