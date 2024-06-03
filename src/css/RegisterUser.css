@@ -120,17 +120,17 @@ table th {
 
 .delete-btn {
     background-color: #800080;
-    color: white; 
-    border: none; 
-    padding: 10px 20px; 
-    margin: 5px; 
-    border-radius: 5px; 
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s; 
+    transition: background-color 0.3s;
 }
 
 .delete-btn:hover {
-    background-color: #a50e4d; 
+    background-color: #a50e4d;
 }
 
 
@@ -158,10 +158,10 @@ table th {
 }
 
 .input1:focus {
-    border: 2px solid #800080; 
+    border: 2px solid #800080;
     background-color: #ffe6ff;
-    outline: none; 
-    box-shadow: 0 0 10px #800080; 
+    outline: none;
+    box-shadow: 0 0 10px #800080;
 }
 
 
@@ -176,7 +176,7 @@ table th {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
-    
+
 
 }
 
@@ -189,7 +189,6 @@ table th {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center top -160px;
-    
+
 
 }
-
