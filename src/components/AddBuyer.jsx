@@ -20,8 +20,9 @@ const AddBuyer = () => {
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(user) // Converts the user object to a JSON string
         })
-            .then(() => {
-                alert("New Buyer Added"); // Alerts the user that the buyer was added
+        .then(response => response.json())
+            .then(data => {
+                alert(`New Buyer Added. Your Unique ID is ${data.id}`); // Alerts the user that the buyer was added
                 setFirstName(''); // Resets the firstname state to an empty string
                 setSurname(''); // Resets the surname state to an empty string
             });
@@ -51,7 +52,7 @@ const AddBuyer = () => {
                 <br></br>
                 <br></br>
 
-                <button className="button1"> Add Buyer</button> // Button to submit the form
+                <button className="button1"> Add Buyer</button>
             </form>
         </div>
     )
