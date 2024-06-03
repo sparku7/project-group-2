@@ -8,6 +8,7 @@ function JsonDataDisplay() {
         fetch('http://localhost:8001/buyers')
             .then((response) => response.json())
             .then((data) => { setBuyers(data) })
+            .catch((error) => console.error('Error:', error));
 
     }, [buyers])
     return (
@@ -20,6 +21,7 @@ function JsonDataDisplay() {
                         <th>Buyers ID</th>
                         <th>First Name</th>
                         <th>Surname</th>
+                        <th></th>
                     </thead>
                     <tbody>
                         {
@@ -28,6 +30,7 @@ function JsonDataDisplay() {
                                     <td>{info.id}</td>
                                     <td>{info.firstname}</td>
                                     <td>{info.surname}</td>
+                                    <td><button className="delete-btn"> Delete</button></td>
                                 </tr>
                             ))
                         }

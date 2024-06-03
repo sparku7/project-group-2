@@ -1,5 +1,5 @@
 {
-  "properties":[
+  "properties": [
     {
       "id": "4",
       "street": "123 avenue",
@@ -54,6 +54,28 @@
       "garden": "Yes",
       "status": "For Sale",
       "imageUrl": "https://randomwordgenerator.com/img/picture-generator/water-3167440_640.jpg"
+    },
+    {
+      "id": "2a5f",
+      "street": "main street",
+      "town": "ormiston",
+      "price": "150000",
+      "bedrooms": "3",
+      "bathrooms": "4",
+      "garden": "Yes",
+      "status": "For Sale",
+      "imageUrl": "https://th.bing.com/th/id/OIP.HyPO0GQqnsGoMcauAHz_MQHaE7?rs=1&pid=ImgDetMain"
+    },
+    {
+      "id": "e562",
+      "street": "123 street",
+      "town": "town",
+      "price": "100000",
+      "bedrooms": "2",
+      "bathrooms": "4",
+      "garden": "Yes",
+      "status": "For Sale",
+      "imageUrl": "https://th.bing.com/th/id/OIP.pcIabtZsh-CTMwewvjp5PwHaE8?rs=1&pid=ImgDetMain"
     }
   ]
 }
