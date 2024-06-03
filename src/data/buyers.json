@@ -16,16 +16,6 @@
       "surname": "Wilson"
     },
     {
-      "id": "312d",
-      "firstname": "John",
-      "surname": "Smith"
-    },
-    {
-      "id": "2081",
-      "firstname": "Test",
-      "surname": "Test 2"
-    },
-    {
       "id": "d00d",
       "firstname": "Paul",
       "surname": "Horgan"
@@ -37,11 +27,6 @@
     },
     {
       "id": "b07b",
-      "firstname": "Donald",
-      "surname": "Trump"
-    },
-    {
-      "id": "6134",
       "firstname": "Donald",
       "surname": "Trump"
     }

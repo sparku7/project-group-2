@@ -29,6 +29,8 @@ const Sellers = ()=> {
  
   const handleDelete = (e, deleteId) => {
     e.preventDefault()
+
+    if (window.confirm('Are you sure you want to delete this seller?')) {
  
     fetch('http://localhost:8002/sellers/' + deleteId, {
  
@@ -36,7 +38,7 @@ const Sellers = ()=> {
  
     }).then(res => res.json())
     //because we are deleting, there is no data we need to return, so we dont need that extra .then
-  }
+  }}
  
  
   return (
