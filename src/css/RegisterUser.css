@@ -180,3 +180,16 @@ table th {
 
 }
 
+.container2 {
+
+
+    background: linear-gradient(rgba(255, 255, 255, 0.9),
+            rgba(255, 255, 255, 0.7)),
+        url('../images/newbuyer.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center top -160px;
+    
+
+}
+

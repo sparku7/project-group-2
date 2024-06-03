@@ -11,6 +11,23 @@ function JsonDataDisplay() {
             .catch((error) => console.error('Error:', error));
 
     }, [buyers])
+
+    const deleteBuyer = async (id) => {
+        try {
+            
+            const response = await fetch(`http://localhost:8001/buyers/${id}`, {
+                method: 'DELETE',
+            });
+            if (response.ok) {
+                
+                setBuyers(buyers.filter((buyer) => buyer.id !== id));
+            } else {
+                console.error('Failed to delete the buyer with id:', id);
+            }
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    };
     return (
         <div>
             <br></br>
@@ -21,6 +38,7 @@ function JsonDataDisplay() {
                         <th>Buyers ID</th>
                         <th>First Name</th>
                         <th>Surname</th>
+                        <th>Delete Buyer</th>
                         <th></th>
                     </thead>
                     <tbody>
@@ -30,7 +48,7 @@ function JsonDataDisplay() {
                                     <td>{info.id}</td>
                                     <td>{info.firstname}</td>
                                     <td>{info.surname}</td>
-                                    <td><button className="delete-btn"> Delete</button></td>
+                                    <td><button className="delete-btn" onClick={() => deleteBuyer(info.id)}> Delete</button></td>
                                 </tr>
                             ))
                         }

@@ -1,6 +1,8 @@
  import { useState, useEffect } from "react";
+ import '../css/RegisterUser.css'
  
 import AddSeller from "../components/AddSeller";
+
 
  
 //this fetch uses the useEffect to get all the data instantly, and by passing a parameter we can set the url in our state
@@ -38,15 +40,19 @@ const Sellers = ()=> {
  
  
   return (
-    <div className="container1">
+    <div className="container2">
+        <h1>Register a New Seller</h1>
+        <br></br>
+        <br></br>
      <AddSeller/>
  
+   
+    <div>
     <br/> <br />
- 
     <div className='table-container'>
     <table>
       <thead>
-          <th>ID</th>
+          <th>Sellers ID</th>
           <th>First Name</th>
           <th>Surname</th>
           <th>Delete Seller</th>
@@ -60,13 +66,14 @@ const Sellers = ()=> {
           <td>{sell.firstName}</td>
           <td>{sell.surname}</td>
           {/* We use the handleDelete to use the sell.id, it makes the request, and disappears from the screen and json file */}
-          <td><button onClick={(e) => handleDelete(e, sell.id)}>delete</button></td>
+          <td><button className="delete-btn" onClick={(e) => handleDelete(e, sell.id)}>Delete</button></td>
        
         </tr>
      ))}
      
       </tbody>
     </table>
+    </div>
     </div>
  
  
