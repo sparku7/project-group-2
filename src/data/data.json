@@ -1,21 +1,6 @@
 {
   "buyers": [
     {
-      "id": "4845",
-      "firstname": "Mark",
-      "surname": "Wilson"
-    },
-    {
-      "id": "d00d",
-      "firstname": "Paul",
-      "surname": "Horgan"
-    },
-    {
-      "id": "2c6f",
-      "firstname": "Betty",
-      "surname": "Davies"
-    },
-    {
       "id": "b07b",
       "firstname": "Donald",
       "surname": "Trump"
@@ -64,11 +49,6 @@
       "id": "f652",
       "firstname": "Teresa",
       "surname": "May"
-    },
-    {
-      "id": "bf14",
-      "firstname": "Macintosh",
-      "surname": "MacIntosh"
     }
   ],
   "properties": [

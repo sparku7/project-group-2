@@ -1,73 +1,82 @@
 import { useState, useEffect } from 'react';
 import '../css/RegisterUser.css';
+import ConfirmationDialog from './ConfirmationDialog';
 
-// JsonDataDisplay component is responsible for displaying the buyers data and handling deleting records
 function JsonDataDisplay() {
-    // This is used to  store the buyers' data
+    const [showConfirmation, setShowConfirmation] = useState(false);
     const [buyers, setBuyers] = useState([]);
+    const [buyerIdToDelete, setBuyerIdToDelete] = useState(null);
 
-    // This is used to fetch the  buyers' data from the server
     useEffect(() => {
         fetch('http://localhost:8888/buyers')
             .then((response) => response.json())
             .then((data) => { setBuyers(data) })
             .catch((error) => console.error('Error:', error));
-    }, [buyers]); // Dependency array includes buyers to refetch when buyers' data changes
+    }, []);
 
-    // Function to handle the deletion of a buyer
-    const deleteBuyer = async (id) => {
-        // Display a confirmation dialog before deleting
-        if (window.confirm('Are you sure you want to delete this buyer?')) {
-            try {
-                // Sending a DELETE request to the server to remove a specific buyer
-                const response = await fetch(`http://localhost:8888/buyers/${id}`, {
-                    method: 'DELETE',
-                });
-                if (response.ok) {
-                    // If deletion is successful, this updates the state to remove the buyer from the list
-                    setBuyers(buyers.filter((buyer) => buyer.id !== id));
-                } else {
-                    // If the server responds with an error, log it to the console
-                    console.error('Failed to delete the buyer with id:', id);
-                }
-            } catch (error) {
-                // This will catch any errors
-                console.error('Error:', error);
+    const handleDelete = (id) => {
+        setBuyerIdToDelete(id);
+        setShowConfirmation(true);
+    };
+
+    const handleCancel = () => {
+        setShowConfirmation(false);
+        setBuyerIdToDelete(null);
+    };
+
+    const handleConfirm = async () => {
+        try {
+            const response = await fetch(`http://localhost:8888/buyers/${buyerIdToDelete}`, {
+                method: 'DELETE',
+            });
+            if (response.ok) {
+                setBuyers((prevBuyers) => prevBuyers.filter((buyer) => buyer.id !== buyerIdToDelete));
+                console.log(`Buyer with ID ${buyerIdToDelete} successfully deleted.`);
+            } else {
+                console.error('Failed to delete the buyer with ID:', buyerIdToDelete);
             }
+        } catch (error) {
+            console.error('Error during deletion:', error);
+        } finally {
+            setShowConfirmation(false);
+            setBuyerIdToDelete(null);
         }
     };
 
     return (
         <div>
-            <br></br>
-            <br></br>
+            <br /><br />
             <div className='table-container'>
-                <table >
+                <table>
                     <thead>
-                        <th>Buyers ID</th>
-                        <th>First Name</th>
-                        <th>Surname</th>
-                        <th>Delete Buyer</th>
-                       
+                        <tr>
+                            <th>Buyers ID</th>
+                            <th>First Name</th>
+                            <th>Surname</th>
+                            <th>Delete Buyer</th>
+                        </tr>
                     </thead>
                     <tbody>
-                        {
-                            // Mapping over the buyers' data to create table rows
-                            buyers.map((info) => (
-                                <tr>
-                                    <td>{info.id}</td>
-                                    <td>{info.firstname}</td>
-                                    <td>{info.surname}</td>
-                                    <td>
-                                        {/* Button to call the deleteBuyer function with the buyer's id */}
-                                        <button className="delete-btn" onClick={() => deleteBuyer(info.id)}> Delete</button>
-                                    </td>
-                                </tr>
-                            ))
-                        }
+                        {buyers.map((info) => (
+                            <tr key={info.id}>
+                                <td>{info.id}</td>
+                                <td>{info.firstname}</td>
+                                <td>{info.surname}</td>
+                                <td>
+                                    <button className="delete-btn" onClick={() => handleDelete(info.id)}>Delete</button>
+                                </td>
+                            </tr>
+                        ))}
                     </tbody>
                 </table>
             </div>
+            {showConfirmation && (
+                <ConfirmationDialog
+                    message="Are you sure you want to delete this buyer?"
+                    onConfirm={handleConfirm}
+                    onCancel={handleCancel}
+                />
+            )}
         </div>
     );
 }
