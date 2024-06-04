@@ -142,29 +142,6 @@
       "garden": "No",
       "status": "Sold",
       "imageUrl": "https://media.rightmove.co.uk/56k/55853/148471778/55853_WH5028_IMG_00_0000.jpeg"
-    },
-    {
-      "id": "992",
-      "street": "Crescent Avenue",
-      "town": "Bathgate",
-      "price": "215000",
-      "bedrooms": "3",
-      "bathrooms": "1",
-      "garden": "Yes",
-      "status": "Withdrawn",
-      "imageUrl": "https://media.rightmove.co.uk/35k/34395/148392980/34395_27659841_IMG_00_0000.jpeg"
-    },
-    {
-      "id": "66c2",
-      "sellerId": "cefa",
-      "street": "Western Avenue",
-      "town": "Pitlochry",
-      "price": "758321",
-      "bedrooms": "2",
-      "bathrooms": "1",
-      "garden": "No",
-      "status": "For Sale",
-      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRE82sRLHLrkQ9K39bdB5fai-4lSc_8Ghtz4A&s"
     }
   ]
 }
