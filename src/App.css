@@ -43,10 +43,16 @@
   margin-left:5%;
   margin-right: 5%;
   position: relative;
+  margin-top: 60px;
+
 }
 .items-grid{
   width: 100%;
 
+}
+
+.custom-navbar{
+  border-bottom: 2px solid #800080;
 }
 
 .custom-navbar .navbar-brand {
