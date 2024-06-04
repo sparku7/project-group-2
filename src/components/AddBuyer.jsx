@@ -10,22 +10,34 @@ const AddBuyer = () => {
     // Function to convert names to title case
 
     const toTitleCase = (name) => {
-        return name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
+        return name.split(' ').map((word) => {
+            if (/^mc/i.test(word)) {
+                // Capitalize the first letter and the second letter after 'Mc'
+                return word.charAt(0).toUpperCase() + 'c' + word.charAt(2).toUpperCase() + word.slice(3).toLowerCase();
+            } else if (/^mac/i.test(word)) {
+                // Capitalize the first letter and the letter following 'Mac'
+                return word.charAt(0).toUpperCase() + 'ac' + word.charAt(3).toUpperCase() + word.slice(4).toLowerCase();
+            } else {
+                // Capitalize the first letter of other words
+                return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+            }
+        }).join(' ');
     };
+    
 
     // Function to handle the form submission
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-       // Convert input names to title case
-    const titleCaseFirstName = toTitleCase(firstname);
-    const titleCaseSurname = toTitleCase(surname);
+        // Convert input names to title case
+        const titleCaseFirstName = toTitleCase(firstname);
+        const titleCaseSurname = toTitleCase(surname);
 
-      // Create the user object
-      const user = {
-        firstname: titleCaseFirstName,
-        surname: titleCaseSurname
-    };
+        // Create the user object
+        const user = {
+            firstname: titleCaseFirstName,
+            surname: titleCaseSurname
+        };
 
         try {
 
