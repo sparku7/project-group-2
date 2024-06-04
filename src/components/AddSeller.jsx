@@ -1,9 +1,21 @@
 import { useState } from "react";
 import '../css/RegisterUser.css';
 
+// CustomAlert component
+const CustomAlert = ({ title, message, onClose }) => {
+  return (
+      <div className="custom-alert">
+          <p>{message}</p>
+          <button onClick={onClose}>Close</button>
+      </div>
+  );
+};
+
 const AddSeller = () => {
   const [firstName, setFirstname] = useState('');
   const [surname, setSurname] = useState('');
+  const [showAlert, setShowAlert] = useState(false);
+  const [alertMessage, setAlertMessage] = useState('');
 
   const toTitleCase = (name) => {
     return name.split(' ').map((word) => {
@@ -46,10 +58,10 @@ const AddSeller = () => {
           );
 
           if (dataExists) {
-            alert("User already exists. Please enter a different name.");
-            return; // Stop further processing
-          }
-
+            setAlertMessage('Seller Already Exists. Please enter a different name.');
+            setShowAlert(true);
+            return;
+        }
           // Sends a POST request to the server to add the new buyer
           fetch('http://localhost:8002/sellers', {
             method: 'POST',
@@ -58,7 +70,8 @@ const AddSeller = () => {
           })
             .then((postResponse) => postResponse.json())
             .then((data) => {
-              alert(`New Seller Added. Your Unique ID is ${data.id}`);
+              setAlertMessage(`New Seller Added. Your Unique ID is ${data.id}`);
+              setShowAlert(true);
               setFirstname(''); // Resets the firstname state to an empty string
               setSurname(''); // Resets the surname state to an empty string
             });
@@ -93,6 +106,14 @@ const AddSeller = () => {
         </div>
         <br />
         <button className='button1'>Submit</button>
+
+        {showAlert && (
+                    <CustomAlert
+
+                        message={alertMessage}
+                        onClose={() => setShowAlert(false)} // Close button action
+                    />
+                )}
       </form>
     </div>
   );

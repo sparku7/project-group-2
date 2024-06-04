@@ -1,11 +1,23 @@
 import { useState } from "react";
 import '../css/RegisterUser.css';
 
+// CustomAlert component
+const CustomAlert = ({ title, message, onClose }) => {
+    return (
+        <div className="custom-alert">
+            <p>{message}</p>
+            <button onClick={onClose}>Close</button>
+        </div>
+    );
+};
+
 // AddBuyer component allows users to add new buyer information to the system
 const AddBuyer = () => {
     // State hooks to store the input values for the first name and surname
     const [firstname, setFirstName] = useState('');
     const [surname, setSurname] = useState('');
+    const [showAlert, setShowAlert] = useState(false);
+    const [alertMessage, setAlertMessage] = useState('');
 
     // Function to convert names to title case
 
@@ -23,7 +35,7 @@ const AddBuyer = () => {
             }
         }).join(' ');
     };
-    
+
 
     // Function to handle the form submission
     const handleSubmit = async (e) => {
@@ -46,15 +58,16 @@ const AddBuyer = () => {
             const checkResponse = await fetch(`http://localhost:8001/buyers?firstname=${titleCaseFirstName}&surname=${titleCaseSurname}`);
             const existingData = await checkResponse.json();
 
-            // Convert existing data to lowercase before comparison
+
             const dataExists = existingData.some(data =>
                 data.firstname === titleCaseFirstName &&
                 data.surname === titleCaseSurname
             );
 
             if (dataExists) {
-                alert("User already exists. Please enter a different name.");
-                return; // Stop further processing
+                setAlertMessage('Buyer Already Exists. Please enter a different name.');
+                setShowAlert(true);
+                return;
             }
 
             // Sends a POST request to the server to add the new buyer
@@ -65,7 +78,9 @@ const AddBuyer = () => {
             });
 
             const data = await postResponse.json();
-            alert(`New Buyer Added. Your Unique ID is ${data.id}`); // Alerts the user that the buyer was added
+            setAlertMessage(`New Buyer Added. Your Unique ID is ${data.id}`);
+            setShowAlert(true);
+
             setFirstName(''); // Resets the firstname state to an empty string
             setSurname(''); // Resets the surname state to an empty string
         } catch (error) {
@@ -98,6 +113,13 @@ const AddBuyer = () => {
                 <br></br>
 
                 <button className="button1"> Add Buyer</button>
+                {showAlert && (
+                    <CustomAlert
+
+                        message={alertMessage}
+                        onClose={() => setShowAlert(false)} // Close button action
+                    />
+                )}
             </form>
         </div>
     )
