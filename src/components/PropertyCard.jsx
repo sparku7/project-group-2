@@ -31,7 +31,7 @@ export default function PropertyCard({street, town, bedrooms, bathrooms, price, 
       };
 
       return (
-        <div className="col-12 col-md-6 col-lg-3 d-flex align-items-stretch mb-4">
+        <div className="col-12 col-md-6 col-lg-3 align-items-stretch mb-4">
           <div className="card">
             <div className="card-header">
               <h3 className="mb-0">{street}</h3>

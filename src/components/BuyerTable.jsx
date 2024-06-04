@@ -17,23 +17,23 @@ function JsonDataDisplay() {
     // Function to handle the deletion of a buyer
     const deleteBuyer = async (id) => {
         // Display a confirmation dialog before deleting
-    if (window.confirm('Are you sure you want to delete this buyer?')){
-        try {
-            // Sending a DELETE request to the server to remove a specific buyer
-            const response = await fetch(`http://localhost:8888/buyers/${id}`, {
-                method: 'DELETE',
-            });
-            if (response.ok) {
-                // If deletion is successful, this updates the state to remove the buyer from the list
-                setBuyers(buyers.filter((buyer) => buyer.id !== id));
-            } else {
-                // If the server responds with an error, log it to the console
-                console.error('Failed to delete the buyer with id:', id);
+        if (window.confirm('Are you sure you want to delete this buyer?')) {
+            try {
+                // Sending a DELETE request to the server to remove a specific buyer
+                const response = await fetch(`http://localhost:8888/buyers/${id}`, {
+                    method: 'DELETE',
+                });
+                if (response.ok) {
+                    // If deletion is successful, this updates the state to remove the buyer from the list
+                    setBuyers(buyers.filter((buyer) => buyer.id !== id));
+                } else {
+                    // If the server responds with an error, log it to the console
+                    console.error('Failed to delete the buyer with id:', id);
+                }
+            } catch (error) {
+                // This will catch any errors
+                console.error('Error:', error);
             }
-        } catch (error) {
-            // This will catch any errors
-            console.error('Error:', error);
-        }
         }
     };
 

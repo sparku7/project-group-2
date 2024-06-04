@@ -66,9 +66,9 @@ export default function AddProperty() {
                 required
                 value={sellerId}
                 onChange={(e) => setSellerId(e.target.value)} />
-                <br />
-            <br />              
-                    
+            <br />
+            <br />
+
             <label className="label1">Street Name: </label>
             <input type="text"
                 className="input1"
