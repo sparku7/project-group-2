@@ -2,7 +2,7 @@ import { useState } from "react";
 import '../css/RegisterUser.css';
 
 // CustomAlert component
-const CustomAlert = ({ title, message, onClose }) => {
+const CustomAlert = ({  message, onClose }) => {
   return (
       <div className="custom-alert">
           <p>{message}</p>
@@ -16,7 +16,10 @@ const AddSeller = () => {
   const [surname, setSurname] = useState('');
   const [showAlert, setShowAlert] = useState(false);
   const [alertMessage, setAlertMessage] = useState('');
-
+  const handleCloseAlert = () => {
+    setShowAlert(false);
+    window.location.reload()
+  };
   const toTitleCase = (name) => {
     return name.split(' ').map((word) => {
         if (/^mc/i.test(word)) {
@@ -82,6 +85,8 @@ const firstToTitleCase = (first) => {
               setShowAlert(true);
               setFirstname(''); // Resets the firstname state to an empty string
               setSurname(''); // Resets the surname state to an empty string
+             
+
             });
         });
     } catch (error) {
@@ -119,7 +124,7 @@ const firstToTitleCase = (first) => {
                     <CustomAlert
 
                         message={alertMessage}
-                        onClose={() => setShowAlert(false)} // Close button action
+                        onClose={handleCloseAlert}
                     />
                 )}
       </form>

@@ -38,8 +38,8 @@ const AddBuyer = () => {
     };
     const firstToTitleCase = (name) => {
         return name.split(' ').map((word) => {
-                           return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
-            }
+            return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+        }
         ).join(' ');
     };
 
@@ -121,11 +121,14 @@ const AddBuyer = () => {
                 <button className="button1"> Add Buyer</button>
                 {showAlert && (
                     <CustomAlert
-
                         message={alertMessage}
-                        onClose={() => setShowAlert(false)} // Close button action
+                        onClose={() => {
+                            setShowAlert(false); // Close the alert
+                            window.location.reload(); // Reload the page after closing the alert
+                        }}
                     />
                 )}
+
             </form>
         </div>
     )

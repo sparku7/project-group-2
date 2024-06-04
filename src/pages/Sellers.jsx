@@ -2,6 +2,7 @@
  import '../css/RegisterUser.css'
  
 import AddSeller from "../components/AddSeller";
+import ConfirmationDialog from "../components/ConfirmationDialog";
 
 
  
@@ -13,7 +14,7 @@ const useFetch = (url) => {
     fetch(url)
       .then((res) => res.json())
       .then((data) => setData(data));
-  }, [data]);
+  }, [url]);
   //we have to return data here as we have made a function expecting some kind of data back
   //comment the bit of code and look at the error you get in the browser
   return [data];
@@ -23,22 +24,32 @@ const useFetch = (url) => {
 const Sellers = ()=> {
  
   //this is how we are going to use the id
-  const [deleteId, setDeleteId] = useState('')
+  const [deleteId, setDeleteId] = useState(null);
   //this is our data call, using the useFetch function containing the useEffect
+  const [showConfirmation, setShowConfirmation] = useState(false);
   const [data] = useFetch('http://localhost:8888/sellers')
  
-  const handleDelete = (e, deleteId) => {
-    e.preventDefault()
+  const handleDelete = (id) => {
+    setDeleteId(id);
+    setShowConfirmation(true);
+  };
 
-    if (window.confirm('Are you sure you want to delete this seller?')) {
- 
-    fetch('http://localhost:8888/sellers/' + deleteId, {
- 
-    method: 'DELETE' ,
- 
-    }).then(res => res.json())
-    //because we are deleting, there is no data we need to return, so we dont need that extra .then
-  }}
+  const handleConfirmDelete = () => {
+    fetch(`http://localhost:8888/sellers/${deleteId}`, {
+      method: 'DELETE',
+    }).then(() => {
+      setDeleteId(null);
+      setShowConfirmation(false);
+      window.location.reload();
+    
+    });
+  };
+
+  const handleCancelDelete = () => {
+    setDeleteId(null);
+    setShowConfirmation(false);
+      
+  };
  
  
   return (
@@ -48,6 +59,7 @@ const Sellers = ()=> {
         <br></br>
         <br></br>
      <AddSeller/>
+     
  
    
     <div>
@@ -65,11 +77,11 @@ const Sellers = ()=> {
         <tr>
           {/* We are setting the deleteId (The one we use in our handleDelete function to input the id directly at the end of the url) */}
           {/* We are extracting the value from the data on the page so we cant make a mistake */}
-          <td value={deleteId} onChange={(e) => setDeleteId(e.target.value)}>{sell.id}</td>
+          <td>{sell.id}</td>
           <td>{sell.firstname}</td>
           <td>{sell.surname}</td>
           {/* We use the handleDelete to use the sell.id, it makes the request, and disappears from the screen and json file */}
-          <td><button className="delete-btn" onClick={(e) => handleDelete(e, sell.id)}>Delete</button></td>
+          <td><button className="delete-btn" onClick={() => handleDelete(sell.id)}>Delete</button></td>
        
         </tr>
      ))}
@@ -78,6 +90,13 @@ const Sellers = ()=> {
     </table>
     </div>
     </div>
+    {showConfirmation && (
+          <ConfirmationDialog
+            message="Are you sure you want to delete this seller?"
+            onConfirm={handleConfirmDelete}
+            onCancel={handleCancelDelete}
+          />
+        )}
  
  
     </div>
