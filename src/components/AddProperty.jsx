@@ -104,7 +104,7 @@ export default function AddProperty() {
                 className="input1"
                 required
                 value={price}
-                onChange={(e) => setPrice(e.target.value)} />
+                onChange={(e) => setPrice(parseInt(e.target.value))} />
             <br />
             <br />
             <label className="label1">Bedrooms: </label>
@@ -112,7 +112,7 @@ export default function AddProperty() {
                 className="input1"
                 required
                 value={bedrooms}
-                onChange={(e) => setBedrooms(e.target.value)} />
+                onChange={(e) => setBedrooms(parseInt(e.target.value))} />
             <br />
             <br />
             <label className="label1">Bathrooms: </label>
@@ -120,7 +120,7 @@ export default function AddProperty() {
                 className="input1"
                 required
                 value={bathrooms}
-                onChange={(e) => setBathrooms(e.target.value)} />
+                onChange={(e) => setBathrooms(parseInt(e.target.value))} />
             <br />
             <br />
             <label className="label1">Garden: </label>

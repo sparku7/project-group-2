@@ -41,6 +41,7 @@ export default function MaintainProperty() {
     return (
         <div className="body">
             <h1> Property Updates - Change all required </h1>
+            <br/>
             <form onSubmit={handleSubmit}>
                 <label className="label1">Street Name: </label>
                 <input type="text"

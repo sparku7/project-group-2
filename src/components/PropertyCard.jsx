@@ -1,18 +1,19 @@
+import { isAccordionItemSelected } from 'react-bootstrap/esm/AccordionContext';
 import '../App.css'
 import '../css/PropertyCard.css'
 import { FaBed, FaBath, FaTree } from 'react-icons/fa';
+import { useNavigate } from 'react-router';
 
 export default function PropertyCard({street, town, bedrooms, bathrooms, price, garden, imageUrl, status}) {
 
-  price = parseFloat(price);
+  const navigate= useNavigate()
   const formattedPrice = (price).toLocaleString('en-GB', {
     style: 'currency',
     currency: 'GBP',
     minimumFractionDigits: 0,
   });  
-  
-  
-  
+
+
   const getStatusClass = (status) => {
         switch (status) {
             case 'For Sale':
@@ -57,23 +58,16 @@ export default function PropertyCard({street, town, bedrooms, bathrooms, price, 
               </div>
             </div>
             <div className="card-footer text-center">
-              <a href="/bookappointment" 
-                 className={`btn ${isButtonDisabled(status) ? 'btn-disabled' : 'btn-custom'}`} 
+              <button onClick={() => navigate("/bookappointment/")} 
+                 className={`btn ${isButtonDisabled(status) ? 'btn-disabled' : 'btn-custom'} ${onclick}`} 
                  aria-disabled={isButtonDisabled(status)}>
                 {isButtonDisabled(status) ? 'Not Available' : 'Book Now'}
-              </a>
+              </button>
             </div>
           </div>
         </div>
+        
       );
+      
     }
 
-// id":"1",
-//             "street":"123 avenue",
-//             "town":"Dunfermline",
-//             "bedrooms":3,
-//             "bathrooms":2,
-//             "price":123123,
-//             "garden":"yes",
-//             "imageUrl":"test.com",
-//             "status":"for sale"
