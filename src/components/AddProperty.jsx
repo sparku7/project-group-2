@@ -19,7 +19,7 @@ export default function AddProperty() {
 
         // Fetch sellers data 
         try {
-            const response = await fetch("http://localhost:8002/sellers");
+            const response = await fetch("http://localhost:8888/sellers");
             const sellersData = await response.json();
 
             // Check if seller ID exists
@@ -31,7 +31,7 @@ export default function AddProperty() {
 
             const task = { sellerId, street, town, price, bedrooms, bathrooms, garden, status, imageUrl }
 
-            fetch("http://localhost:8000/properties",
+            fetch("http://localhost:8888/properties",
                 {
                     method: 'POST',
                     headers: { "Content-Type": "application/json" },

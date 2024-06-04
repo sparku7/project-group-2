@@ -32,12 +32,20 @@ const AddSeller = () => {
     }).join(' ');
 };
 
+const firstToTitleCase = (first) => {
+  return first.split(' ').map((word) => {
+          return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+      }).join(' ');
+};
+
+
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
     // const addSeller = { firstName, surname };
 
-    const titleCaseFirstName = toTitleCase(firstName);
+    const titleCaseFirstName = firstToTitleCase(firstName);
     const titleCaseSurname = toTitleCase(surname);
 
     // Create the user object
@@ -48,7 +56,7 @@ const AddSeller = () => {
 
     try {
       // Check if the combination already exists
-      fetch(`http://localhost:8002/sellers?firstname=${titleCaseFirstName}&surname=${titleCaseSurname}`)
+      fetch(`http://localhost:8888/sellers?firstname=${titleCaseFirstName}&surname=${titleCaseSurname}`)
         .then((checkResponse) => checkResponse.json())
         .then((existingData) => {
           // Convert existing data to lowercase before comparison
@@ -63,7 +71,7 @@ const AddSeller = () => {
             return;
         }
           // Sends a POST request to the server to add the new buyer
-          fetch('http://localhost:8002/sellers', {
+          fetch('http://localhost:8888/sellers', {
             method: 'POST',
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(user)

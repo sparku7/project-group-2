@@ -25,14 +25,14 @@ const Sellers = ()=> {
   //this is how we are going to use the id
   const [deleteId, setDeleteId] = useState('')
   //this is our data call, using the useFetch function containing the useEffect
-  const [data] = useFetch('http://localhost:8002/sellers')
+  const [data] = useFetch('http://localhost:8888/sellers')
  
   const handleDelete = (e, deleteId) => {
     e.preventDefault()
 
     if (window.confirm('Are you sure you want to delete this seller?')) {
  
-    fetch('http://localhost:8002/sellers/' + deleteId, {
+    fetch('http://localhost:8888/sellers/' + deleteId, {
  
     method: 'DELETE' ,
  
