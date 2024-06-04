@@ -6,7 +6,7 @@
       "surname": "Ahmad",
       "propertyid": "122",
       "date": "2024-06-11",
-      "timeslot": "10:00"
+      "timeslot": "10:00-11:00"
     },
     {
       "id": "5911",
@@ -14,7 +14,31 @@
       "surname": "Thompson",
       "propertyid": "122",
       "date": "2024-06-26",
-      "timeslot":"10:00"
+      "timeslot": "10:00-11:00"
+    },
+    {
+      "id": "cd2d",
+      "firstName": "Sana",
+      "surname": "Ahmad",
+      "propertyid": "134",
+      "date": "2024-06-05",
+      "timeslot": "11.30-12:30"
+    },
+    {
+      "id": "3360",
+      "firstName": "Kelly",
+      "surname": "Jones",
+      "propertyid": "159",
+      "date": "2024-06-19",
+      "timeslot": "13:00-14:00"
+    },
+    {
+      "id": "87f3",
+      "firstName": "Donald",
+      "surname": "Trump",
+      "propertyid": "156",
+      "date": "2024-06-13",
+      "timeslot": "13:00-14:00"
     }
   ]
 }
