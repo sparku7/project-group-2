@@ -19,8 +19,8 @@
       "bathrooms": "2",
       "price": "323123",
       "garden": "Yes",
-      "imageUrl": "https://randomwordgenerator.com/img/picture-generator/water-3167440_640.jpg",
-      "status": "Sold"
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuzuVBrCaUWx033aZT-iy5gQnhtiosMeYggw&s",
+      "status": "For Sale"
     },
     {
       "id": "132",
@@ -153,6 +153,18 @@
       "garden": "Yes",
       "status": "Withdrawn",
       "imageUrl": "https://media.rightmove.co.uk/35k/34395/148392980/34395_27659841_IMG_00_0000.jpeg"
+    },
+    {
+      "id": "66c2",
+      "sellerId": "cefa",
+      "street": "Western Avenue",
+      "town": "Pitlochry",
+      "price": "758321",
+      "bedrooms": "2",
+      "bathrooms": "1",
+      "garden": "No",
+      "status": "For Sale",
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRE82sRLHLrkQ9K39bdB5fai-4lSc_8Ghtz4A&s"
     }
   ]
 }
