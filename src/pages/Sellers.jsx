@@ -65,7 +65,7 @@ const Sellers = ()=> {
           {/* We are setting the deleteId (The one we use in our handleDelete function to input the id directly at the end of the url) */}
           {/* We are extracting the value from the data on the page so we cant make a mistake */}
           <td value={deleteId} onChange={(e) => setDeleteId(e.target.value)}>{sell.id}</td>
-          <td>{sell.firstName}</td>
+          <td>{sell.firstname}</td>
           <td>{sell.surname}</td>
           {/* We use the handleDelete to use the sell.id, it makes the request, and disappears from the screen and json file */}
           <td><button className="delete-btn" onClick={(e) => handleDelete(e, sell.id)}>Delete</button></td>

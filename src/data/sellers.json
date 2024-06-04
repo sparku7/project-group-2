@@ -2,13 +2,33 @@
   "sellers": [
     {
       "id": "cefa",
-      "firstName": "Donald",
+      "firstname": "Donald",
       "surname": "Trump"
     },
     {
       "id": "a8b8",
-      "firstName": "Mark",
+      "firstname": "Mark",
       "surname": "Wilson"
+    },
+    {
+      "id": "079c",
+      "firstname": "Sana",
+      "surname": "Ahmad"
+    },
+    {
+      "id": "252d",
+      "firstname": "Sana",
+      "surname": "Ahmad"
+    },
+    {
+      "id": "e7a9",
+      "firstname": "John",
+      "surname": "Smith"
+    },
+    {
+      "id": "d6da",
+      "firstname": "Chris",
+      "surname": "Mcalpine"
     }
   ]
 }
