@@ -24,13 +24,19 @@ const AddBuyer = () => {
         }).join(' ');
     };
     
+    const firstToTitleCase = (first) => {
+        return first.split(' ').map((word) => {
+                // Capitalize the first letter of other words
+                return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+            }).join(' ');
+    };
 
     // Function to handle the form submission
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         // Convert input names to title case
-        const titleCaseFirstName = toTitleCase(firstname);
+        const titleCaseFirstName = firstToTitleCase(firstname);
         const titleCaseSurname = toTitleCase(surname);
 
         // Create the user object

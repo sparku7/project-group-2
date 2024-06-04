@@ -20,12 +20,20 @@ const AddSeller = () => {
     }).join(' ');
 };
 
+const firstToTitleCase = (first) => {
+  return first.split(' ').map((word) => {
+          return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+      }).join(' ');
+};
+
+
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
     // const addSeller = { firstName, surname };
 
-    const titleCaseFirstName = toTitleCase(firstName);
+    const titleCaseFirstName = firstToTitleCase(firstName);
     const titleCaseSurname = toTitleCase(surname);
 
     // Create the user object
