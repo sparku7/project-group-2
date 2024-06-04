@@ -34,8 +34,14 @@ const AddBuyer = () => {
                 return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
             }
         }).join(' ');
+
     };
-    
+    const firstToTitleCase = (name) => {
+        return name.split(' ').map((word) => {
+                           return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+            }
+        ).join(' ');
+    };
 
     // Function to handle the form submission
     const handleSubmit = async (e) => {
