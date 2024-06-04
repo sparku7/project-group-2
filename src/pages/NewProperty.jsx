@@ -10,9 +10,9 @@ function NewProperty() {
     <div >
       <div className="container1">
       <AddProperty />
-      </div>
+     
       <PropertyDisplay />
-    </div>
+      </div>    </div>
   )
 }
 
