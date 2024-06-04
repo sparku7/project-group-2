@@ -17,7 +17,7 @@ const BookAppointment = () => {
 
   useEffect(() => {
     // Fetch data from the API and update state or perform other actions
-    fetch('http://localhost:8004/timeslots')
+    fetch('http://localhost:8888/timeslots')
       .then((response) => response.json())
       .then((data) => {
         // Update state or perform other actions with the fetched data
@@ -35,7 +35,7 @@ const BookAppointment = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const appointments = { firstName, surname, propertyid, date, timeslot };
-    fetch('http://localhost:8003/appointments', {
+    fetch('http://localhost:8888/appointments', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(appointments)

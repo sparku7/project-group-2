@@ -11,14 +11,13 @@ function PropertyDisplay() {
     const [properties, setProperties] = useState([])
     useEffect(() => {
 
-        fetch('http://localhost:8000/properties')
+        fetch('http://localhost:8080/properties')
             .then((response) => response.json())
             .then((data) => { setProperties(data) })
             .catch((error) => console.error('Error:', error));
 
     }, [properties])
 
-    
     return (
         <div>
             <br></br>

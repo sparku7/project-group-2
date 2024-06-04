@@ -23,14 +23,14 @@ const Appointments = ()=> {
   //this is how we are going to use the id
   const [deleteId, setDeleteId] = useState('')
   //this is our data call, using the useFetch function containing the useEffect
-  const [data] = useFetch('http://localhost:8003/appointments')
+  const [data] = useFetch('http://localhost:8888/appointments')
  
   const handleDelete = (e, deleteId) => {
     e.preventDefault()
 
     if (window.confirm('Are you sure you want to delete this appointer?')) {
  
-    fetch('http://localhost:8003/appointments/' + deleteId, {
+    fetch('http://localhost:8888/appointments/' + deleteId, {
  
     method: 'DELETE' ,
  

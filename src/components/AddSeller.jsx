@@ -25,7 +25,7 @@ const AddSeller = () => {
 
     try {
       // Check if the combination already exists
-      fetch(`http://localhost:8002/sellers?firstname=${titleCaseFirstName}&surname=${titleCaseSurname}`)
+      fetch(`http://localhost:8888/sellers?firstname=${titleCaseFirstName}&surname=${titleCaseSurname}`)
         .then((checkResponse) => checkResponse.json())
         .then((existingData) => {
           // Convert existing data to lowercase before comparison
@@ -40,7 +40,7 @@ const AddSeller = () => {
           }
 
           // Sends a POST request to the server to add the new buyer
-          fetch('http://localhost:8002/sellers', {
+          fetch('http://localhost:8888/sellers', {
             method: 'POST',
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(user)

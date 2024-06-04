@@ -8,7 +8,7 @@ function JsonDataDisplay() {
 
     // This is used to fetch the  buyers' data from the server
     useEffect(() => {
-        fetch('http://localhost:8001/buyers')
+        fetch('http://localhost:8888/buyers')
             .then((response) => response.json())
             .then((data) => { setBuyers(data) })
             .catch((error) => console.error('Error:', error));
@@ -20,7 +20,7 @@ function JsonDataDisplay() {
     if (window.confirm('Are you sure you want to delete this buyer?')){
         try {
             // Sending a DELETE request to the server to remove a specific buyer
-            const response = await fetch(`http://localhost:8001/buyers/${id}`, {
+            const response = await fetch(`http://localhost:8888/buyers/${id}`, {
                 method: 'DELETE',
             });
             if (response.ok) {
