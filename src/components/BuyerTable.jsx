@@ -48,7 +48,7 @@ function JsonDataDisplay() {
                         <th>First Name</th>
                         <th>Surname</th>
                         <th>Delete Buyer</th>
-                        <th></th>
+                       
                     </thead>
                     <tbody>
                         {
