@@ -11,7 +11,7 @@ function PropertyDisplay() {
     const [properties, setProperties] = useState([])
     useEffect(() => {
 
-        fetch('http://localhost:8080/properties')
+        fetch('http://localhost:8888/properties')
             .then((response) => response.json())
             .then((data) => { setProperties(data) })
             .catch((error) => console.error('Error:', error));
@@ -31,7 +31,7 @@ function PropertyDisplay() {
                         <th>Bedrooms</th>
                         <th>Bathrooms</th>
                         <th>Price </th>
-                        <th>Image URL</th>
+                       
                         <th>Status</th>
                         <th>Update Property Details</th>
                     </thead>
@@ -45,7 +45,7 @@ function PropertyDisplay() {
                                     <td>{info.bedrooms}</td>
                                     <td>{info.bathrooms}</td>
                                     <td>{info.price}</td>
-                                    <td>{info.imageUrl}</td>
+                                    
                                     <td>{info.status}</td>
                                     <td><button onClick={() => navigate("/update/" + info.id )} className="delete-btn"> Update Property </button></td>
                                 </tr>
