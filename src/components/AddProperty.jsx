@@ -1,5 +1,15 @@
 import { useState } from "react";
 
+const CustomAlert = ({ message, onClose }) => {
+    return (
+        <div className="custom-alert">
+            <p>{message}</p>
+            <button onClick={onClose}>Close</button>
+        </div>
+    );
+};
+
+
 
 export default function AddProperty() {
 
@@ -12,6 +22,8 @@ export default function AddProperty() {
     const [status, setStatus] = useState('For Sale')
     const [imageUrl, setImageUrl] = useState('')
     const [sellerId, setSellerId] = useState("");
+    const [showAlert, setShowAlert] = useState(false);
+    const [alertMessage, setAlertMessage] = useState('');
 
 
     const handleSubmit = async (e) => {
@@ -25,7 +37,8 @@ export default function AddProperty() {
             // Check if seller ID exists
             const sellerExists = sellersData.some((seller) => seller.id === sellerId);
             if (!sellerExists) {
-                alert(`Seller ID ${sellerId} does not exist. Please enter a valid seller ID`);
+                setAlertMessage(`Seller ID ${sellerId} does not exist. Please enter a valid seller ID`);
+                setShowAlert(true);
                 return;
             }
 
@@ -40,7 +53,8 @@ export default function AddProperty() {
                 }
             )
 
-            alert("Property added successfully!")
+            setAlertMessage(`Property Added Succesfully`);
+            setShowAlert(true);
 
             setSellerId('')
             setStreet('')
@@ -127,6 +141,14 @@ export default function AddProperty() {
             <br />
             <br />
             <button className="button1" type="submit">Add Property</button>
+
+            {showAlert && (
+                    <CustomAlert
+
+                        message={alertMessage}
+                        onClose={() => setShowAlert(false)} // Close button action
+                    />
+                )}
         </form>
     )
 

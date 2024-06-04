@@ -2,7 +2,7 @@ import { useState } from "react";
 import '../css/RegisterUser.css';
 
 // CustomAlert component
-const CustomAlert = ({ title, message, onClose }) => {
+const CustomAlert = ({ message, onClose }) => {
     return (
         <div className="custom-alert">
             <p>{message}</p>
