@@ -19,8 +19,8 @@
       "bathrooms": "2",
       "price": "323123",
       "garden": "Yes",
-      "imageUrl": "https://randomwordgenerator.com/img/picture-generator/water-3167440_640.jpg",
-      "status": "Sold"
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuzuVBrCaUWx033aZT-iy5gQnhtiosMeYggw&s",
+      "status": "For Sale"
     },
     {
       "id": "132",
@@ -91,7 +91,7 @@
     {
       "id": "997",
       "street": "123 avenue",
-      "town": "Dunfermline isnt a city",
+      "town": "Dunfermline",
       "bedrooms": "3",
       "bathrooms": "2",
       "price": "323123",
@@ -142,17 +142,6 @@
       "garden": "No",
       "status": "Sold",
       "imageUrl": "https://media.rightmove.co.uk/56k/55853/148471778/55853_WH5028_IMG_00_0000.jpeg"
-    },
-    {
-      "id": "992",
-      "street": "Crescent Avenue",
-      "town": "Bathgate",
-      "price": "215000",
-      "bedrooms": "3",
-      "bathrooms": "1",
-      "garden": "Yes",
-      "status": "Withdrawn",
-      "imageUrl": "https://media.rightmove.co.uk/35k/34395/148392980/34395_27659841_IMG_00_0000.jpeg"
     }
   ]
 }

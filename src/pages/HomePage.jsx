@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { Col, Row, Container, Form, Button } from 'react-bootstrap';
 
 function HomePage() {
-  const apiUrl = "http://localhost:8000/properties";
+  const apiUrl = "http://localhost:8888/properties";
   const [items, setItems] = useState([""]);
   const [filters, setFilters] = useState({});
   const [filteredItems, setFilteredItems] = useState([]);
@@ -47,11 +47,11 @@ function HomePage() {
         : true;
 
       const matchesBedrooms = filters.bedrooms
-        ? item.bedrooms.toString() === filters.bedrooms
+        ? item.bedrooms.toString() >= filters.bedrooms
         : true;
 
       const matchesBathrooms = filters.bathrooms
-        ? item.bathrooms.toString() === filters.bathrooms
+        ? item.bathrooms.toString() >= filters.bathrooms
         : true;
 
       const matchesGarden = filters.garden
@@ -85,7 +85,7 @@ function HomePage() {
                   <p className="featureText">Probably best to buy or sell somewhere else!</p>
                 </div>
               </Col>
-              <Col md={6} className="d-flex align-items-center justify-content-center">
+              <Col md={6} className="d-flex align-items-center justify-content-center form-div">
                 <Form className="search-filter bg-white p-4 rounded" onSubmit={handleSubmit}>
                   <Row>
                     <Col xs={12}>
@@ -103,7 +103,7 @@ function HomePage() {
                   <Row>
                     <Col md={4}>
                       <Form.Group controlId="bedrooms">
-                        <Form.Label>Bedrooms:</Form.Label>
+                        <Form.Label>Min Bedrooms:</Form.Label>
                         <Form.Control
                           type="number"
                           name="bedrooms"
@@ -114,7 +114,7 @@ function HomePage() {
                     </Col>
                     <Col md={4}>
                       <Form.Group controlId="bathrooms">
-                        <Form.Label>Bathrooms:</Form.Label>
+                        <Form.Label>Min Bathrooms:</Form.Label>
                         <Form.Control
                           type="number"
                           name="bathrooms"

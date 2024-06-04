@@ -6,13 +6,15 @@ function AddBuyers() {
 
     return (
 
-        <div className="container1">
+        <div className="body">
+            <div className="container1">
 
             <h1>Register a New Buyer</h1>
 
             <AddBuyer />
             <JsonDataDisplay />
 
+            </div>
         </div>
     );
 }

@@ -16,7 +16,7 @@ export default function MaintainProperty() {
     const navigate = useNavigate()
 
     useEffect(() => {
-        axios.get("http://localhost:8000/properties/" + params.id).then(res => {
+        axios.get("http://localhost:8888/properties/" + params.id).then(res => {
         console.log(res)    
         setStreet(res.data.street);
             setTown(res.data.town);
@@ -31,9 +31,9 @@ export default function MaintainProperty() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.patch("http://localhost:8000/properties/" + params.id, { street, town, price, bedrooms, bathrooms, garden, status, imageUrl })
+        axios.patch("http://localhost:8888/properties/" + params.id, { street, town, price, bedrooms, bathrooms, garden, status, imageUrl })
             .then(() => {
-            
+            alert("Property Details updated successfully")
                 navigate('/newproperty')
             }).catch(err => console.log(err));
     }
@@ -41,6 +41,7 @@ export default function MaintainProperty() {
     return (
         <div className="body">
             <h1> Property Updates - Change all required </h1>
+            <br/>
             <form onSubmit={handleSubmit}>
                 <label className="label1">Street Name: </label>
                 <input type="text"

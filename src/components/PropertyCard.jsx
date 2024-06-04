@@ -4,15 +4,14 @@ import { FaBed, FaBath, FaTree } from 'react-icons/fa';
 
 export default function PropertyCard({street, town, bedrooms, bathrooms, price, garden, imageUrl, status}) {
 
-  price = parseFloat(price);
+  
   const formattedPrice = (price).toLocaleString('en-GB', {
     style: 'currency',
     currency: 'GBP',
     minimumFractionDigits: 0,
   });  
-  
-  
-  
+
+
   const getStatusClass = (status) => {
         switch (status) {
             case 'For Sale':
@@ -31,7 +30,7 @@ export default function PropertyCard({street, town, bedrooms, bathrooms, price, 
       };
 
       return (
-        <div className="col-12 col-md-6 col-lg-3 d-flex align-items-stretch mb-4">
+        <div className="col-12 col-md-6 col-lg-3 align-items-stretch mb-4">
           <div className="card">
             <div className="card-header">
               <h3 className="mb-0">{street}</h3>

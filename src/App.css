@@ -43,10 +43,16 @@
   margin-left:5%;
   margin-right: 5%;
   position: relative;
+  margin-top: 60px;
+
 }
 .items-grid{
   width: 100%;
 
+}
+
+.custom-navbar{
+  border-bottom: 2px solid #800080;
 }
 
 .custom-navbar .navbar-brand {
@@ -65,7 +71,7 @@
 
 .head-image {
   position: relative;
-  height: 600px;
+  min-height: 600px;
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -98,6 +104,12 @@
   border-radius: 5px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
+.form-div {
+
+  margin-bottom: 10px;
+}
+
 
 .btn-custom {
   background-color: #800080 !important;

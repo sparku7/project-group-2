@@ -1,5 +1,15 @@
 import { useState } from "react";
 
+const CustomAlert = ({ message, onClose }) => {
+    return (
+        <div className="custom-alert">
+            <p>{message}</p>
+            <button onClick={onClose}>Close</button>
+        </div>
+    );
+};
+
+
 
 export default function AddProperty() {
 
@@ -12,6 +22,8 @@ export default function AddProperty() {
     const [status, setStatus] = useState('For Sale')
     const [imageUrl, setImageUrl] = useState('')
     const [sellerId, setSellerId] = useState("");
+    const [showAlert, setShowAlert] = useState(false);
+    const [alertMessage, setAlertMessage] = useState('');
 
 
     const handleSubmit = async (e) => {
@@ -19,19 +31,20 @@ export default function AddProperty() {
 
         // Fetch sellers data 
         try {
-            const response = await fetch("http://localhost:8002/sellers");
+            const response = await fetch("http://localhost:8888/sellers");
             const sellersData = await response.json();
 
             // Check if seller ID exists
             const sellerExists = sellersData.some((seller) => seller.id === sellerId);
             if (!sellerExists) {
-                alert(`Seller ID ${sellerId} does not exist. Please enter a valid seller ID`);
+                setAlertMessage(`Seller ID ${sellerId} does not exist. Please enter a valid seller ID`);
+                setShowAlert(true);
                 return;
             }
 
             const task = { sellerId, street, town, price, bedrooms, bathrooms, garden, status, imageUrl }
 
-            fetch("http://localhost:8000/properties",
+            fetch("http://localhost:8888/properties",
                 {
                     method: 'POST',
                     headers: { "Content-Type": "application/json" },
@@ -40,7 +53,8 @@ export default function AddProperty() {
                 }
             )
 
-            alert("Property added successfully!")
+            setAlertMessage(`Property Added Succesfully`);
+            setShowAlert(true);
 
             setSellerId('')
             setStreet('')
@@ -66,9 +80,9 @@ export default function AddProperty() {
                 required
                 value={sellerId}
                 onChange={(e) => setSellerId(e.target.value)} />
-                <br />
-            <br />              
-                    
+            <br />
+            <br />
+
             <label className="label1">Street Name: </label>
             <input type="text"
                 className="input1"
@@ -90,7 +104,7 @@ export default function AddProperty() {
                 className="input1"
                 required
                 value={price}
-                onChange={(e) => setPrice(e.target.value)} />
+                onChange={(e) => setPrice(parseInt(e.target.value))} />
             <br />
             <br />
             <label className="label1">Bedrooms: </label>
@@ -98,7 +112,7 @@ export default function AddProperty() {
                 className="input1"
                 required
                 value={bedrooms}
-                onChange={(e) => setBedrooms(e.target.value)} />
+                onChange={(e) => setBedrooms(parseInt(e.target.value))} />
             <br />
             <br />
             <label className="label1">Bathrooms: </label>
@@ -106,7 +120,7 @@ export default function AddProperty() {
                 className="input1"
                 required
                 value={bathrooms}
-                onChange={(e) => setBathrooms(e.target.value)} />
+                onChange={(e) => setBathrooms(parseInt(e.target.value))} />
             <br />
             <br />
             <label className="label1">Garden: </label>
@@ -127,6 +141,14 @@ export default function AddProperty() {
             <br />
             <br />
             <button className="button1" type="submit">Add Property</button>
+
+            {showAlert && (
+                    <CustomAlert
+
+                        message={alertMessage}
+                        onClose={() => setShowAlert(false)} // Close button action
+                    />
+                )}
         </form>
     )
 
