@@ -33,7 +33,7 @@ export default function MaintainProperty() {
         e.preventDefault();
         axios.patch("http://localhost:8000/properties/" + params.id, { street, town, price, bedrooms, bathrooms, garden, status, imageUrl })
             .then(() => {
-            
+            alert("Property Details updated successfully")
                 navigate('/newproperty')
             }).catch(err => console.log(err));
     }
