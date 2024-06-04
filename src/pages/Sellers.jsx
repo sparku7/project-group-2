@@ -42,6 +42,7 @@ const Sellers = ()=> {
  
  
   return (
+    <div className="body">
     <div className="container2">
         <h1>Register a New Seller</h1>
         <br></br>
@@ -79,6 +80,7 @@ const Sellers = ()=> {
     </div>
  
  
+    </div>
     </div>
   );
 }
