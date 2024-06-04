@@ -7,12 +7,15 @@ function NewProperty() {
 
   return (
 
-    <div >
+    <div className="body" >
       <div className="container1">
-      <AddProperty />
-     
-      <PropertyDisplay />
-      </div>    </div>
+      <h1>Property Admin</h1>
+      <br/>
+        <AddProperty />
+      
+        <PropertyDisplay />
+      </div>    
+    </div>
   )
 }
 
