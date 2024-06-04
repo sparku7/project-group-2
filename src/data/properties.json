@@ -20,7 +20,7 @@
       "price": "323123",
       "garden": "Yes",
       "imageUrl": "https://randomwordgenerator.com/img/picture-generator/water-3167440_640.jpg",
-      "status": "For Sale"
+      "status": "Sold"
     },
     {
       "id": "132",
@@ -30,7 +30,7 @@
       "bathrooms": "1",
       "price": "1053123",
       "garden": "Yes",
-      "imageUrl": "https://i.guim.co.uk/img/media/0df4e47ffe5dcd27adb28d70418dfbaf2b620941/0_0_5000_3000/500.jpg?quality=85&auto=format&fit=max&s=e29cfa7d20426ca5ccb191653102ea66",
+      "imageUrl": "https://img.onmanorama.com/content/dam/mm/en/lifestyle/decor/images/2023/6/1/house-middleclass.jpg",
       "status": "For Sale"
     },
     {
@@ -53,7 +53,7 @@
       "bathrooms": "2",
       "garden": "Yes",
       "status": "For Sale",
-      "imageUrl": "https://randomwordgenerator.com/img/picture-generator/water-3167440_640.jpg"
+      "imageUrl": "https://media.houseandgarden.co.uk/photos/65f80801278c68a0967e51e8/1:1/w_1600%2Cc_limit/Shot-02-045_RT.jpg"
     },
     {
       "id": "6c76",
@@ -96,18 +96,18 @@
       "bathrooms": "2",
       "price": "323123",
       "garden": "Yes",
-      "imageUrl": "https://randomwordgenerator.com/img/picture-generator/water-3167440_640.jpg",
+      "imageUrl": "https://res.cloudinary.com/brickandbatten/images/f_auto,q_auto/v1675439478/wordpress_assets/SmallHouseExteriors-Twitter-card-B-LOGO/SmallHouseExteriors-Twitter-card-B-LOGO.jpg?_i=AA",
       "status": "For Sale"
     },
     {
       "id": "996",
       "street": "12 Crescent",
       "town": "London",
-      "bedrooms": "3",
-      "bathrooms": "1",
+      "bedrooms": "7",
+      "bathrooms": "2",
       "price": "1053123",
       "garden": "Yes",
-      "imageUrl": "https://i.guim.co.uk/img/media/0df4e47ffe5dcd27adb28d70418dfbaf2b620941/0_0_5000_3000/500.jpg?quality=85&auto=format&fit=max&s=e29cfa7d20426ca5ccb191653102ea66",
+      "imageUrl": "https://www.wilsonhomes.com.au/sites/default/files/styles/blog_hero_banner/public/My%20project%20-%202023-06-20T095818.329%20%281%29_0.jpg?itok=UbtVbhT0",
       "status": "For Sale"
     },
     {
@@ -130,7 +130,7 @@
       "bathrooms": "2",
       "garden": "Yes",
       "status": "For Sale",
-      "imageUrl": "https://randomwordgenerator.com/img/picture-generator/water-3167440_640.jpg"
+      "imageUrl": "https://keyassets.timeincuk.net/inspirewp/live/wp-content/uploads/sites/8/2023/03/CLI395.props_week.173_petersham_road_17_1-920x613.jpg"
     },
     {
       "id": "993",

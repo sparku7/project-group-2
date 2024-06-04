@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Navigate, useParams } from "react-router-dom";
+import {  useNavigate, useParams } from "react-router-dom";
 
 export default function MaintainProperty() {
 
@@ -13,6 +13,7 @@ export default function MaintainProperty() {
     const [garden, setGarden] = useState('')
     const [status, setStatus] = useState('')
     const [imageUrl, setImageUrl] = useState('')
+    const navigate = useNavigate()
 
     useEffect(() => {
         axios.get("http://localhost:8000/properties/" + params.id).then(res => {
@@ -30,10 +31,10 @@ export default function MaintainProperty() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.patch("http://localhost:8000/properties" + params.id, { street, town, price, bedrooms, bathrooms, garden, status, imageUrl })
-            .then((res) => {
-                console.log(res)
-                Navigate('/newproperty')
+        axios.patch("http://localhost:8000/properties/" + params.id, { street, town, price, bedrooms, bathrooms, garden, status, imageUrl })
+            .then(() => {
+            
+                navigate('/newproperty')
             }).catch(err => console.log(err));
     }
 
