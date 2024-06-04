@@ -16,7 +16,7 @@ function HomePage() {
         setItems(data);
         const forSaleProperties = data.filter(item => item.status.toLowerCase() === "for sale");
         setFilteredItems(forSaleProperties); // Initially display only "For Sale" properties
-        setFilters({ status: "For Sale" }); // Initialize filters with "For Sale"
+        setFilters({ status: "For Sale" }); // Initialise filters with "For Sale"
       });
   }, []);
 
@@ -185,7 +185,6 @@ function HomePage() {
         <div className="row">
           {filteredItems.map((item) => (
             <PropertyCard
-              key={item.id}
               street={item.street}
               town={item.town}
               bedrooms={item.bedrooms}
