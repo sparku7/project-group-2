@@ -36,7 +36,7 @@ function AddBuyers() {
                         <br></br>
                         <br></br>
 
-                        <button type="submit">Submit</button>
+                        <button className='button1' type="submit">Submit</button>
                     </form>
                 )}
                 {isAuthenticated && <JsonDataDisplay />}

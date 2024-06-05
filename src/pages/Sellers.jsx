@@ -22,12 +22,33 @@ const useFetch = (url) => {
  
  
 const Sellers = ()=> {
+  const [password, setPassword] = useState('');
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
  
   //this is how we are going to use the id
   const [deleteId, setDeleteId] = useState(null);
   //this is our data call, using the useFetch function containing the useEffect
   const [showConfirmation, setShowConfirmation] = useState(false);
-  const [data] = useFetch('http://localhost:8888/sellers')
+  const [data, setData] = useState([]);
+
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value);
+  };
+
+  const handlePasswordSubmit = (e) => {
+    e.preventDefault();
+
+    if (password === 'Password') {
+      setIsAuthenticated(true);
+      // Fetch sellers data once authenticated
+      fetch('http://localhost:8888/sellers')
+        .then((res) => res.json())
+        .then((data) => setData(data))
+        .catch((error) => console.error('Error fetching sellers:', error));
+    } else {
+      alert('Incorrect password');
+    }
+  };
  
   const handleDelete = (id) => {
     setDeleteId(id);
@@ -54,56 +75,70 @@ const Sellers = ()=> {
  
   return (
     <div className="body">
-    <div className="container2">
+      <div className="container2">
         <h1>Register a New Seller</h1>
-        <br></br>
-        <br></br>
-     <AddSeller/>
-     
- 
-   
-    <div>
-    <br/> <br />
-    <div className='table-container'>
-    <table>
-      <thead>
-          <th>Sellers ID</th>
-          <th>First Name</th>
-          <th>Surname</th>
-          <th>Delete Seller</th>
-      </thead>
-      <tbody>
-      {data && data.map((sell)=>(
-        <tr>
-          {/* We are setting the deleteId (The one we use in our handleDelete function to input the id directly at the end of the url) */}
-          {/* We are extracting the value from the data on the page so we cant make a mistake */}
-          <td>{sell.id}</td>
-          <td>{sell.firstname}</td>
-          <td>{sell.surname}</td>
-          {/* We use the handleDelete to use the sell.id, it makes the request, and disappears from the screen and json file */}
-          <td><button className="delete-btn" onClick={() => handleDelete(sell.id)}>Delete</button></td>
-       
-        </tr>
-     ))}
-     
-      </tbody>
-    </table>
-    </div>
-    </div>
-    {showConfirmation && (
+        <br />
+        <br />
+        <AddSeller />
+        {!isAuthenticated && (
+          <form className="password-form" onSubmit={handlePasswordSubmit}>
+            <label>Enter Admin Password to see list of Sellers</label>
+            <input
+              type="password"
+              value={password}
+              onChange={handlePasswordChange}
+            />
+            <br />
+            <br />
+            <button className="button1" type="submit">Submit</button>
+            
+          </form>
+        )}
+        {isAuthenticated && (
+          <div>
+            <br /> <br />
+            <div className='table-container'>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Sellers ID</th>
+                    <th>First Name</th>
+                    <th>Surname</th>
+                    <th>Delete Seller</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {data.map((sell) => (
+                    <tr key={sell.id}>
+                      <td>{sell.id}</td>
+                      <td>{sell.firstname}</td>
+                      <td>{sell.surname}</td>
+                      <td>
+                        <button
+                          className="delete-btn"
+                          onClick={() => handleDelete(sell.id)}
+                        >
+                          Delete
+                        </button>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        )}
+        {showConfirmation && (
           <ConfirmationDialog
             message="Are you sure you want to delete this seller?"
             onConfirm={handleConfirmDelete}
             onCancel={handleCancelDelete}
           />
         )}
- 
- 
-    </div>
+        <br></br>
+        <br></br>
+      </div>
     </div>
   );
 }
- 
- 
- 
 export default Sellers;

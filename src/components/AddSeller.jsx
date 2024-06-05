@@ -118,7 +118,7 @@ const firstToTitleCase = (first) => {
           />
         </div>
         <br />
-        <button className='button1'>Submit</button>
+        <button className='button1'>Add Seller</button>
 
         {showAlert && (
                     <CustomAlert
