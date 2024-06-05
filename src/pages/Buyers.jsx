@@ -2,10 +2,12 @@ import React, { useState } from 'react';
 import AddBuyer from "../components/AddBuyer";
 import JsonDataDisplay from "../components/BuyerTable";
 import '../css/RegisterUser.css';
+import CustomAlert from '../components/CustomAlert';
 
 function AddBuyers() {
     const [password, setPassword] = useState('');
     const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const [showAlert, setShowAlert] = useState(false);
 
     const handlePasswordChange = (e) => {
         setPassword(e.target.value);
@@ -16,7 +18,7 @@ function AddBuyers() {
         if (password === 'Password') {
             setIsAuthenticated(true);
         } else {
-            alert('Incorrect password');
+          setShowAlert(true);
         }
     };
 
@@ -39,6 +41,12 @@ function AddBuyers() {
                         <button className='button1' type="submit">Submit</button>
                     </form>
                 )}
+                  {showAlert && ( // Render the custom alert if showAlert is true
+          <CustomAlert
+            message="Incorrect password. Please try again."
+            onClose={() => setShowAlert(false)} // Close the alert when clicked
+          />
+      )}
                 {isAuthenticated && <JsonDataDisplay />}
             </div>
         </div>
