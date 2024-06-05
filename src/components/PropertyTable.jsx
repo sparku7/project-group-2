@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 
 
 function PropertyDisplay() {
-    const navigate= useNavigate()
+    const navigate = useNavigate()
     const [properties, setProperties] = useState([])
     useEffect(() => {
 
@@ -31,7 +31,7 @@ function PropertyDisplay() {
                         <th>Bedrooms</th>
                         <th>Bathrooms</th>
                         <th>Price </th>
-                       
+
                         <th>Status</th>
                         <th>Update Property Details</th>
                     </thead>
@@ -44,10 +44,14 @@ function PropertyDisplay() {
                                     <td>{info.town}</td>
                                     <td>{info.bedrooms}</td>
                                     <td>{info.bathrooms}</td>
-                                    <td>{info.price}</td>
-                                    
+                                    <td>{(info.price).toLocaleString('en-GB', {
+                                        style: 'currency',
+                                        currency: 'GBP',
+                                        minimumFractionDigits: 0,
+                                    })}</td>
+
                                     <td>{info.status}</td>
-                                    <td><button onClick={() => navigate("/update/" + info.id )} className="delete-btn"> Update Property </button></td>
+                                    <td><button onClick={() => navigate("/update/" + info.id)} className="delete-btn"> Update Property </button></td>
                                 </tr>
                             ))
                         }
