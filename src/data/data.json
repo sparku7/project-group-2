@@ -381,6 +381,15 @@
       "propertyId": "122",
       "date": "2024-06-11",
       "timeSlot": "12:00-13:00"
+    },
+    {
+      "id": "b3e0",
+      "buyerId": "f014",
+      "firstName": "David",
+      "surname": "mcmanus",
+      "propertyId": "122",
+      "date": "2024-06-12",
+      "timeSlot": "12:00-13:00"
     }
   ]
 }
