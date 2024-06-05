@@ -3,6 +3,7 @@
  
 import AddSeller from "../components/AddSeller";
 import ConfirmationDialog from "../components/ConfirmationDialog";
+import CustomAlert from "../components/CustomAlert";
 
 
  
@@ -24,6 +25,7 @@ const useFetch = (url) => {
 const Sellers = ()=> {
   const [password, setPassword] = useState('');
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [showAlert, setShowAlert] = useState(false);
  
   //this is how we are going to use the id
   const [deleteId, setDeleteId] = useState(null);
@@ -46,7 +48,7 @@ const Sellers = ()=> {
         .then((data) => setData(data))
         .catch((error) => console.error('Error fetching sellers:', error));
     } else {
-      alert('Incorrect password');
+     setShowAlert(true);
     }
   };
  
@@ -94,6 +96,12 @@ const Sellers = ()=> {
             
           </form>
         )}
+         {showAlert && ( // Render the custom alert if showAlert is true
+          <CustomAlert
+            message="Incorrect password. Please try again."
+            onClose={() => setShowAlert(false)} // Close the alert when clicked
+          />
+      )}
         {isAuthenticated && (
           <div>
             <br /> <br />
