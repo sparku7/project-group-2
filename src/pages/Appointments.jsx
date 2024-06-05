@@ -52,6 +52,7 @@ const Appointments = ()=> {
     <table>
       <thead>
           <th>Booking ID</th>
+          <th>Buyer ID</th>
           <th>First Name</th>
           <th>Surname</th>
           <th>Property ID</th>
@@ -65,9 +66,10 @@ const Appointments = ()=> {
           {/* We are setting the deleteId (The one we use in our handleDelete function to input the id directly at the end of the url) */}
           {/* We are extracting the value from the data on the page so we cant make a mistake */}
           <td value={deleteId} onChange={(e) => setDeleteId(e.target.value)}>{appoint.id}</td>
+          <td>{appoint.buyerId}</td>
           <td>{appoint.firstName}</td>
           <td>{appoint.surname}</td>
-          <td>{appoint.propertyid}</td>
+          <td>{appoint.propertyId}</td>
           <td>{appoint.date}</td>
           <td>{appoint.timeslot}</td>
           {/* We use the handleDelete to use the appoint.id, it makes the request, and disappears from the screen and json file */}

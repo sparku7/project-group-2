@@ -1,14 +1,44 @@
-import React, { useState } from 'react';
-import '../css/RegisterUser.css';
+import React, { useState, useEffect } from 'react';
 
 const BookAppointment = () => {
-  const [selectedTime, setSelectedTime] = useState('');
+  const [timeSlot, settimeSlot] = useState([]);
   const [firstName, setFirstname] = useState('');
   const [surname, setSurname] = useState('');
   const [propertyId, setPropertyId] = useState('');
   const [date, setDate] = useState('');
   const [buyerId, setBuyerId] = useState('');
+  const [userPopulate, setUserPopulate] = useState({ firstName: '', surname: '' });
+  const availableSlots = [
+    "8:00-9:00",
+    "9:00-10:00",
+    "10:00-11:00",
+    "12:00-13:00",
+    "13:00-14:00",
+    "15:00-16:00",
+    "16:00-17:00",
+  ]
 
+
+
+  const handleTimeChange = (e) => {
+    settimeSlot(e.target.value); // Update the selected time
+  };
+
+  
+  const handlePopulate = async (buyerId) => {
+    try {
+      const response = await fetch("http://localhost:8888/buyers");
+      const userData = await response.json();
+      const userExists = userData.find((buyer) => buyer.id === buyerId);
+      if (userExists) {
+        setUserPopulate({ firstname: userExists.firstname, surname: userExists.surname });
+      } else {
+        console.log('User not found');
+      }
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -41,9 +71,27 @@ const BookAppointment = () => {
           console.error("Error fetching propertys data:", error);
         }
 
+        try {
+          
+          const response = await fetch("http://localhost:8888/appointments");
+          const bookingData = await response.json();
+
+           // Check if the appointment exists for the specified date and time slot
+           const appointmentExists = bookingData.some(
+           (booking) => booking.propertyId === propertyId && booking.date === date && booking.timeSlot === timeSlot
+  );
+          if (appointmentExists) {
+            alert(`This timeslot is already booked for Property ID ${propertyId} on ${date} at ${timeSlot}, please select another time slot`);
+          } else {
+            alert(`The timeslot is available for booking.`);
+            // You can proceed with further logic (e.g., allowing the user to book the slot).
+          }
+        } catch (error) {
+          console.error("Error fetching appointment data:", error);
+        }
 
       // Proceed with appointment booking logic
-      const appointments = { firstName, surname, propertyId, date, timeslot: selectedTime };
+      const appointments = { buyerId, firstName, surname, propertyId, date, timeSlot};
       const appointmentResponse = await fetch('http://localhost:8888/appointments', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -57,7 +105,7 @@ const BookAppointment = () => {
       setSurname('');
       setPropertyId('');
       setDate('');
-      setSelectedTime('');
+      settimeSlot('');
  
   };
 
@@ -82,6 +130,7 @@ const BookAppointment = () => {
         required  
         value={firstName} 
         onChange={(e) => setFirstname(e.target.value)} 
+      
 
       />  
     </div>
@@ -91,6 +140,8 @@ const BookAppointment = () => {
       type="text" 
       value={surname} 
       onChange={(e) => setSurname(e.target.value)} 
+      
+    
     /> 
     </div>
     <br />
@@ -115,25 +166,22 @@ const BookAppointment = () => {
         />
       </div>
       <br />
-        <div>
-          <label className="label1">Select Time:</label>
-          <select
-            className="input1"
-            value={selectedTime}
-            onChange={(e) => setSelectedTime(e.target.value)}
-          >
-            <option value="">Choose a time</option>
-            <option>8:00-9:00</option>
-            <option>9:00-10:00</option>
-            <option>10:00-11:00</option>
-            <option>12:00-13:00</option>
-            <option>13:00-14:00</option>
-            <option>15:00-16:00</option>
-            <option>16:00-17:00</option>
-           
-          
-          </select>
-        </div>
+      <div>
+      <label className="label1">Select Time:</label>
+      <select
+        className="input1"
+        value={timeSlot}
+        onChange={handleTimeChange}
+      >
+        
+          <option value="">Choose a time</option>
+            {availableSlots.map((slot) => (
+              <option key={slot} value={slot}>
+                {slot}
+              </option>
+        ))}
+      </select>
+    </div>
         <br />
         <button className="button1">Book</button>
       </form>
