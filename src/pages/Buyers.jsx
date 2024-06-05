@@ -24,13 +24,14 @@ function AddBuyers() {
 
     return (
         <div className="body">
-            <div className="container2">
+            <div className="container2" >
                 <h1>Register a New Buyer</h1>
                 <AddBuyer />
                 {!isAuthenticated && (
                     <form className='password-form' onSubmit={handlePasswordSubmit}>
                         <label>  Enter Admin Password to see list of Buyers  </label>
                         <input
+                        className='input1'
                             type="password"
                             value={password}
                             onChange={handlePasswordChange}
