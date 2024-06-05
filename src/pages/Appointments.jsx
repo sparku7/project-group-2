@@ -40,6 +40,7 @@ const Appointments = ()=> {
  
  
   return (
+    <div className="body">
     <div className="container2">
     <h1>Book Appointment</h1>
     <BookAppointment />
@@ -81,6 +82,7 @@ const Appointments = ()=> {
     </div>
  
  
+    </div>
     </div>
   );
 }
