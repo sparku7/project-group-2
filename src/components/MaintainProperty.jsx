@@ -2,6 +2,8 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import {  useNavigate, useParams } from "react-router-dom";
 
+import CustomAlert from "./CustomAlert";
+
 export default function MaintainProperty() {
 
     const params = useParams();
@@ -14,6 +16,14 @@ export default function MaintainProperty() {
     const [status, setStatus] = useState('')
     const [imageUrl, setImageUrl] = useState('')
     const navigate = useNavigate()
+
+    const [showAlert, setShowAlert] = useState(false);
+    const [alertMessage, setAlertMessage] = useState('');
+    const handleCloseAlert = () => {
+      setShowAlert(false);
+      navigate("/newproperty");
+      
+    };
 
     useEffect(() => {
         axios.get("http://localhost:8888/properties/" + params.id).then(res => {
@@ -33,8 +43,9 @@ export default function MaintainProperty() {
         e.preventDefault();
         axios.patch("http://localhost:8888/properties/" + params.id, { street, town, price, bedrooms, bathrooms, garden, status, imageUrl })
             .then(() => {
-            alert("Property Details updated successfully")
-                navigate('/newproperty')
+                setAlertMessage("Property details updated successfully.");
+                setShowAlert(true);              
+                 
             }).catch(err => console.log(err));
     }
 
@@ -42,6 +53,7 @@ export default function MaintainProperty() {
         <div className="body">
             <h1> Property Updates - Change all required </h1>
             <br/>
+            {showAlert && <CustomAlert message={alertMessage} onClose={handleCloseAlert} />}
             <form onSubmit={handleSubmit}>
                 <label className="label1">Street Name: </label>
                 <input type="text"

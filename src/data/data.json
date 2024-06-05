@@ -1,24 +1,9 @@
 {
   "buyers": [
     {
-      "id": "b07b",
-      "firstname": "Donald",
-      "surname": "Trump"
-    },
-    {
-      "id": "1fbe",
-      "firstname": "David",
-      "surname": "McManus"
-    },
-    {
       "id": "f014",
       "firstname": "James",
       "surname": "Horgan"
-    },
-    {
-      "id": "fac6",
-      "firstname": "Sana",
-      "surname": "Ahmad"
     },
     {
       "id": "ebd0",
@@ -51,11 +36,6 @@
       "surname": "Ahmed"
     },
     {
-      "id": "d98a",
-      "firstname": "Gregg",
-      "surname": "Hunt"
-    },
-    {
       "id": "2bd8",
       "firstname": "Joe",
       "surname": "Bloggs"
@@ -77,7 +57,7 @@
       "price": 123123,
       "garden": "Yes",
       "imageUrl": "https://randomwordgenerator.com/img/picture-generator/water-3167440_640.jpg",
-      "status": "Sold"
+      "status": "Withdrawn"
     },
     {
       "id": "122",
@@ -232,7 +212,7 @@
       "bedrooms": 3,
       "bathrooms": 1,
       "garden": "Yes",
-      "status": "Withdrawn",
+      "status": "For Sale",
       "imageUrl": "https://media.rightmove.co.uk/35k/34395/148392980/34395_27659841_IMG_00_0000.jpeg"
     },
     {
@@ -359,19 +339,19 @@
       "surname": "Wilson"
     },
     {
-      "id": "1390",
-      "firstname": "Bruce",
-      "surname": "MacIntoosh"
+      "id": "8eca",
+      "firstname": "Ronald",
+      "surname": "Weasley"
     },
     {
-      "id": "a0b4",
-      "firstname": "Harry",
-      "surname": "Potter"
+      "id": "a5a6",
+      "firstname": "Professor",
+      "surname": "McGonagall"
     },
     {
-      "id": "24ef",
-      "firstname": "Macc",
-      "surname": "MacCc"
+      "id": "efa1",
+      "firstname": "David",
+      "surname": "McManus"
     }
   ],
   "appointments": [

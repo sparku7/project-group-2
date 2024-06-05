@@ -64,3 +64,22 @@ h3, h4 {
   pointer-events: none; /* Disable pointer events to prevent interaction */
   cursor: not-allowed; /* Show not-allowed cursor */
 }
+
+/* Default font size and styling */
+.street-name {
+  font-size: 1.5rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (max-width: 991.98px) {
+  .street-name {
+    font-size: 1.25rem;
+  }
+}
+
+
+
+
