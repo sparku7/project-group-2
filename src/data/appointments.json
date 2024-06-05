@@ -2,7 +2,7 @@
   "appointments": [
     {
       "id": "067a",
-      "buyer id":,
+      "buyer id": "9:00",
       "firstName": "Sana",
       "surname": "Ahmad",
       "propertyid": "122",
@@ -11,7 +11,7 @@
     },
     {
       "id": "5911",
-      "buyer id":,
+      "buyer id": "9:00",
       "firstName": "James",
       "surname": "Thompson",
       "propertyid": "122",
@@ -20,7 +20,7 @@
     },
     {
       "id": "cd2d",
-      "buyer id":,
+      "buyer id": "9:00",
       "firstName": "Sana",
       "surname": "Ahmad",
       "propertyid": "134",
@@ -29,7 +29,7 @@
     },
     {
       "id": "3360",
-      "buyer id":,
+      "buyer id": "9:00",
       "firstName": "Kelly",
       "surname": "Jones",
       "propertyid": "159",
@@ -38,7 +38,7 @@
     },
     {
       "id": "87f3",
-      "buyer id":,
+      "buyer id": "9:00",
       "firstName": "Donald",
       "surname": "Trump",
       "propertyid": "156",

@@ -82,7 +82,9 @@ const BookAppointment = () => {
   );
           if (appointmentExists) {
             alert(`This timeslot is already booked for Property ID ${propertyId} on ${date} at ${timeSlot}, please select another time slot`);
-          } else {
+            return;
+          } 
+          else {
             alert(`The timeslot is available for booking.`);
             // You can proceed with further logic (e.g., allowing the user to book the slot).
           }

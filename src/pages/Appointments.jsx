@@ -71,7 +71,7 @@ const Appointments = ()=> {
           <td>{appoint.surname}</td>
           <td>{appoint.propertyId}</td>
           <td>{appoint.date}</td>
-          <td>{appoint.timeslot}</td>
+          <td>{appoint.timeSlot}</td>
           {/* We use the handleDelete to use the appoint.id, it makes the request, and disappears from the screen and json file */}
           <td><button className="delete-btn" onClick={(e) => handleDelete(e, appoint.id)}>Cancel</button></td>
        
