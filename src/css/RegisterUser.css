@@ -33,7 +33,8 @@ table tr:nth-child(odd) {
 }
 
 table tr:hover {
-    background-color: #dbb5cf;
+    background-color: #
+    ;
 }
 
 table th {
@@ -88,6 +89,7 @@ table th {
 
 .button1:hover:before {
     opacity: 1;
+    
 }
 
 .button1:after {
@@ -130,7 +132,7 @@ table th {
 }
 
 .delete-btn:hover {
-    background-color: #a50e4d;
+    background-color: #6a006a;
 }
 
 
