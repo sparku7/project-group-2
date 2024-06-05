@@ -185,6 +185,7 @@ function HomePage() {
         <div className="row">
           {filteredItems.map((item) => (
             <PropertyCard
+              propertyKey={item.id}
               street={item.street}
               town={item.town}
               bedrooms={item.bedrooms}
