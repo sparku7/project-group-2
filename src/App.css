@@ -51,23 +51,42 @@
 
 }
 
+/* NAVBAR */
+
 .custom-navbar{
   border-bottom: 2px solid #800080;
 }
 
 .custom-navbar .navbar-brand {
-  color: #800080 !important; /* Apply purple color */
-  font-size: 1.5rem; /* Increase the font size */
-  font-weight: bold; /* Optional: make the text bold */
+  color: #800080 !important; 
+  font-size: 1.5rem; 
+  font-weight: bold; 
 }
 
 .custom-navbar .nav-link {
-  color: #800080 !important; /* Apply purple color */
+  color: #800080 !important; 
 }
 
 .custom-navbar .nav-link:hover {
-  color: #6a006a !important; /* Darker shade on hover */
+  color: #c500c5 !important; 
 }
+
+
+.custom-navbar .navbar-toggler {
+  background-color: #800080; 
+  border: none; 
+}
+
+.custom-navbar .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=UTF8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='%23ffffff' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+
+.custom-navbar .navbar-toggler.collapsed {
+  background-color: #6a006a; 
+}
+
+/* END NAVBAR */
 
 .head-image {
   position: relative;
