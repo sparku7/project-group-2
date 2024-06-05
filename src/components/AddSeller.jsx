@@ -1,15 +1,7 @@
 import { useState } from "react";
 import '../css/RegisterUser.css';
 
-// CustomAlert component
-const CustomAlert = ({  message, onClose }) => {
-  return (
-      <div className="custom-alert">
-          <p>{message}</p>
-          <button onClick={onClose}>Close</button>
-      </div>
-  );
-};
+import CustomAlert from "./CustomAlert";
 
 const AddSeller = () => {
   const [firstName, setFirstname] = useState('');

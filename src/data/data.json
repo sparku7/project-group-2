@@ -36,11 +36,6 @@
       "surname": "Ahmed"
     },
     {
-      "id": "d98a",
-      "firstname": "Gregg",
-      "surname": "Hunt"
-    },
-    {
       "id": "2bd8",
       "firstname": "Joe",
       "surname": "Bloggs"
@@ -62,7 +57,7 @@
       "price": 123123,
       "garden": "Yes",
       "imageUrl": "https://randomwordgenerator.com/img/picture-generator/water-3167440_640.jpg",
-      "status": "Withdrawn"
+      "status": "Sold"
     },
     {
       "id": "122",
@@ -352,6 +347,11 @@
       "id": "a5a6",
       "firstname": "Professor",
       "surname": "McGonagall"
+    },
+    {
+      "id": "efa1",
+      "firstname": "David",
+      "surname": "McManus"
     }
   ],
   "appointments": [

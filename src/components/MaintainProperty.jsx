@@ -2,15 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import {  useNavigate, useParams } from "react-router-dom";
 
-
-const CustomAlert = ({  message, onClose }) => {
-    return (
-        <div className="custom-alert">
-            <p>{message}</p>
-            <button onClick={onClose}>Close</button>
-        </div>
-    );
-  };
+import CustomAlert from "./CustomAlert";
 
 export default function MaintainProperty() {
 
