@@ -24,7 +24,7 @@ function AddBuyers() {
 
     return (
         <div className="body">
-            <div className="container1">
+            <div className="container2">
                 <h1>Register a New Buyer</h1>
                 <AddBuyer />
                 {!isAuthenticated && (

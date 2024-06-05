@@ -92,8 +92,7 @@ const Sellers = ()=> {
             />
             <br />
             <br />
-            <button className="button1" type="submit">Submit</button>
-            
+            <button className="button1" type="submit">Submit</button>            
           </form>
         )}
          {showAlert && ( // Render the custom alert if showAlert is true
@@ -143,8 +142,7 @@ const Sellers = ()=> {
             onCancel={handleCancelDelete}
           />
         )}
-        <br></br>
-        <br></br>
+        
       </div>
     </div>
   );
