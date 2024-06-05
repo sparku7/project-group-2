@@ -43,6 +43,7 @@ function PropertyDisplay() {
                     <form className='password-form' onSubmit={handlePasswordSubmit}>
                         <label>  Enter Admin Password to see list of Properties  </label>
                         <input
+                        className='input1'
                             type="password"
                             value={password}
                             onChange={handlePasswordChange}
