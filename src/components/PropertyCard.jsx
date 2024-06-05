@@ -35,11 +35,11 @@ export default function PropertyCard({street, town, bedrooms, bathrooms, price, 
         <div className="col-12 col-md-6 col-lg-3 align-items-stretch mb-4">
           <div className="card">
             <div className="card-header">
-              <h3 className="mb-0">{street}</h3>
+              <h3 className="mb-0 street-name">{street}</h3>
             </div>
             <img className="card-img-top" src={imageUrl} alt="Property" />
             <div className="card-body">
-              <h4>{town}</h4>
+              <h4 className='street-name'>{town}</h4>
               <h4>{formattedPrice}</h4>
               <p><span className={`badge ${getStatusClass(status)}`}>{status}</span></p>
               <div className="row text-center">
