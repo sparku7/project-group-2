@@ -9,6 +9,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import NewProperty from './pages/NewProperty';
 import PropertyMaintain from './pages/PropertyMaintain';
 import Appointments from './pages/Appointments';
+import PropertyAppointment from './pages/PropertyAppointment';
 
 function App() {
   return (
@@ -28,7 +29,8 @@ function App() {
             <Route path='/sellers' element={<Sellers />} />
             <Route path='/newproperty' element={<NewProperty />} />
             <Route path='/update/:id' element={<PropertyMaintain />} />
-               <Route path='/bookappointment' element={ <Appointments />} />
+            <Route path='/bookappointment' element={ <Appointments />} />
+            <Route path='/propertyappointment/:id' element={ <PropertyAppointment />} />
         </Routes>
         </BrowserRouter>
         
