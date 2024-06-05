@@ -41,7 +41,7 @@ const Appointments = ()=> {
  
   return (
     <div className="body">
-    <div className="container2">
+    <div className="container2" style={{ paddingBottom: 0 }}>
     <h1>Book Appointment</h1>
     <BookAppointment />
         <br></br>
