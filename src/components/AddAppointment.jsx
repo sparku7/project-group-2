@@ -14,7 +14,7 @@ const BookAppointment = () => {
     e.preventDefault();
         // Fetch propertys data 
         try {
-          const response = await fetch("http://localhost:8001/buyers");
+          const response = await fetch("http://localhost:8888/buyers");
           const buyersData = await response.json();
 
           // Check if property ID exists
@@ -28,7 +28,7 @@ const BookAppointment = () => {
         }
 
         try {
-          const response = await fetch("http://localhost:8000/properties");
+          const response = await fetch("http://localhost:8888/properties");
           const propertysData = await response.json();
 
           // Check if property ID exists
@@ -44,7 +44,7 @@ const BookAppointment = () => {
 
       // Proceed with appointment booking logic
       const appointments = { firstName, surname, propertyId, date, timeslot: selectedTime };
-      const appointmentResponse = await fetch('http://localhost:8003/appointments', {
+      const appointmentResponse = await fetch('http://localhost:8888/appointments', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(appointments)
