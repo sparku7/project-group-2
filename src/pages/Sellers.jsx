@@ -4,6 +4,7 @@
 import AddSeller from "../components/AddSeller";
 import ConfirmationDialog from "../components/ConfirmationDialog";
 import CustomAlert from "../components/CustomAlert";
+import PasswordInput from "../components/PasswordInput";
 
 
  
@@ -23,7 +24,7 @@ const useFetch = (url) => {
  
  
 const Sellers = ()=> {
-  const [password, setPassword] = useState('');
+
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
  
@@ -32,25 +33,30 @@ const Sellers = ()=> {
   //this is our data call, using the useFetch function containing the useEffect
   const [showConfirmation, setShowConfirmation] = useState(false);
   const [data, setData] = useState([]);
+  const [password, setPassword] = useState('');
 
   const handlePasswordChange = (e) => {
     setPassword(e.target.value);
   };
 
-  const handlePasswordSubmit = (e) => {
-    e.preventDefault();
-
+  const handlePasswordSubmit = (password) => {
+    // Check if the password is correct
     if (password === 'Password') {
-      setIsAuthenticated(true);
-      // Fetch sellers data once authenticated
+      setIsAuthenticated(true); // Set isAuthenticated to true
+    } else {
+      setShowAlert(true); // Show alert if the password is incorrect
+    }
+  };
+
+  useEffect(() => {
+    // Fetch sellers data once authenticated
+    if (isAuthenticated) {
       fetch('http://localhost:8888/sellers')
         .then((res) => res.json())
         .then((data) => setData(data))
         .catch((error) => console.error('Error fetching sellers:', error));
-    } else {
-     setShowAlert(true);
     }
-  };
+  }, [isAuthenticated]);
  
   const handleDelete = (id) => {
     setDeleteId(id);
@@ -83,25 +89,14 @@ const Sellers = ()=> {
         <br />
         <AddSeller />
         {!isAuthenticated && (
-          <form className="password-form" onSubmit={handlePasswordSubmit}>
-            <label>Enter Admin Password to see list of Sellers</label>
-            <input
-            className="input1"
-              type="password"
-              value={password}
-              onChange={handlePasswordChange}
-            />
-            <br />
-            <br />
-            <button className="button1" type="submit">Submit</button>            
-          </form>
+          <PasswordInput onSubmit={handlePasswordSubmit} />
         )}
-         {showAlert && ( // Render the custom alert if showAlert is true
+        {showAlert && (
           <CustomAlert
             message="Incorrect password. Please try again."
-            onClose={() => setShowAlert(false)} // Close the alert when clicked
+            onClose={() => setShowAlert(false)}
           />
-      )}
+        )}
         {isAuthenticated && (
           <div>
             <br /> <br />
@@ -143,9 +138,9 @@ const Sellers = ()=> {
             onCancel={handleCancelDelete}
           />
         )}
-        
       </div>
     </div>
   );
 }
+
 export default Sellers;

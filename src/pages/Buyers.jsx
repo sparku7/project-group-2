@@ -3,22 +3,20 @@ import AddBuyer from "../components/AddBuyer";
 import JsonDataDisplay from "../components/BuyerTable";
 import '../css/RegisterUser.css';
 import CustomAlert from '../components/CustomAlert';
+import PasswordInput from '../components/PasswordInput';
 
 function AddBuyers() {
-    const [password, setPassword] = useState('');
+    // Define state variables for authentication and alert
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [showAlert, setShowAlert] = useState(false);
 
-    const handlePasswordChange = (e) => {
-        setPassword(e.target.value);
-    };
-
-    const handlePasswordSubmit = (e) => {
-        e.preventDefault();
+    // Define function to handle password submission
+    const handlePasswordSubmit = (password) => {
+        // Check if the password is correct
         if (password === 'Password') {
-            setIsAuthenticated(true);
+            setIsAuthenticated(true); // Set isAuthenticated to true
         } else {
-          setShowAlert(true);
+            setShowAlert(true); // Show alert if the password is incorrect
         }
     };
 
@@ -27,27 +25,16 @@ function AddBuyers() {
             <div className="container2" >
                 <h1>Register a New Buyer</h1>
                 <AddBuyer />
-                {!isAuthenticated && (
-                    <form className='password-form' onSubmit={handlePasswordSubmit}>
-                        <label>  Enter Admin Password to see list of Buyers  </label>
-                        <input
-                        className='input1'
-                            type="password"
-                            value={password}
-                            onChange={handlePasswordChange}
-                        />
-                        <br></br>
-                        <br></br>
-
-                        <button className='button1' type="submit">Submit</button>
-                    </form>
+                {/* Render PasswordInput component and pass handlePasswordSubmit as onSubmit prop */}
+                {!isAuthenticated && <PasswordInput onSubmit={handlePasswordSubmit} />}
+                {/* Render CustomAlert component if showAlert is true */}
+                {showAlert && (
+                    <CustomAlert
+                        message="Incorrect password. Please try again."
+                        onClose={() => setShowAlert(false)} // Close the alert
+                    />
                 )}
-                  {showAlert && ( // Render the custom alert if showAlert is true
-          <CustomAlert
-            message="Incorrect password. Please try again."
-            onClose={() => setShowAlert(false)} // Close the alert when clicked
-          />
-      )}
+                {/* Render JsonDataDisplay component if isAuthenticated is true */}
                 {isAuthenticated && <JsonDataDisplay />}
             </div>
         </div>
