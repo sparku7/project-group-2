@@ -356,24 +356,6 @@
   ],
   "appointments": [
     {
-      "id": "466f",
-      "buyerId": "fac6",
-      "firstName": "Sana",
-      "surname": "Ahmad",
-      "propertyId": "122",
-      "date": "2024-06-11",
-      "timeSlot": "9:00-10:00"
-    },
-    {
-      "id": "b084",
-      "buyerId": "fac6",
-      "firstName": "Sana",
-      "surname": "Ahmad",
-      "propertyId": "122",
-      "date": "2024-06-12",
-      "timeSlot": "13:00-14:00"
-    },
-    {
       "id": "e239",
       "buyerId": "f014",
       "firstName": "James",
@@ -398,6 +380,24 @@
       "surname": "Horgan",
       "propertyId": "122",
       "date": "2024-06-04",
+      "timeSlot": "13:00-14:00"
+    },
+    {
+      "id": "53b6",
+      "buyerId": "2890",
+      "firstName": "Ross",
+      "surname": "MacAuley",
+      "propertyId": "4",
+      "date": "2024-06-19",
+      "timeSlot": "13:00-14:00"
+    },
+    {
+      "id": "1b2e",
+      "buyerId": "67d1",
+      "firstName": "Macauley",
+      "surname": "Culkin",
+      "propertyId": "132",
+      "date": "2024-06-14",
       "timeSlot": "13:00-14:00"
     }
   ]
