@@ -7,52 +7,48 @@ import CustomAlert from "../components/CustomAlert";
 import PasswordInput from "../components/PasswordInput";
 import { useNavigate } from "react-router-dom";
 
-
-//this fetch uses the useEffect to get all the data instantly, and by passing a parameter we can set the url in our state
+// Custom hook to fetch data from a given URL
 const useFetch = (url) => {
   const [data, setData] = useState([]);
-
   const [sortConfig, setSortConfig] = useState({ key: 'id', direction: 'ascending' });
 
+  // useEffect to fetch data when the component mounts or the URL changes
   useEffect(() => {
     fetch(url)
       .then((res) => res.json())
       .then((data) => setData(data));
   }, [url]);
-  //we have to return data here as we have made a function expecting some kind of data back
-  //comment the bit of code and look at the error you get in the browser
+
+  // Return the fetched data
   return [data];
 };
- 
- 
-const Sellers = ()=> {
+
+const Sellers = () => {
   const navigate = useNavigate();
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
-
-  //this is how we are going to use the id
-  const [deleteId, setDeleteId] = useState(null);
-  //this is our data call, using the useFetch function containing the useEffect
+  const [deleteId, setDeleteId] = useState(null); // State to store the ID of the seller to be deleted
   const [showConfirmation, setShowConfirmation] = useState(false);
-  const [data, setData] = useState([]);
+  const [data, setData] = useState([]); // State to store the fetched seller data
   const [password, setPassword] = useState('');
   const [sortConfig, setSortConfig] = useState({ key: 'id', direction: 'ascending' });
 
+  // Handler for password input change
   const handlePasswordChange = (e) => {
     setPassword(e.target.value);
   };
 
+  // Handler for password form submission
   const handlePasswordSubmit = (password) => {
-    // Check if the password is correct
     if (password === 'Password') {
-      setIsAuthenticated(true); // Set isAuthenticated to true
+      setIsAuthenticated(true); // Set isAuthenticated to true if password is correct
     } else {
       setShowAlert(true); // Show alert if the password is incorrect
     }
   };
 
+  // Fetch seller data once authenticated
   useEffect(() => {
-    // Fetch sellers data once authenticated
     if (isAuthenticated) {
       fetch('http://localhost:8888/sellers')
         .then((res) => res.json())
@@ -61,28 +57,30 @@ const Sellers = ()=> {
     }
   }, [isAuthenticated]);
 
+  // Handler for delete button click
   const handleDelete = (id) => {
     setDeleteId(id);
-    setShowConfirmation(true);
+    setShowConfirmation(true); // Show confirmation dialog
   };
 
+  // Handler for confirming delete action
   const handleConfirmDelete = () => {
     fetch(`http://localhost:8888/sellers/${deleteId}`, {
       method: 'DELETE',
     }).then(() => {
       setDeleteId(null);
       setShowConfirmation(false);
-      window.location.reload();
-
+      window.location.reload(); // Reload the page to reflect changes
     });
   };
 
+  // Handler for canceling delete action
   const handleCancelDelete = () => {
     setDeleteId(null);
     setShowConfirmation(false);
-
   };
 
+  // Function to handle sorting of the table
   const requestSort = (key) => {
     let direction = 'ascending';
     if (sortConfig.key === key && sortConfig.direction === 'ascending') {
@@ -91,6 +89,7 @@ const Sellers = ()=> {
     setSortConfig({ key, direction });
   };
 
+  // Sort the sellers data based on the sort configuration
   const sortedSellers = [...data].sort((a, b) => {
     if (a[sortConfig.key] < b[sortConfig.key]) {
       return sortConfig.direction === 'ascending' ? -1 : 1;
@@ -100,8 +99,6 @@ const Sellers = ()=> {
     }
     return 0;
   });
-
-
 
   return (
     <div className="body">
@@ -135,7 +132,7 @@ const Sellers = ()=> {
                 <tbody>
                   {sortedSellers.map((sell) => (
                     <tr key={sell.id}>
-                      <td onClick={()=> navigate('../properties/' + sell.id)}> {sell.id}</td>
+                      <td onClick={() => navigate('../properties/' + sell.id)}> {sell.id}</td>
                       <td>{sell.firstname}</td>
                       <td>{sell.surname}</td>
                       <td>
