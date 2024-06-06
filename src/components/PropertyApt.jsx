@@ -3,8 +3,8 @@ import { useParams, useNavigate } from "react-router-dom";
 import CustomAlert from "./CustomAlert";
 import axios from "axios";
 import { Container, Row, Col } from "react-bootstrap";
-import PropertyCard from "./PropertyCard";
 import '../css/PropertyCard.css'
+import ApptPropCard from "./ApptPropCard";
 
 const BookAppointment = () => {
   const [timeSlot, settimeSlot] = useState([]);
@@ -252,7 +252,7 @@ const BookAppointment = () => {
             className="d-flex align-items-center justify-content-center"
           >
             <div className="">
-            <PropertyCard className="propertyCard"
+            <ApptPropCard className="propertyCard"
                 street={details.street}
                 town={details.town}
                 bedrooms={details.bedrooms}
