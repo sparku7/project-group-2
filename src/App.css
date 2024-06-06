@@ -164,3 +164,45 @@
   color: #800080;
   
 }
+
+/* Footer */
+.custom-footer {
+  background-color: #ffffff;
+}
+
+.bg-darker-purple {
+  background-color: #6a006a;
+}
+
+.text-purple {
+  color: #800080;
+}
+
+.border-top-purple {
+  border-top: 3px solid #800080;
+}
+
+.custom-footer .text-purple {
+  color: #800080;
+}
+
+.custom-footer .text-purple:hover {
+  color: #6a006a;
+}
+
+.custom-footer .text-light {
+  color: #d3d3d3;
+}
+
+.custom-footer .text-light:hover {
+  color: #fff;
+}
+
+/* Social */
+.social-icons i {
+  margin: 0 10px;
+}
+
+.social-icons i:hover {
+  color: #6a006a;
+}
