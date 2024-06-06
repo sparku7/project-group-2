@@ -60,7 +60,7 @@ export default function PropertyCard({propertyKey, street, town, bedrooms, bathr
               </div>
             </div>
             <div className="card-footer text-center">
-              <button onClick={() => navigate("/bookappointment/" + propertyKey)} 
+              <button onClick={() => navigate("/propertyappointment/" + propertyKey)} 
                  className={`btn ${isButtonDisabled(status) ? 'btn-disabled' : 'btn-custom'} ${onclick}`} 
                  aria-disabled={isButtonDisabled(status)}>
                 {isButtonDisabled(status) ? 'Not Available' : 'Book Now'}

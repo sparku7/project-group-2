@@ -288,3 +288,44 @@ table th {
 .password-form button:hover {
     background-color: #6a006a;
 }
+
+/* CSS for dropdown buttons */
+
+.dropbtn {
+    background-color: #800080; 
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none; 
+    box-shadow: none;
+    
+}
+
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #eccfe6;
+    min-width: 160px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    z-index: 1;
+    color: black;
+    right: 0; 
+    bottom: 5;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #800080;
+}

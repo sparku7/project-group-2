@@ -6,6 +6,7 @@ function JsonDataDisplay() {
     const [showConfirmation, setShowConfirmation] = useState(false);
     const [buyers, setBuyers] = useState([]);
     const [buyerIdToDelete, setBuyerIdToDelete] = useState(null);
+    const [sortConfig, setSortConfig] = useState({ key: 'id', direction: 'ascending' });
 
     useEffect(() => {
         fetch('http://localhost:8888/buyers')
@@ -43,21 +44,64 @@ function JsonDataDisplay() {
         }
     };
 
+    const sortedBuyers = [...buyers].sort((a, b) => {
+        if (a[sortConfig.key] < b[sortConfig.key]) {
+            return sortConfig.direction === 'ascending' ? -1 : 1;
+        }
+        if (a[sortConfig.key] > b[sortConfig.key]) {
+            return sortConfig.direction === 'ascending' ? 1 : -1;
+        }
+        return 0;
+    });
+
+    const requestSort = (key) => {
+        let direction = 'ascending';
+        if (sortConfig.key === key && sortConfig.direction === 'ascending') {
+            direction = 'descending';
+        }
+        setSortConfig({ key, direction });
+    };
+
+
     return (
         <div>
             <br /><br />
             <div className='table-container'>
                 <table>
-                    <thead>
+                <thead>
                         <tr>
-                            <th>Buyers ID</th>
-                            <th>First Name</th>
-                            <th>Surname</th>
+                            <th>
+                                <div className="dropdown">
+                                    <button className="dropbtn">Buyers ID</button>
+                                    <div className="dropdown-content">
+                                        <a onClick={() => requestSort('id')}>Ascending</a>
+                                        <a onClick={() => requestSort('id')}>Descending</a>
+                                    </div>
+                                </div>
+                            </th>
+                            <th>
+                                <div className="dropdown">
+                                    <button className="dropbtn">First Name</button>
+                                    <div className="dropdown-content">
+                                        <a onClick={() => requestSort('firstname')}>Ascending</a>
+                                        <a onClick={() => requestSort('firstname')}>Descending</a>
+                                    </div>
+                                </div>
+                            </th>
+                            <th>
+                                <div className="dropdown">
+                                    <button className="dropbtn">Surname</button>
+                                    <div className="dropdown-content">
+                                        <a onClick={() => requestSort('surname')}>Ascending</a>
+                                        <a onClick={() => requestSort('surname')}>Descending</a>
+                                    </div>
+                                </div>
+                            </th>
                             <th>Delete Buyer</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {buyers.map((info) => (
+                        {sortedBuyers.map((info) => (
                             <tr key={info.id}>
                                 <td>{info.id}</td>
                                 <td>{info.firstname}</td>
