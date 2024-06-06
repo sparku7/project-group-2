@@ -4,42 +4,45 @@ import '../css/RegisterUser.css';
 import CustomAlert from "./CustomAlert";
 
 const AddSeller = () => {
-  const [firstName, setFirstname] = useState('');
-  const [surname, setSurname] = useState('');
-  const [showAlert, setShowAlert] = useState(false);
-  const [alertMessage, setAlertMessage] = useState('');
+  const [firstName, setFirstname] = useState(''); // State to store first name
+  const [surname, setSurname] = useState(''); // State to store surname
+  const [showAlert, setShowAlert] = useState(false); // State to control alert visibility
+  const [alertMessage, setAlertMessage] = useState(''); // State to store alert message
+
+  // Handler to close the alert and reload the page
   const handleCloseAlert = () => {
     setShowAlert(false);
-    window.location.reload()
+    window.location.reload();
   };
+
+  // Function to convert names to title case with special handling for 'Mc' and 'Mac' prefixes
   const toTitleCase = (name) => {
     return name.split(' ').map((word) => {
-        if (/^mc/i.test(word)) {
-            // Capitalize the first letter and the second letter after 'Mc'
-            return word.charAt(0).toUpperCase() + 'c' + word.charAt(2).toUpperCase() + word.slice(3).toLowerCase();
-        } else if (/^mac/i.test(word)) {
-            // Capitalize the first letter and the letter following 'Mac'
-            return word.charAt(0).toUpperCase() + 'ac' + word.charAt(3).toUpperCase() + word.slice(4).toLowerCase();
-        } else {
-            // Capitalize the first letter of other words
-            return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
-        }
+      if (/^mc/i.test(word)) {
+        // Capitalize the first letter and the second letter after 'Mc'
+        return word.charAt(0).toUpperCase() + 'c' + word.charAt(2).toUpperCase() + word.slice(3).toLowerCase();
+      } else if (/^mac/i.test(word)) {
+        // Capitalize the first letter and the letter following 'Mac'
+        return word.charAt(0).toUpperCase() + 'ac' + word.charAt(3).toUpperCase() + word.slice(4).toLowerCase();
+      } else {
+        // Capitalize the first letter of other words
+        return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+      }
     }).join(' ');
-};
+  };
 
-const firstToTitleCase = (first) => {
-  return first.split(' ').map((word) => {
-          return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
-      }).join(' ');
-};
+  // Function to convert first name to title case
+  const firstToTitleCase = (first) => {
+    return first.split(' ').map((word) => {
+      return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+    }).join(' ');
+  };
 
-
-
+  // Handler for form submission
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // const addSeller = { firstName, surname };
-
+    // Convert first name and surname to title case
     const titleCaseFirstName = firstToTitleCase(firstName);
     const titleCaseSurname = toTitleCase(surname);
 
@@ -50,11 +53,11 @@ const firstToTitleCase = (first) => {
     };
 
     try {
-      // Check if the combination already exists
+      // Check if the combination of first name and surname already exists
       fetch(`http://localhost:8888/sellers?firstname=${titleCaseFirstName}&surname=${titleCaseSurname}`)
         .then((checkResponse) => checkResponse.json())
         .then((existingData) => {
-          // Convert existing data to lowercase before comparison
+          // Check if the seller already exists
           const dataExists = existingData.some(data =>
             data.firstname === titleCaseFirstName &&
             data.surname === titleCaseSurname
@@ -64,8 +67,9 @@ const firstToTitleCase = (first) => {
             setAlertMessage('Seller Already Exists. Please enter a different name.');
             setShowAlert(true);
             return;
-        }
-          // Sends a POST request to the server to add the new buyer
+          }
+
+          // Send a POST request to add the new seller
           fetch('http://localhost:8888/sellers', {
             method: 'POST',
             headers: { "Content-Type": "application/json" },
@@ -75,10 +79,8 @@ const firstToTitleCase = (first) => {
             .then((data) => {
               setAlertMessage(`New Seller Added. Your Unique ID is ${data.id}`);
               setShowAlert(true);
-              setFirstname(''); // Resets the firstname state to an empty string
-              setSurname(''); // Resets the surname state to an empty string
-             
-
+              setFirstname(''); // Reset first name input
+              setSurname(''); // Reset surname input
             });
         });
     } catch (error) {
@@ -113,12 +115,11 @@ const firstToTitleCase = (first) => {
         <button className='button1'>Add Seller</button>
 
         {showAlert && (
-                    <CustomAlert
-
-                        message={alertMessage}
-                        onClose={handleCloseAlert}
-                    />
-                )}
+          <CustomAlert
+            message={alertMessage}
+            onClose={handleCloseAlert}
+          />
+        )}
       </form>
     </div>
   );
