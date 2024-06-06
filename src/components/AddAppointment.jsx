@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import CustomAlert from './CustomAlert';
 
 const BookAppointment = () => {
   // State variables to manage form inputs
@@ -8,7 +9,9 @@ const BookAppointment = () => {
   const [propertyId, setPropertyId] = useState('');
   const [date, setDate] = useState('');
   const [buyerId, setBuyerId] = useState('');
-  
+  const [showAlert, setShowAlert] = useState(false);
+  const [alertMessage, setAlertMessage] = useState("")
+
   // List of available time slots
   const availableSlots = [
     "8:00-9:00",
@@ -35,7 +38,8 @@ const BookAppointment = () => {
         setFirstName(userExists.firstname);
         setSurname(userExists.surname);
       } else {
-        alert(`Buyer ID ${buyerId} does not exist. Please enter a valid Buyer ID`);
+        setAlertMessage(`Buyer ID ${buyerId} does not exist. Please enter a valid Buyer ID`);
+        setShowAlert(true)
         setBuyerId('');
         setFirstName('');
         setSurname('');
@@ -55,7 +59,8 @@ const BookAppointment = () => {
       const propertyExists = propertiesData.some((property) => property.id === propertyId);
 
       if (!propertyExists) {
-        alert(`Property ID ${propertyId} does not exist. Please enter a valid Property ID`);
+        setAlertMessage(`Property ID ${propertyId} does not exist. Please enter a valid Property ID`);
+        setShowAlert(true)
         setPropertyId('');
       }
     } catch (error) {
@@ -75,10 +80,11 @@ const BookAppointment = () => {
   const handleDateChange = (e) => {
     const selectedDate = new Date(e.target.value);
     const today = new Date();
-   
+
 
     if (selectedDate < today) {
-      alert("You cannot select a past date. Please select a valid date.");
+      setAlertMessage("You cannot select a past date. Please select a valid date.");
+      setShowAlert(true);
       setDate('');
     } else {
       setDate(e.target.value);
@@ -98,7 +104,8 @@ const BookAppointment = () => {
         (booking) => booking.propertyId === propertyId && booking.date === date && booking.timeSlot === timeSlot
       );
       if (appointmentExists) {
-        alert(`This timeslot is already booked for Property ID ${propertyId} on ${date} at ${timeSlot}, please select another time slot`);
+        setAlertMessage(`This timeslot is already booked for Property ID ${propertyId} on ${date} at ${timeSlot}, please select another time slot`);
+        setShowAlert(true);
         return;
       }
     } catch (error) {
@@ -115,8 +122,9 @@ const BookAppointment = () => {
       });
 
       const appointmentData = await appointmentResponse.json();
-      alert(`Appointment Booked. Your Booking ID is ${appointmentData.id}`);
-      
+      setAlertMessage(`Appointment Booked. Your Booking ID is ${appointmentData.id}`);
+      setShowAlert(true);
+
       // Clear form fields after successful booking
       setBuyerId('');
       setFirstName('');
@@ -207,6 +215,13 @@ const BookAppointment = () => {
         </div>
         <br />
         <button className="button1">Book</button>
+        {showAlert && (
+          <CustomAlert
+            message={alertMessage}
+            onClose={() => {
+              setShowAlert(false); // Close the alert
+              window.location.reload(); // Reload the page after closing the alert
+            }} />)}
       </form>
     </div>
   );

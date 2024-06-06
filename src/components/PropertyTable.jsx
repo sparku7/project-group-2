@@ -6,9 +6,6 @@ import CustomAlert from './CustomAlert';
 import PasswordInput from './PasswordInput';
 
 
-
-
-
 function PropertyDisplay() {
     const navigate = useNavigate()
     const [properties, setProperties] = useState([])
@@ -71,43 +68,28 @@ function PropertyDisplay() {
                     <table >
                         <thead>
                             <th>
-                                <div className="dropdown">
                                     <button onClick={() => requestSort('id')} className='dropbtn'>Property ID ↑ ↓  </button>
-                                </div>
                             </th>
                             <th>
-                            <div className="dropdown">
                                     <button onClick={() => requestSort('street')} className='dropbtn'>Street ↑ ↓ </button>
-                                </div>
                             </th>
                             <th> 
-                                <div className="dropdown">
                                     <button className='dropbtn'onClick={() => requestSort('town')}>Town ↑ ↓</button>
-                                </div>
                             </th>
-                            <th> 
-                                <div className="dropdown">
+                            <th>
                                     <button className='dropbtn' onClick={() => requestSort('bedrooms')}>Bedrooms ↑ ↓</button>
-                                </div>
                             </th>
                             <th> 
-                                <div className="dropdown">
                                     <button className='dropbtn' onClick={() => requestSort('bathrooms')}>Bathrooms ↑ ↓ </button>
-                                </div>
                             </th>
                             <th> 
-                                <div className="dropdown">
                                     <button className='dropbtn'  onClick={() => requestSort('price')}>Price ↑ ↓ </button>
-                              </div>
                             </th>
-
-                            <th> <div className="dropdown">
+                            <th> 
                                     <button onClick={() => requestSort('status')} className='dropbtn'>Status ↑ ↓</button>
-                         </div>
                             </th>
-                            <th> <div className="dropdown">
+                            <th> 
                                     <button className='dropbtn'>Update Property Details  </button>
-                                </div>
                             </th>
                         </thead>
                         <tbody>
