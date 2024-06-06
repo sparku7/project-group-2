@@ -11,6 +11,7 @@ import PropertyMaintain from './pages/PropertyMaintain';
 import Appointments from './pages/Appointments';
 import PropertyAppointment from './pages/PropertyAppointment';
 import SellerProps from './pages/SellerProps';
+import BuyerProps from './pages/BuyerProps';
 import PropertyDetails from './pages/PropertyDetails';
 
 function App() {
@@ -37,6 +38,7 @@ function App() {
             <Route path='/buyers' element={<Buyers />} />
             <Route path='/sellers' element={<Sellers />} />
             <Route path='/properties/:sellerId' element={<SellerProps />} />
+            <Route path='/appointments/:buyerId' element={<BuyerProps />} />
             <Route path='/propertyadmin' element={<NewProperty />} />
             <Route path='/update/:id' element={<PropertyMaintain />} />
             <Route path='/appointments' element={ <Appointments />} />
@@ -80,10 +82,10 @@ function App() {
                   <a href="/sellers" className="text-purple">Sellers</a>
                 </li>
                 <li>
-                  <a href="/newproperty" className="text-purple">Manage Property</a>
+                  <a href="/propertyadmin" className="text-purple">Manage Property</a>
                 </li>
                 <li>
-                  <a href="/bookappointment" className="text-purple">Manage Appointments</a>
+                  <a href="/appointments" className="text-purple">Manage Appointments</a>
                 </li>
               </ul>
             </div>
