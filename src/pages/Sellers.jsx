@@ -1,17 +1,19 @@
- import { useState, useEffect } from "react";
- import '../css/RegisterUser.css'
- 
+import { useState, useEffect } from "react";
+import '../css/RegisterUser.css'
+
 import AddSeller from "../components/AddSeller";
 import ConfirmationDialog from "../components/ConfirmationDialog";
 import CustomAlert from "../components/CustomAlert";
 import PasswordInput from "../components/PasswordInput";
 
 
- 
+
 //this fetch uses the useEffect to get all the data instantly, and by passing a parameter we can set the url in our state
 const useFetch = (url) => {
   const [data, setData] = useState([]);
- 
+
+  const [sortConfig, setSortConfig] = useState({ key: 'id', direction: 'ascending' });
+
   useEffect(() => {
     fetch(url)
       .then((res) => res.json())
@@ -21,19 +23,20 @@ const useFetch = (url) => {
   //comment the bit of code and look at the error you get in the browser
   return [data];
 };
- 
- 
-const Sellers = ()=> {
+
+
+const Sellers = () => {
 
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
- 
+
   //this is how we are going to use the id
   const [deleteId, setDeleteId] = useState(null);
   //this is our data call, using the useFetch function containing the useEffect
   const [showConfirmation, setShowConfirmation] = useState(false);
   const [data, setData] = useState([]);
   const [password, setPassword] = useState('');
+  const [sortConfig, setSortConfig] = useState({ key: 'id', direction: 'ascending' });
 
   const handlePasswordChange = (e) => {
     setPassword(e.target.value);
@@ -57,7 +60,7 @@ const Sellers = ()=> {
         .catch((error) => console.error('Error fetching sellers:', error));
     }
   }, [isAuthenticated]);
- 
+
   const handleDelete = (id) => {
     setDeleteId(id);
     setShowConfirmation(true);
@@ -70,21 +73,40 @@ const Sellers = ()=> {
       setDeleteId(null);
       setShowConfirmation(false);
       window.location.reload();
-    
+
     });
   };
 
   const handleCancelDelete = () => {
     setDeleteId(null);
     setShowConfirmation(false);
-      
+
   };
- 
- 
+
+  const requestSort = (key) => {
+    let direction = 'ascending';
+    if (sortConfig.key === key && sortConfig.direction === 'ascending') {
+      direction = 'descending';
+    }
+    setSortConfig({ key, direction });
+  };
+
+  const sortedSellers = [...data].sort((a, b) => {
+    if (a[sortConfig.key] < b[sortConfig.key]) {
+      return sortConfig.direction === 'ascending' ? -1 : 1;
+    }
+    if (a[sortConfig.key] > b[sortConfig.key]) {
+      return sortConfig.direction === 'ascending' ? 1 : -1;
+    }
+    return 0;
+  });
+
+
+
   return (
     <div className="body">
       <div className="container2">
-      <h1 className="pagetitle">Register a New Seller</h1>
+        <h1 className="pagetitle">Register a New Seller</h1>
         <br />
         <br />
         <AddSeller />
@@ -104,14 +126,14 @@ const Sellers = ()=> {
               <table>
                 <thead>
                   <tr>
-                    <th>Sellers ID</th>
-                    <th>First Name</th>
-                    <th>Surname</th>
+                    <th onClick={() => requestSort('id')}>Sellers ID</th>
+                    <th onClick={() => requestSort('firstname')}>First Name</th>
+                    <th onClick={() => requestSort('surname')}>Surname</th>
                     <th>Delete Seller</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {data.map((sell) => (
+                  {sortedSellers.map((sell) => (
                     <tr key={sell.id}>
                       <td>{sell.id}</td>
                       <td>{sell.firstname}</td>
