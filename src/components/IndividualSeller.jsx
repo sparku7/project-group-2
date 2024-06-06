@@ -24,6 +24,8 @@ function PropSeller() {
         <div>
             <br></br>
             <br></br>
+            <h1 className="pagetitle">Seller's Property Listings</h1>
+            <br />
             <div className='table-container'>
                 <table >
                     <thead>
