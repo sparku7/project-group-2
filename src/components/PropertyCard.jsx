@@ -7,11 +7,15 @@ import { useNavigate } from 'react-router';
 export default function PropertyCard({propertyKey, street, town, bedrooms, bathrooms, price, garden, imageUrl, status}) {
 
   const navigate= useNavigate()
-  const formattedPrice = (price).toLocaleString('en-GB', {
-    style: 'currency',
-    currency: 'GBP',
-    minimumFractionDigits: 0,
-  });  
+  
+  // Safely handle price formatting
+  const formattedPrice = price
+    ? price.toLocaleString('en-GB', {
+        style: 'currency',
+        currency: 'GBP',
+        minimumFractionDigits: 0,
+      })
+    : 'N/A';
 
 
 
