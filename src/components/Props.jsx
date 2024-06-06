@@ -6,11 +6,12 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 
 
+
 function PropSeller() {
     const params = useParams()
     const navigate = useNavigate()
     const [userProperties, setUserProperties] = useState([])
-    const [user, setUser] = useState([])
+    const [apts, setApts] = useState([])
     const [showAlert, setShowAlert] = useState(false);
     const [deleteId, setDeleteId] = useState(null); // State to store the ID of the seller to be deleted
     const [showConfirmation, setShowConfirmation] = useState(false);
@@ -49,23 +50,25 @@ function PropSeller() {
 
     }, [userProperties]);
 
-const sellerId= userProperties.sellerId
+
     useEffect(() => {
 
-        axios.get(`http://localhost:8888/sellers?id=${params.sellerId}`)
+        axios.get(`http://localhost:8888/appointments?propertyId=${params.id}`)
             .then((response) => response.data)
-            .then((data) => { setUser(data); })
-            .then(() => console.log(user))
+            .then((data) => { setApts(data); })
+            .then(() => console.log(apts))
             .catch((error) => console.error('Error:', error));
 
-    }, [user]);
+    }, [apts]);
 
 
     return (
+        
         <div>
             <br></br>
+            <h1 className='pagetitle'>Property details and bookings</h1>
             <br></br>
-            <div className='table-container'>
+            <div >
                 <table >
                     <thead>
                         <th>Property ID</th>
@@ -100,35 +103,39 @@ const sellerId= userProperties.sellerId
 
 
             <div>
-                <br /> <br />
-                <div className='table-container'>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th >Sellers ID</th>
-                                <th >First Name</th>
-                                <th >Surname</th>
-                                <th>Delete Seller</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {user.map((sell) => (
-                                <tr key={sell.id}>
-                                    <td onClick={() => navigate('../properties/' + sell.id)}> {sell.id}</td>
-                                    <td>{sell.firstname}</td>
-                                    <td>{sell.surname}</td>
-                                    <td>
-                                        <button
-                                            className="delete-btn"
-                                            onClick={() => handleDelete(sell.id)}
-                                        >
-                                            Delete
-                                        </button>
-                                    </td>
-                                </tr>
-                            ))}
-                        </tbody>
-                    </table>
+            <br /> <br />
+            <div className='table-container'>
+              <table>
+                <thead>
+                  <th>Booking ID</th>
+                  <th>Buyer ID</th>
+                  <th>First Name</th>
+                  <th>Surname</th>
+                  <th>Property ID</th>
+                  <th>Date</th>
+                  <th>Time</th>
+                  <th></th>
+                </thead>
+                <tbody>
+                  {apts && apts.map((appoint) => (
+                    <tr>
+                      {/* We are setting the deleteId (The one we use in our handleDelete function to input the id directly at the end of the url) */}
+                      {/* We are extracting the value from the data on the page so we cant make a mistake */}
+                      <td value={deleteId} onChange={(e) => setDeleteId(e.target.value)}>{appoint.id}</td>
+                      <td>{appoint.buyerId}</td>
+                      <td>{appoint.firstName}</td>
+                      <td>{appoint.surname}</td>
+                      <td>{appoint.propertyId}</td>
+                      <td>{appoint.date}</td>
+                      <td>{appoint.timeSlot}</td>
+                      {/* We use the handleDelete to use the appoint.id, it makes the request, and disappears from the screen and json file */}
+                      <td><button className="delete-btn" onClick={(e) => handleDelete(e, appoint.id)}>Cancel</button></td>
+
+                    </tr>
+                  ))}
+
+                </tbody>
+              </table>
                 </div>
             </div>
 

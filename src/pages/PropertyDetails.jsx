@@ -6,9 +6,8 @@ function PropertyDetails () {
 return (
     <div className="body">
 
-        <div className="container1" height="100%">     
-           <div className="pagetitle">
-            Properties by Seller ID</div>
+        <div  height="100%">     
+
             <Props value="id" />
         </div>
         

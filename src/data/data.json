@@ -73,7 +73,7 @@
     },
     {
       "id": "132",
-      "sellerId": "cefa",
+      "sellerId": "efa1",
       "street": "12 Crescent",
       "town": "London",
       "bedrooms": 3,
@@ -97,7 +97,7 @@
     },
     {
       "id": "6c46",
-      "sellerId": "cefa",
+      "sellerId": "66da",
       "street": "Middlebank Rise",
       "town": "Dunfermline",
       "price": 250000,
@@ -109,7 +109,7 @@
     },
     {
       "id": "6c76",
-      "sellerId": "cefa",
+      "sellerId": "59e7",
       "street": "Upperbank Rise",
       "town": "Dunfermline",
       "price": 225000,
@@ -121,7 +121,7 @@
     },
     {
       "id": "8762",
-      "sellerId": "cefa",
+      "sellerId": "8eca",
       "street": "Crescent Avenue",
       "town": "Bathgate",
       "price": 215000,
@@ -133,7 +133,7 @@
     },
     {
       "id": "998",
-      "sellerId": "cefa",
+      "sellerId": "a5a6",
       "street": "123 1st Av",
       "town": "Dunfermline",
       "bedrooms": 3,
@@ -184,7 +184,7 @@
       "sellerId": "cefa",
       "street": "Middlebank Rise",
       "town": "Dunfermline",
-      "price": 250000,
+      "price": 210000,
       "bedrooms": 4,
       "bathrooms": 2,
       "garden": "Yes",
@@ -194,7 +194,7 @@
     {
       "id": "993",
       "sellerId": "cefa",
-      "street": "Upperbank Rise",
+      "street": "Lowerbank Rise",
       "town": "Dunfermline",
       "price": 225000,
       "bedrooms": 1,
@@ -229,7 +229,7 @@
     },
     {
       "id": "1eed",
-      "sellerId": "cefa",
+      "sellerId": "59e7",
       "street": "Woodlands",
       "town": "Inverness",
       "price": 1250000,
@@ -241,7 +241,7 @@
     },
     {
       "id": "9e75",
-      "sellerId": "cefa",
+      "sellerId": "dd09",
       "street": "Beech Walk",
       "town": "London",
       "price": 475000,
@@ -289,7 +289,7 @@
     },
     {
       "id": "4ab2",
-      "sellerId": "cefa",
+      "sellerId": "66da",
       "street": "Newmills",
       "town": "Tullibody",
       "price": 10000000,
