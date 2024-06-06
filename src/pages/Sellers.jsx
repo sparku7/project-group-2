@@ -123,9 +123,9 @@ const Sellers = () => {
               <table>
                 <thead>
                   <tr>
-                    <th onClick={() => requestSort('id')}>Sellers ID</th>
-                    <th onClick={() => requestSort('firstname')}>First Name</th>
-                    <th onClick={() => requestSort('surname')}>Surname</th>
+                    <th onClick={() => requestSort('id')}>Sellers ID ↑ ↓</th>
+                    <th onClick={() => requestSort('firstname')}>First Name ↑ ↓</th>
+                    <th onClick={() => requestSort('surname')}>Surname ↑ ↓ </th>
                     <th>Delete Seller</th>
                   </tr>
                 </thead>

@@ -72,37 +72,37 @@ function PropertyDisplay() {
                         <thead>
                             <th>
                                 <div className="dropdown">
-                                    <button onClick={() => requestSort('id')} className='dropbtn'>Property ID  </button>
+                                    <button onClick={() => requestSort('id')} className='dropbtn'>Property ID ↑ ↓  </button>
                                 </div>
                             </th>
                             <th>
                             <div className="dropdown">
-                                    <button onClick={() => requestSort('street')} className='dropbtn'>Street  </button>
+                                    <button onClick={() => requestSort('street')} className='dropbtn'>Street ↑ ↓ </button>
                                 </div>
                             </th>
                             <th> 
                                 <div className="dropdown">
-                                    <button className='dropbtn'onClick={() => requestSort('town')}>Town</button>
+                                    <button className='dropbtn'onClick={() => requestSort('town')}>Town ↑ ↓</button>
                                 </div>
                             </th>
                             <th> 
                                 <div className="dropdown">
-                                    <button className='dropbtn' onClick={() => requestSort('bedrooms')}>Bedrooms  </button>
+                                    <button className='dropbtn' onClick={() => requestSort('bedrooms')}>Bedrooms ↑ ↓</button>
                                 </div>
                             </th>
                             <th> 
                                 <div className="dropdown">
-                                    <button className='dropbtn' onClick={() => requestSort('bathrooms')}>Bathrooms  </button>
+                                    <button className='dropbtn' onClick={() => requestSort('bathrooms')}>Bathrooms ↑ ↓ </button>
                                 </div>
                             </th>
                             <th> 
                                 <div className="dropdown">
-                                    <button className='dropbtn'  onClick={() => requestSort('price')}>Price  </button>
+                                    <button className='dropbtn'  onClick={() => requestSort('price')}>Price ↑ ↓ </button>
                               </div>
                             </th>
 
                             <th> <div className="dropdown">
-                                    <button onClick={() => requestSort('id')} className='dropbtn'>Status </button>
+                                    <button onClick={() => requestSort('status')} className='dropbtn'>Status ↑ ↓</button>
                          </div>
                             </th>
                             <th> <div className="dropdown">

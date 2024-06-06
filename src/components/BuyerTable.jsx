@@ -72,9 +72,9 @@ function JsonDataDisplay() {
                 <table>
                     <thead>
                         <tr>
-                            <th onClick={() => requestSort('id')}>Buyers ID</th>
-                            <th onClick={() => requestSort('firstname')}>First Name</th>
-                            <th onClick={() => requestSort('surname')}>Surname</th>
+                            <th onClick={() => requestSort('id')}>Buyers ID ↑ ↓</th>
+                            <th onClick={() => requestSort('firstname')}>First Name ↑ ↓</th>
+                            <th onClick={() => requestSort('surname')}>Surname ↑ ↓</th>
                             <th>Delete Buyer</th>
                         </tr>
                     </thead>
