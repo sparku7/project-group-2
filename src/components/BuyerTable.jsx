@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react';
 import '../css/RegisterUser.css';
 import ConfirmationDialog from './ConfirmationDialog';
+import { useNavigate } from "react-router-dom";
 
 function JsonDataDisplay() {
+    const navigate = useNavigate();
     const [showConfirmation, setShowConfirmation] = useState(false);
     const [buyers, setBuyers] = useState([]);
     const [buyerIdToDelete, setBuyerIdToDelete] = useState(null);
@@ -67,7 +69,7 @@ function JsonDataDisplay() {
         <div>
             <br /><br />
             <div className='table-container'>
-            <table>
+                <table>
                     <thead>
                         <tr>
                             <th onClick={() => requestSort('id')}>Buyers ID</th>
@@ -79,7 +81,7 @@ function JsonDataDisplay() {
                     <tbody>
                         {sortedBuyers.map((info) => (
                             <tr key={info.id}>
-                                <td>{info.id}</td>
+                                <td onClick={() => navigate('../appointments/' + info.id)}>{info.id}</td>
                                 <td>{info.firstname}</td>
                                 <td>{info.surname}</td>
                                 <td>
@@ -102,3 +104,4 @@ function JsonDataDisplay() {
 }
 
 export default JsonDataDisplay;
+
