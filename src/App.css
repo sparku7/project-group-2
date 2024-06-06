@@ -207,3 +207,7 @@
 .social-icons i:hover {
   color: #6a006a;
 }
+
+.propertyCard {
+  min-width: 300px;
+}
