@@ -67,36 +67,12 @@ function JsonDataDisplay() {
         <div>
             <br /><br />
             <div className='table-container'>
-                <table>
-                <thead>
+            <table>
+                    <thead>
                         <tr>
-                            <th>
-                                <div className="dropdown">
-                                    <button className="dropbtn">Buyers ID</button>
-                                    <div className="dropdown-content">
-                                        <a onClick={() => requestSort('id')}>Ascending</a>
-                                        <a onClick={() => requestSort('id')}>Descending</a>
-                                    </div>
-                                </div>
-                            </th>
-                            <th>
-                                <div className="dropdown">
-                                    <button className="dropbtn">First Name</button>
-                                    <div className="dropdown-content">
-                                        <a onClick={() => requestSort('firstname')}>Ascending</a>
-                                        <a onClick={() => requestSort('firstname')}>Descending</a>
-                                    </div>
-                                </div>
-                            </th>
-                            <th>
-                                <div className="dropdown">
-                                    <button className="dropbtn">Surname</button>
-                                    <div className="dropdown-content">
-                                        <a onClick={() => requestSort('surname')}>Ascending</a>
-                                        <a onClick={() => requestSort('surname')}>Descending</a>
-                                    </div>
-                                </div>
-                            </th>
+                            <th onClick={() => requestSort('id')}>Buyers ID</th>
+                            <th onClick={() => requestSort('firstname')}>First Name</th>
+                            <th onClick={() => requestSort('surname')}>Surname</th>
                             <th>Delete Buyer</th>
                         </tr>
                     </thead>
