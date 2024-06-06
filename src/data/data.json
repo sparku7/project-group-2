@@ -383,13 +383,22 @@
       "timeSlot": "12:00-13:00"
     },
     {
-      "id": "b3e0",
-      "buyerId": "f014",
-      "firstName": "David",
-      "surname": "mcmanus",
+      "id": "bd24",
+      "buyerId": "ebd0",
+      "firstName": "Barry",
+      "surname": "Chuckle",
       "propertyId": "122",
-      "date": "2024-06-12",
-      "timeSlot": "12:00-13:00"
+      "date": "2024-06-11",
+      "timeSlot": "10:00-11:00"
+    },
+    {
+      "id": "0eea",
+      "buyerId": "f014",
+      "firstName": "James",
+      "surname": "Horgan",
+      "propertyId": "122",
+      "date": "2024-06-04",
+      "timeSlot": "13:00-14:00"
     }
   ]
 }

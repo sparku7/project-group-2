@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react';
 
 const BookAppointment = () => {
-  const [timeSlot, settimeSlot] = useState([]);
-  const [firstName, setFirstname] = useState('');
+  // State variables to manage form inputs
+  const [timeSlot, setTimeSlot] = useState('');
+  const [firstName, setFirstName] = useState('');
   const [surname, setSurname] = useState('');
   const [propertyId, setPropertyId] = useState('');
   const [date, setDate] = useState('');
   const [buyerId, setBuyerId] = useState('');
-  const [userPopulate, setUserPopulate] = useState({ firstName: '', surname: '' });
+  
+  // List of available time slots
   const availableSlots = [
     "8:00-9:00",
     "9:00-10:00",
@@ -16,174 +18,193 @@ const BookAppointment = () => {
     "13:00-14:00",
     "15:00-16:00",
     "16:00-17:00",
-  ]
+  ];
 
-
-
+  // Handle change in time slot selection
   const handleTimeChange = (e) => {
-    settimeSlot(e.target.value); // Update the selected time
+    setTimeSlot(e.target.value);
   };
 
-  
-  const handlePopulate = async (buyerId) => {
+  // Fetch buyer details based on the entered Buyer ID and populate the form
+  const handlePopulate = async () => {
     try {
       const response = await fetch("http://localhost:8888/buyers");
       const userData = await response.json();
       const userExists = userData.find((buyer) => buyer.id === buyerId);
       if (userExists) {
-        setUserPopulate({ firstname: userExists.firstname, surname: userExists.surname });
+        setFirstName(userExists.firstname);
+        setSurname(userExists.surname);
       } else {
-        console.log('User not found');
+        alert(`Buyer ID ${buyerId} does not exist. Please enter a valid Buyer ID`);
+        setBuyerId('');
+        setFirstName('');
+        setSurname('');
       }
     } catch (error) {
       console.error('Error fetching data:', error);
     }
   };
 
+  // Validate the entered Property ID
+  const handlePropertyValidation = async () => {
+    if (propertyId === '') return;
+
+    try {
+      const response = await fetch("http://localhost:8888/properties");
+      const propertiesData = await response.json();
+      const propertyExists = propertiesData.some((property) => property.id === propertyId);
+
+      if (!propertyExists) {
+        alert(`Property ID ${propertyId} does not exist. Please enter a valid Property ID`);
+        setPropertyId('');
+      }
+    } catch (error) {
+      console.error('Error fetching properties data:', error);
+    }
+  };
+
+  // Clear first name and surname when buyerId is cleared
+  useEffect(() => {
+    if (buyerId === '') {
+      setFirstName('');
+      setSurname('');
+    }
+  }, [buyerId]);
+
+  // Handle date change to prevent past dates
+  const handleDateChange = (e) => {
+    const selectedDate = new Date(e.target.value);
+    const today = new Date();
+   
+
+    if (selectedDate < today) {
+      alert("You cannot select a past date. Please select a valid date.");
+      setDate('');
+    } else {
+      setDate(e.target.value);
+    }
+  };
+
+  // Handle form submission for booking an appointment
   const handleSubmit = async (e) => {
     e.preventDefault();
-        // Fetch propertys data 
-        try {
-          const response = await fetch("http://localhost:8888/buyers");
-          const buyersData = await response.json();
 
-          // Check if property ID exists
-          const buyerExists = buyersData.some((buyer) => buyer.id === buyerId);
-          if (!buyerExists) {
-              alert(`Buyer ID ${buyerId} does not exist. Please enter a valid Buyer ID`);
-              return;
-          }
-        } catch (error) {
-          console.error("Error fetching Buyers data:", error);
-        }
 
-        try {
-          const response = await fetch("http://localhost:8888/properties");
-          const propertysData = await response.json();
+    // Fetch appointments data and check if the selected time slot is available
+    try {
+      const response = await fetch("http://localhost:8888/appointments");
+      const bookingData = await response.json();
+      const appointmentExists = bookingData.some(
+        (booking) => booking.propertyId === propertyId && booking.date === date && booking.timeSlot === timeSlot
+      );
+      if (appointmentExists) {
+        alert(`This timeslot is already booked for Property ID ${propertyId} on ${date} at ${timeSlot}, please select another time slot`);
+        return;
+      }
+    } catch (error) {
+      console.error("Error fetching appointment data:", error);
+    }
 
-          // Check if property ID exists
-          const propertyExists = propertysData.some((property) => property.id === propertyId);
-          if (!propertyExists) {
-              alert(`Property ID ${propertyId} does not exist. Please enter a valid Property ID`);
-              return;
-          }
-        } catch (error) {
-          console.error("Error fetching propertys data:", error);
-        }
-
-        try {
-          
-          const response = await fetch("http://localhost:8888/appointments");
-          const bookingData = await response.json();
-
-           // Check if the appointment exists for the specified date and time slot
-           const appointmentExists = bookingData.some(
-           (booking) => booking.propertyId === propertyId && booking.date === date && booking.timeSlot === timeSlot
-  );
-          if (appointmentExists) {
-            alert(`This timeslot is already booked for Property ID ${propertyId} on ${date} at ${timeSlot}, please select another time slot`);
-            return;
-          } 
-          else {
-            alert(`The timeslot is available for booking.`);
-            // You can proceed with further logic (e.g., allowing the user to book the slot).
-          }
-        } catch (error) {
-          console.error("Error fetching appointment data:", error);
-        }
-
-      // Proceed with appointment booking logic
-      const appointments = { buyerId, firstName, surname, propertyId, date, timeSlot};
+    // Proceed with booking the appointment
+    const appointment = { buyerId, firstName, surname, propertyId, date, timeSlot };
+    try {
       const appointmentResponse = await fetch('http://localhost:8888/appointments', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(appointments)
+        body: JSON.stringify(appointment)
       });
 
       const appointmentData = await appointmentResponse.json();
       alert(`Appointment Booked. Your Booking ID is ${appointmentData.id}`);
-      setBuyerId ('')
-      setFirstname('');
+      
+      // Clear form fields after successful booking
+      setBuyerId('');
+      setFirstName('');
       setSurname('');
       setPropertyId('');
       setDate('');
-      settimeSlot('');
- 
+      setTimeSlot('');
+    } catch (error) {
+      console.error("Error booking appointment:", error);
+    }
   };
 
   return (
     <div className="body">
-    <form onSubmit={handleSubmit}>
-    <div> 
-      <label className="label1">Buyer ID:</label>
-      <input className="input1" 
-        type="text"  
-        required  
-        value={buyerId} 
-        onChange={(e) => setBuyerId(e.target.value)} 
-
-      />  
-    </div>
-    <br />
-    <div> 
-      <label className="label1">First Name:</label>
-      <input className="input1" 
-        type="text"  
-        required  
-        value={firstName} 
-        onChange={(e) => setFirstname(e.target.value)} 
-      
-
-      />  
-    </div>
-    <br />
-    <div> <label className="label1">Surname:</label> 
-      <input className="input1" 
-      type="text" 
-      value={surname} 
-      onChange={(e) => setSurname(e.target.value)} 
-      
-    
-    /> 
-    </div>
-    <br />
-    <div> 
-      <label className="label1">Property ID:</label>
-      <input className="input1" 
-        type="text"  
-        required  
-        value={propertyId} 
-        onChange={(e) => setPropertyId(e.target.value)} 
-
-      />  
-    </div>
-    <br />
-     <div>
-        <label className="label1">Date:</label>
-        <input
-          className="input1"
-          type="date"
-          value={date}
-          onChange={(e) => setDate(e.target.value)}
-        />
-      </div>
-      <br />
-      <div>
-      <label className="label1">Select Time:</label>
-      <select
-        className="input1"
-        value={timeSlot}
-        onChange={handleTimeChange}
-      >
-        
-          <option value="">Choose a time</option>
+      <form onSubmit={handleSubmit}>
+        <div>
+          <label className="label1">Buyer ID:</label>
+          <input
+            className="input1"
+            type="text"
+            required
+            value={buyerId}
+            onChange={(e) => setBuyerId(e.target.value)}
+            onBlur={handlePopulate}
+          />
+        </div>
+        <br />
+        <div>
+          <label className="label1">First Name:</label>
+          <input
+            className="input1"
+            type="text"
+            required
+            value={firstName}
+            onChange={(e) => setFirstName(e.target.value)}
+            readOnly
+          />
+        </div>
+        <br />
+        <div>
+          <label className="label1">Surname:</label>
+          <input
+            className="input1"
+            type="text"
+            required
+            value={surname}
+            onChange={(e) => setSurname(e.target.value)}
+            readOnly
+          />
+        </div>
+        <br />
+        <div>
+          <label className="label1">Property ID:</label>
+          <input
+            className="input1"
+            type="text"
+            required
+            value={propertyId}
+            onChange={(e) => setPropertyId(e.target.value)}
+            onBlur={handlePropertyValidation}
+          />
+        </div>
+        <br />
+        <div>
+          <label className="label1">Date:</label>
+          <input
+            className="input1"
+            type="date"
+            value={date}
+            onChange={handleDateChange} // Call handleDateChange on date change
+          />
+        </div>
+        <br />
+        <div>
+          <label className="label1">Select Time:</label>
+          <select
+            className="input1"
+            value={timeSlot}
+            onChange={handleTimeChange}
+          >
+            <option value="">Choose a time</option>
             {availableSlots.map((slot) => (
               <option key={slot} value={slot}>
                 {slot}
               </option>
-        ))}
-      </select>
-    </div>
+            ))}
+          </select>
+        </div>
         <br />
         <button className="button1">Book</button>
       </form>
