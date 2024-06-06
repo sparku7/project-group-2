@@ -152,6 +152,7 @@ const BookAppointment = () => {
             required
             value={firstName}
             onChange={(e) => setFirstName(e.target.value)}
+            readOnly
           />
         </div>
         <br />
@@ -163,6 +164,7 @@ const BookAppointment = () => {
             required
             value={surname}
             onChange={(e) => setSurname(e.target.value)}
+            readOnly
           />
         </div>
         <br />
