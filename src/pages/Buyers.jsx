@@ -23,7 +23,7 @@ function AddBuyers() {
     return (
         <div className="body">
             <div className="container2" >
-                <h1>Register a New Buyer</h1>
+            <h1 className="pagetitle">Register a New Buyer</h1>
                 <AddBuyer />
                 {/* Render PasswordInput component and pass handlePasswordSubmit as onSubmit prop */}
                 {!isAuthenticated && <PasswordInput onSubmit={handlePasswordSubmit} />}

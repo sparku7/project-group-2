@@ -9,7 +9,7 @@ function NewProperty() {
 
     <div className="body" >
       <div className="container1">
-      <h1>Property Admin</h1>
+      <h1 className="pagetitle">Property Admin</h1>
       <br/>
         <AddProperty />
       
