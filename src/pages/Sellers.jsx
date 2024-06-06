@@ -135,7 +135,7 @@ const Sellers = ()=> {
                 <tbody>
                   {sortedSellers.map((sell) => (
                     <tr key={sell.id}>
-                      <td onClick={()=> navigate('./seller/' + sell.id)}> {sell.id}</td>
+                      <td onClick={()=> navigate('../properties/' + sell.id)}> {sell.id}</td>
                       <td>{sell.firstname}</td>
                       <td>{sell.surname}</td>
                       <td>

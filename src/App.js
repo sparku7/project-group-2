@@ -10,6 +10,7 @@ import NewProperty from './pages/NewProperty';
 import PropertyMaintain from './pages/PropertyMaintain';
 import Appointments from './pages/Appointments';
 import PropertyAppointment from './pages/PropertyAppointment';
+import SellerProps from './pages/SellerProps';
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
             <Route path='/' element={<HomePage />} />
             <Route path='/buyers' element={<Buyers />} />
             <Route path='/sellers' element={<Sellers />} />
+            <Route path='/properties/:sellerId' element={<SellerProps />} />
             <Route path='/newproperty' element={<NewProperty />} />
             <Route path='/update/:id' element={<PropertyMaintain />} />
             <Route path='/bookappointment' element={ <Appointments />} />
