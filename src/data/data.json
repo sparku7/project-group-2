@@ -229,7 +229,7 @@
     },
     {
       "id": "1eed",
-      "sellerId": null,
+      "sellerId": "cefa",
       "street": "Woodlands",
       "town": "Inverness",
       "price": 1250000,
@@ -241,7 +241,7 @@
     },
     {
       "id": "9e75",
-      "sellerId": null,
+      "sellerId": "cefa",
       "street": "Beech Walk",
       "town": "London",
       "price": 475000,
@@ -253,7 +253,7 @@
     },
     {
       "id": "4c1b",
-      "sellerId": null,
+      "sellerId": "cefa",
       "street": "Brick Street",
       "town": "London",
       "price": 35000000,
@@ -265,7 +265,7 @@
     },
     {
       "id": "6240",
-      "sellerId": null,
+      "sellerId": "8eca",
       "street": "Cambridge Park",
       "town": "Twickenham",
       "price": 29950000,
@@ -277,7 +277,7 @@
     },
     {
       "id": "6e4e",
-      "sellerId": null,
+      "sellerId": "e7a9",
       "street": "Merton Lane",
       "town": "London",
       "price": 32000000,
@@ -301,7 +301,7 @@
     },
     {
       "id": "8e85",
-      "sellerId": "cefa",
+      "sellerId": "a5a6",
       "street": "Ormiston",
       "town": "Tranent",
       "price": 255000,
