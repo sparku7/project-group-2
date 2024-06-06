@@ -5,7 +5,7 @@ import AddSeller from "../components/AddSeller";
 import ConfirmationDialog from "../components/ConfirmationDialog";
 import CustomAlert from "../components/CustomAlert";
 import PasswordInput from "../components/PasswordInput";
-
+import { useNavigate } from "react-router-dom";
 
  
 //this fetch uses the useEffect to get all the data instantly, and by passing a parameter we can set the url in our state
@@ -24,7 +24,7 @@ const useFetch = (url) => {
  
  
 const Sellers = ()=> {
-
+  const navigate = useNavigate();
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
  
@@ -113,7 +113,7 @@ const Sellers = ()=> {
                 <tbody>
                   {data.map((sell) => (
                     <tr key={sell.id}>
-                      <td>{sell.id}</td>
+                      <td onClick={()=> navigate('./seller/' + sell.id)}> {sell.id}</td>
                       <td>{sell.firstname}</td>
                       <td>{sell.surname}</td>
                       <td>

@@ -8,12 +8,13 @@ import PasswordInput from './PasswordInput';
 
 
 
+
 function PropertyDisplay() {
     const navigate = useNavigate()
     const [properties, setProperties] = useState([])
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [showAlert, setShowAlert] = useState(false);
-
+    const [sortConfig, setSortConfig] = useState({ key: 'id', direction: 'ascending' });
     const handlePasswordSubmit = (password) => {
         if (password === 'Password') {
             setIsAuthenticated(true);
@@ -29,6 +30,25 @@ function PropertyDisplay() {
             .catch((error) => console.error('Error:', error));
 
     }, [properties])
+
+    const sortedProperties = [...properties].sort((a, b) => {
+        if (a[sortConfig.key] < b[sortConfig.key]) {
+            return sortConfig.direction === 'ascending' ? -1 : 1;
+        }
+        if (a[sortConfig.key] > b[sortConfig.key]) {
+            return sortConfig.direction === 'ascending' ? 1 : -1;
+        }
+        return 0;
+    });
+
+    const requestSort = (key) => {
+        let direction = 'ascending';
+        if (sortConfig.key === key && sortConfig.direction === 'ascending') {
+            direction = 'descending';
+        }
+        setSortConfig({ key, direction });
+    };
+
 
     return (
         <div>
@@ -50,19 +70,49 @@ function PropertyDisplay() {
                     <br></br>
                     <table >
                         <thead>
-                            <th>Property ID</th>
-                            <th>Street</th>
-                            <th>Town</th>
-                            <th>Bedrooms</th>
-                            <th>Bathrooms</th>
-                            <th>Price </th>
+                            <th>
+                                <div className="dropdown">
+                                    <button onClick={() => requestSort('id')} className='dropbtn'>Property ID  </button>
+                                </div>
+                            </th>
+                            <th>
+                            <div className="dropdown">
+                                    <button onClick={() => requestSort('street')} className='dropbtn'>Street  </button>
+                                </div>
+                            </th>
+                            <th> 
+                                <div className="dropdown">
+                                    <button className='dropbtn'onClick={() => requestSort('town')}>Town</button>
+                                </div>
+                            </th>
+                            <th> 
+                                <div className="dropdown">
+                                    <button className='dropbtn' onClick={() => requestSort('bedrooms')}>Bedrooms  </button>
+                                </div>
+                            </th>
+                            <th> 
+                                <div className="dropdown">
+                                    <button className='dropbtn' onClick={() => requestSort('bathrooms')}>Bathrooms  </button>
+                                </div>
+                            </th>
+                            <th> 
+                                <div className="dropdown">
+                                    <button className='dropbtn'  onClick={() => requestSort('price')}>Price  </button>
+                              </div>
+                            </th>
 
-                            <th>Status</th>
-                            <th>Update Property Details</th>
+                            <th> <div className="dropdown">
+                                    <button onClick={() => requestSort('id')} className='dropbtn'>Status </button>
+                         </div>
+                            </th>
+                            <th> <div className="dropdown">
+                                    <button className='dropbtn'>Update Property Details  </button>
+                                </div>
+                            </th>
                         </thead>
                         <tbody>
                             {
-                                properties.map((info) => (
+                                sortedProperties.map((info) => (
                                     <tr>
                                         <td>{info.id}</td>
                                         <td>{info.street}</td>
