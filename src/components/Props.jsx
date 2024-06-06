@@ -70,10 +70,10 @@ function PropSeller() {
             <br></br>
             <h1 className='pagetitle'>Property details and bookings</h1>
             <br></br>
-            <div className='conatiner3' >
-                <div >
+            <div className='d-flex align-items-center justify-content-center' >
+            <div className="propertyCard">   
                     {userProperties.map((details) => (
-            <ApptPropCard className="propertyCard"
+            <ApptPropCard
                 street={details.street}
                 town={details.town}
                 bedrooms={details.bedrooms}
@@ -83,7 +83,8 @@ function PropSeller() {
                 imageUrl={details.imageUrl}
                 status={details.status}
               />))}
-            </div></div>
+            </div>
+            </div>
 
 
             <div>

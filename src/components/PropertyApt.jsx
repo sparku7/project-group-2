@@ -251,8 +251,8 @@ const BookAppointment = () => {
             md={6}
             className="d-flex align-items-center justify-content-center"
           >
-            <div className="">
-            <ApptPropCard className="propertyCard"
+            <div className="propertyCard">
+            <ApptPropCard
                 street={details.street}
                 town={details.town}
                 bedrooms={details.bedrooms}
