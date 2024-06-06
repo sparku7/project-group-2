@@ -114,7 +114,7 @@ function PropertyDisplay() {
                             {
                                 sortedProperties.map((info) => (
                                     <tr>
-                                        <td>{info.id}</td>
+                                        <td onClick={()=> navigate('/propertydetails/'+info.id)}> {info.id}</td>
                                         <td>{info.street}</td>
                                         <td>{info.town}</td>
                                         <td>{info.bedrooms}</td>
