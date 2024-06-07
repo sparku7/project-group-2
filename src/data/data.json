@@ -45,11 +45,11 @@
     {
       "id": "4",
       "sellerId": "cefa",
-      "street": "123 avenue",
+      "street": "Ave Avenue",
       "town": "Dunfermline",
       "bedrooms": 3,
       "bathrooms": 2,
-      "price": 123123,
+      "price": 120000,
       "garden": "Yes",
       "imageUrl": "https://randomwordgenerator.com/img/picture-generator/water-3167440_640.jpg",
       "status": "Withdrawn"
@@ -57,11 +57,11 @@
     {
       "id": "122",
       "sellerId": "cefa",
-      "street": "123 First St",
+      "street": "First St",
       "town": "Dunfermline",
       "bedrooms": 3,
       "bathrooms": 2,
-      "price": 323123,
+      "price": 320000,
       "garden": "Yes",
       "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuzuVBrCaUWx033aZT-iy5gQnhtiosMeYggw&s",
       "status": "For Sale"
@@ -69,11 +69,11 @@
     {
       "id": "132",
       "sellerId": "efa1",
-      "street": "12 Crescent",
+      "street": "Crescent Lane",
       "town": "London",
       "bedrooms": 3,
       "bathrooms": 1,
-      "price": 1053123,
+      "price": 120000,
       "garden": "Yes",
       "imageUrl": "https://img.onmanorama.com/content/dam/mm/en/lifestyle/decor/images/2023/6/1/house-middleclass.jpg",
       "status": "For Sale"
@@ -85,7 +85,7 @@
       "town": "Inverkeithing",
       "bedrooms": 7,
       "bathrooms": 8,
-      "price": 758432,
+      "price": 750000,
       "garden": "No",
       "imageUrl": "https://thumbor.forbes.com/thumbor/fit-in/x/https://www.forbes.com/advisor/wp-content/uploads/2021/08/download-7.jpg",
       "status": "For Sale"
@@ -119,7 +119,7 @@
       "sellerId": "8eca",
       "street": "Crescent Avenue",
       "town": "Bathgate",
-      "price": 215000,
+      "price": 210000,
       "bedrooms": 3,
       "bathrooms": 1,
       "garden": "Yes",
@@ -129,11 +129,11 @@
     {
       "id": "998",
       "sellerId": "a5a6",
-      "street": "123 1st Av",
+      "street": "1st Av",
       "town": "Dunfermline",
       "bedrooms": 3,
       "bathrooms": 2,
-      "price": 123123,
+      "price": 350000,
       "garden": "Yes",
       "imageUrl": "https://randomwordgenerator.com/img/picture-generator/water-3167440_640.jpg",
       "status": "Sold"
@@ -145,7 +145,7 @@
       "town": "Dunfermline",
       "bedrooms": 3,
       "bathrooms": 2,
-      "price": 323123,
+      "price": 650000,
       "garden": "Yes",
       "imageUrl": "https://res.cloudinary.com/brickandbatten/images/f_auto,q_auto/v1675439478/wordpress_assets/SmallHouseExteriors-Twitter-card-B-LOGO/SmallHouseExteriors-Twitter-card-B-LOGO.jpg?_i=AA",
       "status": "For Sale"
@@ -157,7 +157,7 @@
       "town": "London",
       "bedrooms": 7,
       "bathrooms": 2,
-      "price": 1053123,
+      "price": 1195000,
       "garden": "Yes",
       "imageUrl": "https://www.wilsonhomes.com.au/sites/default/files/styles/blog_hero_banner/public/My%20project%20-%202023-06-20T095818.329%20%281%29_0.jpg?itok=UbtVbhT0",
       "status": "For Sale"
@@ -169,7 +169,7 @@
       "town": "Inverkeithing",
       "bedrooms": 7,
       "bathrooms": 8,
-      "price": 752411,
+      "price": 750000,
       "garden": "No",
       "imageUrl": "https://thumbor.forbes.com/thumbor/fit-in/x/https://www.forbes.com/advisor/wp-content/uploads/2021/08/download-7.jpg",
       "status": "For Sale"
@@ -215,7 +215,7 @@
       "sellerId": "cefa",
       "street": "Western Avenue",
       "town": "Pitlochry",
-      "price": 758321,
+      "price": 750000,
       "bedrooms": 2,
       "bathrooms": 1,
       "garden": "No",
@@ -279,7 +279,7 @@
       "bedrooms": 6,
       "bathrooms": 7,
       "garden": "Yes",
-      "status": "For Sale",
+      "status": "Sold",
       "imageUrl": "https://media.rightmove.co.uk/63k/62080/83624538/62080_NLD180216_IMG_00_0000.jpeg"
     },
     {
@@ -311,7 +311,7 @@
     {
       "id": "cefa",
       "firstname": "Donald",
-      "surname": "Trump"
+      "surname": "Duck"
     },
     {
       "id": "e7a9",

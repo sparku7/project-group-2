@@ -21,7 +21,7 @@ export default function MaintainProperty() {
     const [alertMessage, setAlertMessage] = useState('');
     const handleCloseAlert = () => {
       setShowAlert(false);
-      navigate("/newproperty");
+      navigate("/propertyadmin");
       
     };
 
