@@ -73,9 +73,10 @@ export default function AddProperty() {
                 required
                 value={sellerId}
                 onChange={(e) => setSellerId(e.target.value)} />
-            <br />
-            <br />
-
+                 <div style={{ fontSize: '14px', color: '#800880', marginBottom: '10px', marginTop: '5px' }}>
+          Not currently registered? <a href="/Sellers" style={{ color: '#800880' }}>Click here to register</a>
+        </div>
+          
             <label className="label1">Street Name: </label>
             <input type="text"
                 className="input1"
