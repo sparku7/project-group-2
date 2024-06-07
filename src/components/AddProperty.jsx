@@ -96,6 +96,7 @@ export default function AddProperty() {
             <input type="number"
                 className="input1"
                 required
+                min="0"
                 value={price}
                 onChange={(e) => setPrice(parseInt(e.target.value))} />
             <br />
@@ -104,6 +105,7 @@ export default function AddProperty() {
             <input type="number"
                 className="input1"
                 required
+                min="0"
                 value={bedrooms}
                 onChange={(e) => setBedrooms(parseInt(e.target.value))} />
             <br />
@@ -112,6 +114,7 @@ export default function AddProperty() {
             <input type="number"
                 className="input1"
                 required
+                min="0"
                 value={bathrooms}
                 onChange={(e) => setBathrooms(parseInt(e.target.value))} />
             <br />
