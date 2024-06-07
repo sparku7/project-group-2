@@ -81,7 +81,6 @@ const BookAppointment = () => {
     const selectedDate = new Date(e.target.value);
     const today = new Date();
 
-
     if (selectedDate < today) {
       setAlertMessage("You cannot select a past date. Please select a valid date.");
       setShowAlert(true);
@@ -94,7 +93,6 @@ const BookAppointment = () => {
   // Handle form submission for booking an appointment
   const handleSubmit = async (e) => {
     e.preventDefault();
-
 
     // Fetch appointments data and check if the selected time slot is available
     try {
@@ -220,7 +218,6 @@ const BookAppointment = () => {
             message={alertMessage}
             onClose={() => {
               setShowAlert(false); // Close the alert
-              window.location.reload(); // Reload the page after closing the alert
             }} />)}
       </form>
     </div>
