@@ -151,9 +151,7 @@ const BookAppointment = () => {
             onBlur={handlePopulate}
           />
         </div>
-        <div style={{ fontSize: '14px', color: '#800880', marginBottom: '10px', marginTop: '5px' }}>
-          Not currently registered? <a href="/Buyers" style={{ color: '#800880' }}>Click here to register</a>
-        </div>
+       <br/>
         <div>
           <label className="label1">First Name:</label>
           <input
