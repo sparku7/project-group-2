@@ -200,6 +200,7 @@ const BookAppointment = () => {
                   required
                   value={firstName}
                   onChange={(e) => setFirstname(e.target.value)}
+                  readOnly
                 />
               </div>
               <br />
@@ -211,6 +212,7 @@ const BookAppointment = () => {
                   type="text"
                   value={surname}
                   onChange={(e) => setSurname(e.target.value)}
+                  readOnly
                 />
               </div>
               <br />
