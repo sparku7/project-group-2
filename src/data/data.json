@@ -26,11 +26,6 @@
       "surname": "Parker"
     },
     {
-      "id": "f652",
-      "firstname": "Teresa",
-      "surname": "May"
-    },
-    {
       "id": "79b3",
       "firstname": "Sana",
       "surname": "Ahmed"
@@ -383,15 +378,6 @@
       "timeSlot": "13:00-14:00"
     },
     {
-      "id": "53b6",
-      "buyerId": "2890",
-      "firstName": "Ross",
-      "surname": "MacAuley",
-      "propertyId": "4",
-      "date": "2024-06-19",
-      "timeSlot": "13:00-14:00"
-    },
-    {
       "id": "1b2e",
       "buyerId": "67d1",
       "firstName": "Macauley",
@@ -399,6 +385,51 @@
       "propertyId": "132",
       "date": "2024-06-14",
       "timeSlot": "13:00-14:00"
+    },
+    {
+      "id": "1391",
+      "buyerId": "2bd8",
+      "firstName": "Joe",
+      "surname": "Bloggs",
+      "propertyId": "6c46",
+      "date": "2024-06-07",
+      "timeSlot": "10:00-11:00"
+    },
+    {
+      "id": "5b9a",
+      "buyerId": "79b3",
+      "firstName": "Sana",
+      "surname": "Ahmad",
+      "propertyId": "995",
+      "date": "2024-06-28",
+      "timeSlot": "12:00-13:00"
+    },
+    {
+      "id": "3cd4",
+      "buyerId": "b24e",
+      "firstName": "Mary",
+      "surname": "Berry",
+      "propertyId": "995",
+      "date": "2024-06-27",
+      "timeSlot": "12:00-13:00"
+    },
+    {
+      "id": "865c",
+      "buyerId": "b706",
+      "firstName": "Maceo",
+      "surname": "Parker",
+      "propertyId": "994",
+      "date": "2024-06-30",
+      "timeSlot": "8:00-9:00"
+    },
+    {
+      "id": "cffd",
+      "buyerId": "2890",
+      "firstName": "Ross",
+      "surname": "MacAuley",
+      "propertyId": "122",
+      "date": "2024-07-02",
+      "timeSlot": "8:00-9:00"
     }
   ]
 }

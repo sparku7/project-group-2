@@ -34,7 +34,7 @@ const BookAppointment = () => {
   const [alertMessage, setAlertMessage] = useState("");
   const handleCloseAlert = () => {
     setShowAlert(false);
-    navigate("/bookappointment");
+    navigate("/appointments");
   };
 
   useEffect(() => {
@@ -80,9 +80,10 @@ const BookAppointment = () => {
       // Check if property ID exists
       const buyerExists = buyersData.some((buyer) => buyer.id === buyerId);
       if (!buyerExists) {
-        alert(
+        setAlertMessage(
           `Buyer ID ${buyerId} does not exist. Please enter a valid Buyer ID`
         );
+        setShowAlert(true)
         return;
       }
     } catch (error) {
@@ -98,9 +99,10 @@ const BookAppointment = () => {
         (property) => property.id === propertyId
       );
       if (!propertyExists) {
-        alert(
+        setAlertMessage(
           `Property ID ${propertyId} does not exist. Please enter a valid Property ID`
         );
+        setShowAlert(true);
         return;
       }
     } catch (error) {
@@ -119,12 +121,14 @@ const BookAppointment = () => {
           booking.timeSlot === timeSlot
       );
       if (appointmentExists) {
-        alert(
+        setAlertMessage(
           `This timeslot is already booked for Property ID ${propertyId} on ${date} at ${timeSlot}, please select another time slot`
         );
+        setShowAlert(true);
         return;
       } else {
-        alert(`The timeslot is available for booking.`);
+        setAlertMessage(`The timeslot is available for booking.`);
+        setShowAlert(true);
         // You can proceed with further logic (e.g., allowing the user to book the slot).
       }
     } catch (error) {
@@ -245,6 +249,16 @@ const BookAppointment = () => {
               </div>
               <br />
               <button className="button1">Book</button>
+            
+              {showAlert && (
+                    <CustomAlert
+                        message={alertMessage}
+                        onClose={() => {
+                            setShowAlert(false); // Close the alert
+                            window.location.reload(); // Reload the page after closing the alert
+                        }}
+                    />
+                )}
             </form>
           </Col>
           <Col
