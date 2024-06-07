@@ -163,7 +163,7 @@ function HomePage() {
                           <option value="">Select</option>
                           <option value="For Sale">For Sale</option>
                           <option value="Sold">Sold</option>
-                          <option value="Withdrawn">Withdrawn</option>
+              
                         </Form.Control>
                       </Form.Group>
                     </Col>
