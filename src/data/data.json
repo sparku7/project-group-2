@@ -68,7 +68,7 @@
     },
     {
       "id": "132",
-      "sellerId": "efa1",
+      "sellerId": null,
       "street": "Crescent Lane",
       "town": "London",
       "bedrooms": 3,
@@ -342,11 +342,6 @@
       "id": "a5a6",
       "firstname": "Professor",
       "surname": "McGonagall"
-    },
-    {
-      "id": "efa1",
-      "firstname": "David",
-      "surname": "McManus"
     }
   ],
   "appointments": [
@@ -421,6 +416,15 @@
       "propertyId": "122",
       "date": "2024-07-02",
       "timeSlot": "8:00-9:00"
+    },
+    {
+      "id": "b5da",
+      "buyerId": "ebd0",
+      "firstName": "Barry",
+      "surname": "Chuckle",
+      "propertyId": "6240",
+      "date": "2024-06-08",
+      "timeSlot": "10:00-11:00"
     }
   ]
 }
