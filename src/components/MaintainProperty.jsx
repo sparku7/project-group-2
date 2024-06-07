@@ -51,7 +51,7 @@ export default function MaintainProperty() {
 
     return (
         <div className="body">
-            <h1> Property Updates - Change all required </h1>
+            <h1 className="pagetitle"> Property Updates - Change all required </h1>
             <br/>
             {showAlert && <CustomAlert message={alertMessage} onClose={handleCloseAlert} />}
             <form onSubmit={handleSubmit}>
