@@ -55,7 +55,7 @@ const BookAppointment = () => {
   const handlePopulate = async (e) => {
     const buyerId = e.target.value;
     setBuyerId(buyerId);
-  
+
     if (buyerId) {
       try {
         const response = await fetch("http://localhost:8888/buyers");
@@ -191,7 +191,10 @@ const BookAppointment = () => {
                   onBlur={handlePopulate}
                 />
               </div>
-              <br />
+              <div style={{ fontSize: '14px', color: '#800880', marginBottom: '10px', marginTop: '5px' }}>
+                Not currently registered? <a href="/Buyers" style={{ color: '#800880' }}>Click here to register</a>
+              </div>
+
               <div>
                 <label className="label1">First Name:</label>
                 <input
@@ -254,16 +257,16 @@ const BookAppointment = () => {
               </div>
               <br />
               <button className="button1">Book</button>
-            
+
               {showAlert && (
-                    <CustomAlert
-                        message={alertMessage}
-                        onClose={() => {
-                            setShowAlert(false); // Close the alert
-                            window.location.reload(); // Reload the page after closing the alert
-                        }}
-                    />
-                )}
+                <CustomAlert
+                  message={alertMessage}
+                  onClose={() => {
+                    setShowAlert(false); // Close the alert
+                    window.location.reload(); // Reload the page after closing the alert
+                  }}
+                />
+              )}
             </form>
           </Col>
           <Col
@@ -271,7 +274,7 @@ const BookAppointment = () => {
             className="d-flex align-items-center justify-content-center"
           >
             <div className="propertyCard">
-            <ApptPropCard
+              <ApptPropCard
                 street={details.street}
                 town={details.town}
                 bedrooms={details.bedrooms}
@@ -281,15 +284,15 @@ const BookAppointment = () => {
                 imageUrl={details.imageUrl}
                 status={details.status}
               />
-            
-        
+
+
             </div>
           </Col>
         </Row>
       </Container>
     </div>
 
-    
+
   );
 };
 
