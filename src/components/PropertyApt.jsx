@@ -52,24 +52,26 @@ const BookAppointment = () => {
     settimeSlot(e.target.value); // Update the selected time
   };
 
-  const handlePopulate = async (buyerId) => {
-    try {
-      const response = await fetch("http://localhost:8888/buyers");
-      const userData = await response.json();
-      const userExists = userData.find((buyer) => buyer.id === buyerId);
-      if (userExists) {
-        setUserPopulate({
-          firstname: userExists.firstname,
-          surname: userExists.surname,
-        });
-      } else {
-        console.log("User not found");
+  const handlePopulate = async (e) => {
+    const buyerId = e.target.value;
+    setBuyerId(buyerId);
+  
+    if (buyerId) {
+      try {
+        const response = await fetch("http://localhost:8888/buyers");
+        const userData = await response.json();
+        const userExists = userData.find((buyer) => buyer.id === buyerId);
+        if (userExists) {
+          setFirstname(userExists.firstname);
+          setSurname(userExists.surname);
+        } else {
+          console.log("User not found");
+        }
+      } catch (error) {
+        console.error("Error fetching data:", error);
       }
-    } catch (error) {
-      console.error("Error fetching data:", error);
     }
   };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     // Fetch propertys data
@@ -182,6 +184,7 @@ const BookAppointment = () => {
                   required
                   value={buyerId}
                   onChange={(e) => setBuyerId(e.target.value)}
+                  onBlur={handlePopulate}
                 />
               </div>
               <br />
