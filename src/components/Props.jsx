@@ -17,29 +17,7 @@ function PropSeller() {
     const [deleteId, setDeleteId] = useState(null); // State to store the ID of the seller to be deleted
     const [showConfirmation, setShowConfirmation] = useState(false);
     const [sortConfig, setSortConfig] = useState({ key: 'id', direction: 'ascending' });
-    // Handler for delete button click
-    const handleDelete = (id) => {
-        setDeleteId(id);
-        setShowConfirmation(true); // Show confirmation dialog
-    };
-
-    // Handler for confirming delete action
-    const handleConfirmDelete = () => {
-        fetch(`http://localhost:8888/sellers/${deleteId}`, {
-            method: 'DELETE',
-        }).then(() => {
-            setDeleteId(null);
-            setShowConfirmation(false);
-            window.location.reload(); // Reload the page to reflect changes
-        });
-    };
-
-    // Handler for canceling delete action
-    const handleCancelDelete = () => {
-        setDeleteId(null);
-        setShowConfirmation(false);
-    };
-
+    
 
     useEffect(() => {
 
@@ -99,7 +77,7 @@ function PropSeller() {
                   <th>Property ID</th>
                   <th>Date</th>
                   <th>Time</th>
-                  <th></th>
+                  
                 </thead>
                 <tbody>
                   {appts && appts.map((appoint) => (
@@ -113,8 +91,7 @@ function PropSeller() {
                       <td>{appoint.propertyId}</td>
                       <td>{appoint.date}</td>
                       <td>{appoint.timeSlot}</td>
-                      {/* We use the handleDelete to use the appoint.id, it makes the request, and disappears from the screen and json file */}
-                      <td><button className="delete-btn" onClick={(e) => handleDelete(e, appoint.id)}>Cancel</button></td>
+                      
 
                     </tr>
                   ))}
