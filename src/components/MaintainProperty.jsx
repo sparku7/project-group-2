@@ -75,6 +75,7 @@ export default function MaintainProperty() {
                 <input type="number"
                     className="input1"
                     required
+                    min="0"
                     value={price}
                     onChange={(e) => setPrice(e.target.value)} />
                 <br />
@@ -83,6 +84,7 @@ export default function MaintainProperty() {
                 <input type="number"
                     className="input1"
                     required
+                    min="0"
                     value={bedrooms}
                     onChange={(e) => setBedrooms(e.target.value)} />
                 <br />
@@ -91,6 +93,7 @@ export default function MaintainProperty() {
                 <input type="number"
                     className="input1"
                     required
+                    min="0"
                     value={bathrooms}
                     defaultValue={bedrooms}
                     onChange={(e) => setBathrooms(e.target.value)} />
