@@ -8,13 +8,13 @@ pipeline {
                 '''
             }
         }
-        // stage('Delete') {
-        //     steps {
-        //         bat '''
-        //         pm2 delete all
-        //         '''
-        //     }
-        // }
+        stage('Delete') {
+            steps {
+                bat '''
+                pm2 delete all
+                '''
+            }
+        }
         stage('Run') {
             steps {
                 bat '''
