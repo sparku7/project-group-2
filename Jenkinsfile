@@ -16,7 +16,7 @@ pipeline {
        stage('Run') {
            steps {
 
-            pm2 start "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" -- start
+           bat' pm2 start "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" -- start '
            }
        }
    }
