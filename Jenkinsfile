@@ -8,11 +8,13 @@ pipeline {
 
            }
        }
-    //    stage('Delete') {
-    //        steps {
+       stage('Delete') {
+           steps {
 
-    //        }
-    //    }
+            bat 'delete all'
+
+           }
+       }
        stage('Run') {
            steps {
 
