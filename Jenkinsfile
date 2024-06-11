@@ -11,7 +11,7 @@ pipeline {
        stage('Delete') {
            steps {
 
-            bat 'delete all'
+            bat 'pm2 delete all'
 
            }
        }
